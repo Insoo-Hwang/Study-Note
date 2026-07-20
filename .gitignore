@@ -1,6 +1,9 @@
 # MkDocs 빌드 결과물 (GitHub Actions가 자동 생성)
 site/
 
+# SVG 확인용 미리보기 (scripts/preview_svg.py 출력)
+*.preview.png
+
 # Python
 __pycache__/
 .venv/
