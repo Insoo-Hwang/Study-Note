@@ -1,0 +1,67 @@
+site_name: Study Note
+site_description: 개발 학습 정리 노트
+site_url: https://Insoo-Hwang.github.io/Study-Note/
+repo_url: https://github.com/Insoo-Hwang/Study-Note
+repo_name: Insoo-Hwang/Study-Note
+
+theme:
+  name: material
+  language: ko
+  font: false   # 외부(Google) 폰트 대신 시스템 폰트 사용 — 한글 렌더링·로딩 속도에 유리
+  features:
+    - navigation.instant      # SPA 방식 즉시 로딩
+    - navigation.tracking     # 스크롤 시 URL 갱신
+    - navigation.top          # 맨 위로 버튼
+    - navigation.footer       # 이전/다음 문서 링크
+    - navigation.indexes      # 섹션 인덱스 페이지 지원
+    - search.highlight        # 검색어 하이라이트
+    - search.suggest          # 검색 자동완성
+    - content.code.copy       # 코드 블록 복사 버튼
+    - toc.follow              # 목차 자동 스크롤
+  palette:
+    # 라이트 모드
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 다크 모드로 전환
+    # 다크 모드
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 라이트 모드로 전환
+
+# 좌측 메뉴 구성 — 새 노트를 추가하면 이 목록에 한 줄 추가하면 됩니다.
+nav:
+  - 홈: index.md
+  - 시간 복잡도:
+      - Big-O: 01-시간 복잡도/Big-O/Big-O.md
+
+markdown_extensions:
+  - admonition               # !!! note 콜아웃 박스
+  - attr_list                # 이미지/링크에 속성 부여
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true        # 제목에 앵커 링크
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      # ```mermaid 다이어그램 지원 (앞으로 필요할 때 사용 가능)
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search   # 한국어는 기본 토크나이저로 색인됩니다

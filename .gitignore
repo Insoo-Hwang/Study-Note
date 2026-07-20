@@ -1,4 +1,12 @@
-# Obsidian
+# MkDocs 빌드 결과물 (GitHub Actions가 자동 생성)
+site/
+
+# Python
+__pycache__/
+.venv/
+venv/
+
+# Obsidian (로컬 편집기로 계속 써도 무방)
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/cache
