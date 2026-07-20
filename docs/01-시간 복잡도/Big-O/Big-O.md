@@ -404,11 +404,11 @@ public void assignMembers(
         List<Order> orders,
         List<Member> members
 ) {
-    Map<Long, Member> memberMap = members.stream()
-            .collect(Collectors.toMap(
-                    Member::getId,
-                    member -> member
-            ));
+    Map<Long, Member> memberMap = new HashMap<Long, Member>();
+
+    for (Member member : members) {
+        memberMap.put(member.getId(), member);
+    }
 
     for (Order order : orders) {
         Member member = memberMap.get(order.getMemberId());
