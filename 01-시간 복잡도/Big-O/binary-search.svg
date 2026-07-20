@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" width="760" height="470" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="468" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<text x="34" y="42" font-size="20" font-weight="700" fill="#0b0b0b">이진 탐색: 범위가 매번 절반으로 감소</text>
+<text x="34" y="63" font-size="12.5" fill="#52514e">정렬된 8개에서 70 찾기 — 3번 만에 발견 (log₂ 8 = 3) → O(log n)</text>
+<text x="34" y="123" font-size="13" font-weight="600" fill="#52514e">탐색 범위 8칸</text>
+<rect x="150" y="96" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="176" y="123" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">10</text>
+<rect x="208" y="96" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="234" y="123" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">20</text>
+<rect x="266" y="96" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="292" y="123" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">30</text>
+<rect x="324" y="96" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="350" y="123" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">40</text>
+<text x="350" y="88" font-size="11" font-weight="700" fill="#2a78d6" text-anchor="middle">중간</text>
+<path d="M345,90 L355,90 L350,95 Z" fill="#2a78d6"/>
+<rect x="382" y="96" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="408" y="123" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">50</text>
+<rect x="440" y="96" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="466" y="123" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">60</text>
+<rect x="498" y="96" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="524" y="123" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">70</text>
+<rect x="556" y="96" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="582" y="123" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">80</text>
+<text x="379" y="162" font-size="12" font-weight="600" fill="#eb6834" text-anchor="middle">↓  절반 제거</text>
+<text x="34" y="263" font-size="13" font-weight="600" fill="#52514e">탐색 범위 4칸</text>
+<rect x="150" y="236" width="52" height="44" rx="7" fill="#f2f1ee" stroke="#e1e0d9" stroke-width="1.2"/>
+<text x="176" y="263" font-size="15" font-weight="400" fill="#b8b6b0" text-anchor="middle">10</text>
+<rect x="208" y="236" width="52" height="44" rx="7" fill="#f2f1ee" stroke="#e1e0d9" stroke-width="1.2"/>
+<text x="234" y="263" font-size="15" font-weight="400" fill="#b8b6b0" text-anchor="middle">20</text>
+<rect x="266" y="236" width="52" height="44" rx="7" fill="#f2f1ee" stroke="#e1e0d9" stroke-width="1.2"/>
+<text x="292" y="263" font-size="15" font-weight="400" fill="#b8b6b0" text-anchor="middle">30</text>
+<rect x="324" y="236" width="52" height="44" rx="7" fill="#f2f1ee" stroke="#e1e0d9" stroke-width="1.2"/>
+<text x="350" y="263" font-size="15" font-weight="400" fill="#b8b6b0" text-anchor="middle">40</text>
+<rect x="382" y="236" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="408" y="263" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">50</text>
+<rect x="440" y="236" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="466" y="263" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">60</text>
+<text x="466" y="228" font-size="11" font-weight="700" fill="#2a78d6" text-anchor="middle">중간</text>
+<path d="M461,230 L471,230 L466,235 Z" fill="#2a78d6"/>
+<rect x="498" y="236" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="524" y="263" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">70</text>
+<rect x="556" y="236" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="582" y="263" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">80</text>
+<text x="379" y="302" font-size="12" font-weight="600" fill="#eb6834" text-anchor="middle">↓  절반 제거</text>
+<text x="34" y="403" font-size="13" font-weight="600" fill="#52514e">탐색 범위 2칸</text>
+<rect x="150" y="376" width="52" height="44" rx="7" fill="#f2f1ee" stroke="#e1e0d9" stroke-width="1.2"/>
+<text x="176" y="403" font-size="15" font-weight="400" fill="#b8b6b0" text-anchor="middle">10</text>
+<rect x="208" y="376" width="52" height="44" rx="7" fill="#f2f1ee" stroke="#e1e0d9" stroke-width="1.2"/>
+<text x="234" y="403" font-size="15" font-weight="400" fill="#b8b6b0" text-anchor="middle">20</text>
+<rect x="266" y="376" width="52" height="44" rx="7" fill="#f2f1ee" stroke="#e1e0d9" stroke-width="1.2"/>
+<text x="292" y="403" font-size="15" font-weight="400" fill="#b8b6b0" text-anchor="middle">30</text>
+<rect x="324" y="376" width="52" height="44" rx="7" fill="#f2f1ee" stroke="#e1e0d9" stroke-width="1.2"/>
+<text x="350" y="403" font-size="15" font-weight="400" fill="#b8b6b0" text-anchor="middle">40</text>
+<rect x="382" y="376" width="52" height="44" rx="7" fill="#f2f1ee" stroke="#e1e0d9" stroke-width="1.2"/>
+<text x="408" y="403" font-size="15" font-weight="400" fill="#b8b6b0" text-anchor="middle">50</text>
+<rect x="440" y="376" width="52" height="44" rx="7" fill="#f2f1ee" stroke="#e1e0d9" stroke-width="1.2"/>
+<text x="466" y="403" font-size="15" font-weight="400" fill="#b8b6b0" text-anchor="middle">60</text>
+<rect x="498" y="376" width="52" height="44" rx="7" fill="#dcefdc" stroke="#008300" stroke-width="2.2"/>
+<text x="524" y="403" font-size="15" font-weight="700" fill="#0b0b0b" text-anchor="middle">70</text>
+<text x="524" y="368" font-size="11" font-weight="700" fill="#008300" text-anchor="middle">발견</text>
+<rect x="556" y="376" width="52" height="44" rx="7" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="582" y="403" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="middle">80</text>
+</svg>
