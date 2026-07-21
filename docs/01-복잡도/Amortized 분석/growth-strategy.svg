@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" width="760" height="470" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="468" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">배열 증가 정책에 따른 전체 비용</text>
+<text x="34" y="60" font-size="12.5" fill="#52514e">n개를 삽입할 때 저장+복사 작업의 누적 합계</text>
+<line x1="96" y1="402.0" x2="700" y2="402.0" stroke="#898781" stroke-width="0.7" stroke-opacity="0.35"/>
+<text x="88" y="406.0" font-size="11" fill="#898781" text-anchor="end">0</text>
+<line x1="96" y1="327.8" x2="700" y2="327.8" stroke="#898781" stroke-width="0.7" stroke-opacity="0.35"/>
+<text x="88" y="331.8" font-size="11" fill="#898781" text-anchor="end">128</text>
+<line x1="96" y1="253.6" x2="700" y2="253.6" stroke="#898781" stroke-width="0.7" stroke-opacity="0.35"/>
+<text x="88" y="257.6" font-size="11" fill="#898781" text-anchor="end">256</text>
+<line x1="96" y1="179.5" x2="700" y2="179.5" stroke="#898781" stroke-width="0.7" stroke-opacity="0.35"/>
+<text x="88" y="183.5" font-size="11" fill="#898781" text-anchor="end">384</text>
+<line x1="96" y1="105.3" x2="700" y2="105.3" stroke="#898781" stroke-width="0.7" stroke-opacity="0.35"/>
+<text x="88" y="109.3" font-size="11" fill="#898781" text-anchor="end">512</text>
+<line x1="96" y1="402" x2="96" y2="96" stroke="#898781" stroke-width="1.4"/>
+<line x1="96" y1="402" x2="700" y2="402" stroke="#898781" stroke-width="1.4"/>
+<text x="34" y="250" font-size="12.5" fill="#52514e" text-anchor="middle" transform="rotate(-90 34 250)">전체 작업 비용</text>
+<text x="700" y="434" font-size="12.5" fill="#52514e" text-anchor="end">삽입한 원소 수 (n)</text>
+<text x="96.0" y="420" font-size="11" fill="#898781" text-anchor="middle">1</text>
+<text x="232.4" y="420" font-size="11" fill="#898781" text-anchor="middle">8</text>
+<text x="388.3" y="420" font-size="11" fill="#898781" text-anchor="middle">16</text>
+<text x="544.1" y="420" font-size="11" fill="#898781" text-anchor="middle">24</text>
+<text x="700.0" y="420" font-size="11" fill="#898781" text-anchor="middle">32</text>
+<polyline points="96.0 401.4 115.5 400.3 135.0 398.5 154.5 396.2 173.9 393.3 193.4 389.8 212.9 385.8 232.4 381.1 251.9 375.9 271.4 370.1 290.8 363.8 310.3 356.8 329.8 349.3 349.3 341.1 368.8 332.5 388.3 323.2 407.7 313.3 427.2 302.9 446.7 291.9 466.2 280.3 485.7 268.1 505.2 255.4 524.6 242.0 544.1 228.1 563.6 213.6 583.1 198.6 602.6 182.9 622.1 166.7 641.5 149.9 661.0 132.5 680.5 114.5 700.0 96.0" fill="none" stroke="#e34948" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="96.0 401.4 115.5 400.3 135.0 399.1 154.5 397.9 173.9 396.8 193.4 395.6 212.9 394.5 232.4 393.3 251.9 392.1 271.4 391.0 290.8 389.8 310.3 388.7 329.8 387.5 349.3 386.4 368.8 385.2 388.3 384.0 407.7 382.9 427.2 381.7 446.7 380.6 466.2 379.4 485.7 378.2 505.2 377.1 524.6 375.9 544.1 374.8 563.6 373.6 583.1 372.4 602.6 371.3 622.1 370.1 641.5 369.0 661.0 367.8 680.5 366.6 700.0 365.5" fill="none" stroke="#008300" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="700.0" cy="96.0" r="3.2" fill="#e34948"/>
+<text x="694.0" y="100.0" font-size="12.5" font-weight="600" fill="#e34948" text-anchor="end">한 칸씩 확장 · O(n²)</text>
+<circle cx="700.0" cy="365.5" r="3.2" fill="#008300"/>
+<text x="694.0" y="357.5" font-size="12.5" font-weight="600" fill="#008300" text-anchor="end">두 배로 확장 · O(n)</text>
+</svg>
