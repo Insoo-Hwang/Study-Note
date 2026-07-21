@@ -39,8 +39,9 @@ theme:
 # 좌측 메뉴 구성 — 새 노트를 추가하면 이 목록에 한 줄 추가하면 됩니다.
 nav:
   - 홈: index.md
-  - 시간 복잡도:
-      - Big-O: 01-시간 복잡도/Big-O/Big-O.md
+  - 복잡도:
+      - Big-O: 01-복잡도/시간 복잡도/Big-O.md
+      - 공간 복잡도: 01-복잡도/공간 복잡도/공간복잡도.md
 
 markdown_extensions:
   - admonition               # !!! note 콜아웃 박스

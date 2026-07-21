@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="398" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<text x="34" y="42" font-size="20" font-weight="700" fill="#0b0b0b">Stack과 Heap: 참조값은 Stack, 실제 객체는 Heap</text>
+<text x="34" y="64" font-size="12.5" fill="#52514e">int count = 10;  List&lt;String&gt; names = new ArrayList&lt;&gt;();  — 두 변수는 Stack, ArrayList 객체는 Heap에 있다</text>
+<rect x="40" y="96" width="300" height="250" rx="10" fill="#ffffff" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="56" y="124" font-size="15" font-weight="700" fill="#2a78d6">Stack</text>
+<text x="324" y="124" font-size="11.5" fill="#52514e" text-anchor="end">스레드마다 하나 · 자동 정리</text>
+<rect x="58" y="142" width="264" height="168" rx="8" fill="#e8f1fc" stroke="#2a78d6" stroke-width="1.4"/>
+<text x="72" y="166" font-size="12.5" font-weight="600" fill="#0b0b0b">main() 스택 프레임</text>
+<rect x="72" y="182" width="236" height="42" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.2"/>
+<text x="84" y="208" font-size="13.5" fill="#0b0b0b"><tspan font-weight="700">count</tspan> = 10</text>
+<text x="296" y="208" font-size="11" fill="#52514e" text-anchor="end">기본형 값</text>
+<rect x="72" y="238" width="236" height="42" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.2"/>
+<text x="84" y="264" font-size="13.5" fill="#0b0b0b"><tspan font-weight="700">names</tspan> = 0x1A2</text>
+<text x="296" y="253" font-size="11" fill="#eb6834" text-anchor="end" font-weight="600">참조값</text>
+<rect x="460" y="96" width="260" height="250" rx="10" fill="#ffffff" stroke="#008300" stroke-width="1.6"/>
+<text x="476" y="124" font-size="15" font-weight="700" fill="#008300">Heap</text>
+<text x="704" y="124" font-size="11.5" fill="#52514e" text-anchor="end">모든 스레드 공유 · GC 대상</text>
+<rect x="478" y="148" width="224" height="70" rx="8" fill="#dcefdc" stroke="#008300" stroke-width="1.4"/>
+<text x="492" y="175" font-size="13.5" font-weight="700" fill="#0b0b0b">ArrayList 객체</text>
+<text x="492" y="198" font-size="11.5" fill="#52514e">size, 내부 배열 참조 …</text>
+<rect x="478" y="244" width="224" height="70" rx="8" fill="#dcefdc" stroke="#008300" stroke-width="1.4"/>
+<text x="492" y="271" font-size="13.5" font-weight="700" fill="#0b0b0b">내부 Object[] 배열</text>
+<text x="492" y="294" font-size="11.5" fill="#52514e">원소가 늘면 이 배열이 커진다 → O(n)</text>
+<path d="M590.0,218 L590.0,244" stroke="#008300" stroke-width="1.6"/>
+<path d="M585.0,237 L595.0,237 L590.0,243 Z" fill="#008300"/>
+<path d="M276,259 C346,259 408,183.0 478,183.0" fill="none" stroke="#eb6834" stroke-width="2.2"/>
+<path d="M469,178.0 L477,183.0 L469,188.0 Z" fill="#eb6834"/>
+<text x="377.0" y="211.0" font-size="11.5" font-weight="600" fill="#eb6834" text-anchor="middle">가리킴</text>
+</svg>
