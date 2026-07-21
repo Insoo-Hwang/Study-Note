@@ -40,7 +40,7 @@ theme:
 nav:
   - 홈: index.md
   - 복잡도:
-      - Big-O: 01-복잡도/시간 복잡도/Big-O.md
+      - 시간 복잡도: 01-복잡도/시간 복잡도/시간복잡도.md
       - 공간 복잡도: 01-복잡도/공간 복잡도/공간복잡도.md
 
 markdown_extensions:
