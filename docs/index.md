@@ -8,7 +8,7 @@
 
 ### 2. 자료구조
 
-- Array
+- [Array](02-자료구조/Array/Array.md)
 - ArrayList
 - LinkedList
 - Stack

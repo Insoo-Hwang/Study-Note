@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" width="760" height="430" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="428" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<text x="34" y="42" font-size="20" font-weight="700" fill="#0b0b0b">중간 삽입은 뒤쪽 원소를 밀어야 한다 — O(n)</text>
+<text x="34" y="65" font-size="13" fill="#52514e">인덱스 1에 15를 넣으려면 뒤 원소들을 한 칸씩 오른쪽으로 이동해야 한다</text>
+<text x="34" y="130.0" font-size="13" fill="#52514e" font-weight="600">① 기존 배열</text>
+<rect x="150.0" y="100" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="192.0" y="130.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">10</text>
+<rect x="244.0" y="100" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="286.0" y="130.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">20</text>
+<rect x="338.0" y="100" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="380.0" y="130.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">30</text>
+<rect x="432.0" y="100" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="474.0" y="130.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">40</text>
+<rect x="526.0" y="100" width="84" height="50" rx="6" fill="#f5f5f3" stroke="rgba(11,11,11,0.18)" stroke-width="1.4"/><text x="568.0" y="130.95" font-size="17" font-weight="600" fill="#898781" text-anchor="middle">·</text>
+<text x="34" y="198.0" font-size="13" fill="#52514e" font-weight="600">② 40 이동</text>
+<rect x="150.0" y="168" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="192.0" y="198.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">10</text>
+<rect x="244.0" y="168" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="286.0" y="198.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">20</text>
+<rect x="338.0" y="168" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="380.0" y="198.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">30</text>
+<rect x="432.0" y="168" width="84" height="50" rx="6" fill="#f5f5f3" stroke="rgba(11,11,11,0.18)" stroke-width="1.4"/><text x="474.0" y="198.95" font-size="17" font-weight="600" fill="#898781" text-anchor="middle">·</text>
+<rect x="526.0" y="168" width="84" height="50" rx="6" fill="#fdeee6" stroke="#eb6834" stroke-width="1.4"/><text x="568.0" y="198.95" font-size="17" font-weight="700" fill="#eb6834" text-anchor="middle">40</text>
+<text x="34" y="266.0" font-size="13" fill="#52514e" font-weight="600">③ 30 이동</text>
+<rect x="150.0" y="236" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="192.0" y="266.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">10</text>
+<rect x="244.0" y="236" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="286.0" y="266.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">20</text>
+<rect x="338.0" y="236" width="84" height="50" rx="6" fill="#f5f5f3" stroke="rgba(11,11,11,0.18)" stroke-width="1.4"/><text x="380.0" y="266.95" font-size="17" font-weight="600" fill="#898781" text-anchor="middle">·</text>
+<rect x="432.0" y="236" width="84" height="50" rx="6" fill="#fdeee6" stroke="#eb6834" stroke-width="1.4"/><text x="474.0" y="266.95" font-size="17" font-weight="700" fill="#eb6834" text-anchor="middle">30</text>
+<rect x="526.0" y="236" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="568.0" y="266.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">40</text>
+<text x="34" y="334.0" font-size="13" fill="#52514e" font-weight="600">④ 20 이동</text>
+<rect x="150.0" y="304" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="192.0" y="334.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">10</text>
+<rect x="244.0" y="304" width="84" height="50" rx="6" fill="#f5f5f3" stroke="rgba(11,11,11,0.18)" stroke-width="1.4"/><text x="286.0" y="334.95" font-size="17" font-weight="600" fill="#898781" text-anchor="middle">·</text>
+<rect x="338.0" y="304" width="84" height="50" rx="6" fill="#fdeee6" stroke="#eb6834" stroke-width="1.4"/><text x="380.0" y="334.95" font-size="17" font-weight="700" fill="#eb6834" text-anchor="middle">20</text>
+<rect x="432.0" y="304" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="474.0" y="334.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">30</text>
+<rect x="526.0" y="304" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="568.0" y="334.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">40</text>
+<text x="34" y="402.0" font-size="13" fill="#52514e" font-weight="600">⑤ 15 삽입</text>
+<rect x="150.0" y="372" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="192.0" y="402.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">10</text>
+<rect x="244.0" y="372" width="84" height="50" rx="6" fill="#e9f4e9" stroke="#008300" stroke-width="1.4"/><text x="286.0" y="402.95" font-size="17" font-weight="700" fill="#008300" text-anchor="middle">15</text>
+<rect x="338.0" y="372" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="380.0" y="402.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">20</text>
+<rect x="432.0" y="372" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="474.0" y="402.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">30</text>
+<rect x="526.0" y="372" width="84" height="50" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="568.0" y="402.95" font-size="17" font-weight="600" fill="#0b0b0b" text-anchor="middle">40</text>
+</svg>

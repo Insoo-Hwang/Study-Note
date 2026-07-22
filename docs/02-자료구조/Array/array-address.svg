@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="398" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<text x="34" y="42" font-size="20" font-weight="700" fill="#0b0b0b">인덱스로 원소 위치를 바로 계산한다 — O(1) 접근</text>
+<text x="34" y="65" font-size="13" fill="#52514e">처음부터 하나씩 찾지 않고, 시작 위치와 인덱스만으로 원하는 칸의 주소를 계산한다</text>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker></defs>
+<text x="215.0" y="134" font-size="13" font-weight="600" fill="#52514e" text-anchor="middle">인덱스 0</text>
+<rect x="167.0" y="150" width="96" height="66" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="215.0" y="190.0" font-size="20" font-weight="700" fill="#0b0b0b" text-anchor="middle">10</text>
+<text x="215.0" y="238" font-size="12.5" fill="#898781" text-anchor="middle">주소 1000</text>
+<text x="325.0" y="134" font-size="13" font-weight="600" fill="#52514e" text-anchor="middle">인덱스 1</text>
+<rect x="277.0" y="150" width="96" height="66" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="325.0" y="190.0" font-size="20" font-weight="700" fill="#0b0b0b" text-anchor="middle">20</text>
+<text x="325.0" y="238" font-size="12.5" fill="#898781" text-anchor="middle">주소 1004</text>
+<text x="435.0" y="134" font-size="13" font-weight="600" fill="#52514e" text-anchor="middle">인덱스 2</text>
+<rect x="387.0" y="150" width="96" height="66" rx="6" fill="#eef4fc" stroke="#2a78d6" stroke-width="1.4"/><text x="435.0" y="190.0" font-size="20" font-weight="700" fill="#2a78d6" text-anchor="middle">30</text>
+<text x="435.0" y="238" font-size="12.5" fill="#2a78d6" text-anchor="middle">주소 1008</text>
+<text x="545.0" y="134" font-size="13" font-weight="600" fill="#52514e" text-anchor="middle">인덱스 3</text>
+<rect x="497.0" y="150" width="96" height="66" rx="6" fill="#ffffff" stroke="#0b0b0b" stroke-width="1.4"/><text x="545.0" y="190.0" font-size="20" font-weight="700" fill="#0b0b0b" text-anchor="middle">40</text>
+<text x="545.0" y="238" font-size="12.5" fill="#898781" text-anchor="middle">주소 1012</text>
+<text x="215.0" y="260" font-size="11.5" fill="#008300" text-anchor="middle" font-weight="600">← 시작 위치</text>
+<line x1="435.0" y1="246" x2="435.0" y2="300" stroke="#2a78d6" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="120.0" y="300" width="520" height="62" rx="10" fill="#f4f8fd" stroke="#2a78d6" stroke-width="1.4"/>
+<text x="380.0" y="326" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="middle">원소 위치 = 시작 위치 + 인덱스 × 원소 크기</text>
+<text x="380.0" y="348" font-size="14" fill="#2a78d6" text-anchor="middle" font-weight="600">인덱스 2 → 1000 + 2 × 4 = 1008 (한 번의 계산)</text>
+</svg>
