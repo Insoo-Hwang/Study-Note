@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="338" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">삽입(siftUp) — 끝에 넣고 부모와 비교하며 올라간다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">이동 거리는 최대 트리 높이 → O(log n)</text>
+<text x="34" y="124" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">① 맨 끝에 10 추가</text>
+<rect x="230" y="100" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="251.0" y="120.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">9</text>
+<rect x="276" y="100" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="297.0" y="120.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">8</text>
+<rect x="322" y="100" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="343.0" y="120.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">7</text>
+<rect x="368" y="100" width="42" height="32" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="389.0" y="120.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">5</text>
+<rect x="414" y="100" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="435.0" y="120.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">6</text>
+<rect x="460" y="100" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="481.0" y="120.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">3</text>
+<rect x="506" y="100" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="527.0" y="120.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">4</text>
+<rect x="552" y="100" width="42" height="32" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="573.0" y="120.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">10</text>
+<path d="M 573 96 Q 481.0 74 389 96" fill="none" stroke="#eb6834" stroke-width="1.5" marker-end="url(#aho)"/>
+<text x="34" y="182" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">② 부모 5와 교환</text>
+<rect x="230" y="158" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="251.0" y="178.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">9</text>
+<rect x="276" y="158" width="42" height="32" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="297.0" y="178.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">8</text>
+<rect x="322" y="158" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="343.0" y="178.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">7</text>
+<rect x="368" y="158" width="42" height="32" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="389.0" y="178.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">10</text>
+<rect x="414" y="158" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="435.0" y="178.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">6</text>
+<rect x="460" y="158" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="481.0" y="178.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">3</text>
+<rect x="506" y="158" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="527.0" y="178.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">4</text>
+<rect x="552" y="158" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="573.0" y="178.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">5</text>
+<path d="M 389 154 Q 343.0 132 297 154" fill="none" stroke="#eb6834" stroke-width="1.5" marker-end="url(#aho)"/>
+<text x="34" y="240" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">③ 부모 8과 교환</text>
+<rect x="230" y="216" width="42" height="32" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="251.0" y="236.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">9</text>
+<rect x="276" y="216" width="42" height="32" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="297.0" y="236.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">10</text>
+<rect x="322" y="216" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="343.0" y="236.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">7</text>
+<rect x="368" y="216" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="389.0" y="236.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">8</text>
+<rect x="414" y="216" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="435.0" y="236.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">6</text>
+<rect x="460" y="216" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="481.0" y="236.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">3</text>
+<rect x="506" y="216" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="527.0" y="236.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">4</text>
+<rect x="552" y="216" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="573.0" y="236.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">5</text>
+<path d="M 297 212 Q 274.0 190 251 212" fill="none" stroke="#eb6834" stroke-width="1.5" marker-end="url(#aho)"/>
+<text x="34" y="298" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">④ 부모 9와 교환 → 완료</text>
+<rect x="230" y="274" width="42" height="32" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="251.0" y="294.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">10</text>
+<rect x="276" y="274" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="297.0" y="294.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">9</text>
+<rect x="322" y="274" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="343.0" y="294.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">7</text>
+<rect x="368" y="274" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="389.0" y="294.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">8</text>
+<rect x="414" y="274" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="435.0" y="294.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">6</text>
+<rect x="460" y="274" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="481.0" y="294.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">3</text>
+<rect x="506" y="274" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="527.0" y="294.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">4</text>
+<rect x="552" y="274" width="42" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="573.0" y="294.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">5</text>
+<rect x="616" y="96" width="14" height="14" rx="3" fill="none" stroke="#eb6834" stroke-width="1.6"/>
+<text x="638" y="108" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">올라가는 값</text>
+<rect x="616" y="120" width="14" height="14" rx="3" fill="none" stroke="#7a3ba7" stroke-width="1.6"/>
+<text x="638" y="132" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">비교 대상 부모</text>
+<text x="34" y="326" font-size="12.5" fill="#52514e" font-weight="400" text-anchor="start">부모보다 크지 않으면 즉시 멈춘다 — 항상 루트까지 올라가지는 않는다</text>
+</svg>

@@ -9,16 +9,16 @@
 ### 2. 자료구조
 
 - [Array](02-자료구조/Array/Array.md)
-- ArrayList
-- LinkedList
-- Stack
-- Queue
-- Deque
-- HashMap
-- HashSet
-- TreeMap
-- Heap
-- PriorityQueue
+- [ArrayList](02-자료구조/ArrayList/ArrayList.md)
+- [LinkedList](02-자료구조/LinkedList/LinkedList.md)
+- [Stack](02-자료구조/Stack/Stack.md)
+- [Queue](02-자료구조/Queue/Queue.md)
+- [Deque](02-자료구조/Deque/Deque.md)
+- [HashMap](02-자료구조/HashMap/HashMap.md)
+- [HashSet](02-자료구조/HashSet/HashSet.md)
+- [TreeMap](02-자료구조/TreeMap/TreeMap.md)
+- [Heap](02-자료구조/Heap/Heap.md)
+- [PriorityQueue](02-자료구조/PriorityQueue/PriorityQueue.md)
 
 ### 3. 알고리즘
 
