@@ -26,10 +26,10 @@
 - [이진 탐색](03-알고리즘/이진 탐색/이진 탐색.md)
 - [정렬](03-알고리즘/정렬/정렬.md)
 - [Comparable · Comparator](03-알고리즘/Comparable와 Comparator/Comparable와 Comparator.md)
-- 투 포인터
-- 슬라이딩 윈도우
-- DFS
-- BFS
+- [투 포인터](03-알고리즘/투 포인터/투 포인터.md)
+- [슬라이딩 윈도우](03-알고리즘/슬라이딩 윈도우/슬라이딩 윈도우.md)
+- [DFS](03-알고리즘/DFS/DFS.md)
+- [BFS](03-알고리즘/BFS/BFS.md)
 - 그리디
 - DP
 
