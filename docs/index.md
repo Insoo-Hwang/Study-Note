@@ -22,10 +22,10 @@
 
 ### 3. 알고리즘
 
-- 선형 탐색
-- 이진 탐색
-- 정렬
-- Comparable · Comparator
+- [선형 탐색](03-알고리즘/선형 탐색/선형 탐색.md)
+- [이진 탐색](03-알고리즘/이진 탐색/이진 탐색.md)
+- [정렬](03-알고리즘/정렬/정렬.md)
+- [Comparable · Comparator](03-알고리즘/Comparable와 Comparator/Comparable와 Comparator.md)
 - 투 포인터
 - 슬라이딩 윈도우
 - DFS

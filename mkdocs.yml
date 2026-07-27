@@ -55,6 +55,11 @@ nav:
       - TreeMap: 02-자료구조/TreeMap/TreeMap.md
       - Heap: 02-자료구조/Heap/Heap.md
       - PriorityQueue: 02-자료구조/PriorityQueue/PriorityQueue.md
+  - 알고리즘:
+      - 선형 탐색: 03-알고리즘/선형 탐색/선형 탐색.md
+      - 이진 탐색: 03-알고리즘/이진 탐색/이진 탐색.md
+      - 정렬: 03-알고리즘/정렬/정렬.md
+      - Comparable · Comparator: 03-알고리즘/Comparable와 Comparator/Comparable와 Comparator.md
 
 markdown_extensions:
   - admonition               # !!! note 콜아웃 박스
