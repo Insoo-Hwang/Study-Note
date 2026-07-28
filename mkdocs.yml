@@ -40,30 +40,12 @@ theme:
 nav:
   - 홈: index.md
   - 복잡도:
-      - 시간 복잡도: 01-복잡도/시간 복잡도/시간복잡도.md
-      - 공간 복잡도: 01-복잡도/공간 복잡도/공간복잡도.md
-      - Amortized 분석: 01-복잡도/Amortized 분석/Amortized 분석.md
+      - 시간 복잡도와 공간 복잡도: 01-복잡도/시간-공간-복잡도/시간-공간-복잡도.md
+      - Amortized Analysis: 01-복잡도/Amortized-Analysis/Amortized-Analysis.md
   - 자료구조:
-      - Array: 02-자료구조/Array/Array.md
-      - ArrayList: 02-자료구조/ArrayList/ArrayList.md
-      - LinkedList: 02-자료구조/LinkedList/LinkedList.md
-      - Stack: 02-자료구조/Stack/Stack.md
-      - Queue: 02-자료구조/Queue/Queue.md
-      - Deque: 02-자료구조/Deque/Deque.md
-      - HashMap: 02-자료구조/HashMap/HashMap.md
-      - HashSet: 02-자료구조/HashSet/HashSet.md
-      - TreeMap: 02-자료구조/TreeMap/TreeMap.md
-      - Heap: 02-자료구조/Heap/Heap.md
-      - PriorityQueue: 02-자료구조/PriorityQueue/PriorityQueue.md
-  - 알고리즘:
-      - 선형 탐색: 03-알고리즘/선형 탐색/선형 탐색.md
-      - 이진 탐색: 03-알고리즘/이진 탐색/이진 탐색.md
-      - 정렬: 03-알고리즘/정렬/정렬.md
-      - Comparable · Comparator: 03-알고리즘/Comparable와 Comparator/Comparable와 Comparator.md
-      - 투 포인터: 03-알고리즘/투 포인터/투 포인터.md
-      - 슬라이딩 윈도우: 03-알고리즘/슬라이딩 윈도우/슬라이딩 윈도우.md
-      - DFS: 03-알고리즘/DFS/DFS.md
-      - BFS: 03-알고리즘/BFS/BFS.md
+      - 선형 자료구조 비교: 02-자료구조/선형-자료구조-비교/선형-자료구조-비교.md
+      - 해시와 트리 비교: 02-자료구조/해시-트리-비교/해시-트리-비교.md
+      - Heap과 PriorityQueue: 02-자료구조/Heap-PriorityQueue/Heap-PriorityQueue.md
 
 markdown_extensions:
   - admonition               # !!! note 콜아웃 박스

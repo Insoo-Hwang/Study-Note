@@ -2,86 +2,53 @@
 
 ### 1. 복잡도
 
-- [시간 복잡도](01-복잡도/시간 복잡도/시간복잡도.md)
-- [공간 복잡도](01-복잡도/공간 복잡도/공간복잡도.md)
-- [Amortized 분석](01-복잡도/Amortized 분석/Amortized 분석.md)
+- [시간 복잡도와 공간 복잡도](01-복잡도/시간-공간-복잡도/시간-공간-복잡도.md)
+- [Amortized Analysis (상각 분석)](01-복잡도/Amortized-Analysis/Amortized-Analysis.md)
 
 ### 2. 자료구조
 
-- [Array](02-자료구조/Array/Array.md)
-- [ArrayList](02-자료구조/ArrayList/ArrayList.md)
-- [LinkedList](02-자료구조/LinkedList/LinkedList.md)
-- [Stack](02-자료구조/Stack/Stack.md)
-- [Queue](02-자료구조/Queue/Queue.md)
-- [Deque](02-자료구조/Deque/Deque.md)
-- [HashMap](02-자료구조/HashMap/HashMap.md)
-- [HashSet](02-자료구조/HashSet/HashSet.md)
-- [TreeMap](02-자료구조/TreeMap/TreeMap.md)
-- [Heap](02-자료구조/Heap/Heap.md)
-- [PriorityQueue](02-자료구조/PriorityQueue/PriorityQueue.md)
+- [선형 자료구조 비교](02-자료구조/선형-자료구조-비교/선형-자료구조-비교.md)
+- [해시와 트리 비교](02-자료구조/해시-트리-비교/해시-트리-비교.md)
+- [Heap과 PriorityQueue](02-자료구조/Heap-PriorityQueue/Heap-PriorityQueue.md)
 
 ### 3. 알고리즘
 
-- [선형 탐색](03-알고리즘/선형 탐색/선형 탐색.md)
-- [이진 탐색](03-알고리즘/이진 탐색/이진 탐색.md)
-- [정렬](03-알고리즘/정렬/정렬.md)
-- [Comparable · Comparator](03-알고리즘/Comparable와 Comparator/Comparable와 Comparator.md)
-- [투 포인터](03-알고리즘/투 포인터/투 포인터.md)
-- [슬라이딩 윈도우](03-알고리즘/슬라이딩 윈도우/슬라이딩 윈도우.md)
-- [DFS](03-알고리즘/DFS/DFS.md)
-- [BFS](03-알고리즘/BFS/BFS.md)
-- 그리디
-- DP
+- 탐색과 정렬
+- 구간 처리
+- 그래프 문제 해결
 
-### 4. Java 컬렉션
+### 4. Java
 
-- ArrayList 내부 구조
-- HashMap 내부 구조
-- TreeMap · PriorityQueue 내부 구조
+- Java Collection
 - equals · hashCode
-- 구현체 선택 기준
+- Collection 선택 기준
 
 ### 5. 동시성
 
-- Thread · Race Condition
-- synchronized · Lock
-- volatile · Atomic
-- ConcurrentHashMap
-- ThreadPool · Deadlock
+- Thread와 동기화
+- Atomic과 Concurrent Collection
+- ThreadPool과 Deadlock
 
 ### 6. 데이터베이스
 
-- B-Tree · B+Tree
-- 단일 인덱스
-- 복합 인덱스
-- 실행 계획
-- 커버링 인덱스
-- 정규화
-- 조인
-- 페이지네이션
-- 파티셔닝
-- 샤딩
+- 인덱스와 실행 계획
+- 조인과 페이지네이션
+- 대용량 데이터 분할
 
 ### 7. 트랜잭션
 
-- ACID
-- 격리 수준
+- ACID와 격리 수준
 - MVCC
-- 비관적 락
-- 낙관적 락
+- 낙관적 락 · 비관적 락
 
 ### 8. 캐시 · Redis
 
-- Local Cache
-- Cache Aside · TTL
+- 캐시 전략
 - Redis 자료구조
-- Cache Stampede
-- 분산 락 · 멱등성
+- 분산 락과 멱등성
 
 ### 9. 시스템 설계
 
-- 요구사항 분석
-- 조회수 시스템
-- 쿠폰 시스템
-- 결제 시스템
-- 모의 면접
+- 시스템 설계 답변법
+- 조회수 · 쿠폰 시스템
+- 주문 · 결제 시스템
