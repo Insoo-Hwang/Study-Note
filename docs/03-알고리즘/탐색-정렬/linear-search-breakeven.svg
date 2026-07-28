@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 404" width="760" height="404" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="402" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">손익분기점 — 몇 번 찾을 것인가</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">n = 100만, JDK 17 실측 기준 (정렬 120ms / 선형 탐색 1회 2.29ms)</text>
+<line x1="96" y1="272" x2="690" y2="272" stroke="#898781" stroke-width="1.2"/>
+<line x1="96" y1="272" x2="96" y2="96" stroke="#898781" stroke-width="1.2"/>
+<text x="690" y="316" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="end">탐색 횟수 k →</text>
+<text x="88" y="90" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">총 비용 →</text>
+<line x1="96" y1="272" x2="626" y2="114" stroke="#eb6834" stroke-width="2.4"/>
+<text x="634" y="118" font-size="12.5" fill="#eb6834" font-weight="700" text-anchor="start">선형 탐색</text>
+<text x="634" y="135" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">k × n</text>
+<line x1="96" y1="196" x2="626" y2="180" stroke="#2a78d6" stroke-width="2.4"/>
+<text x="634" y="184" font-size="12.5" fill="#2a78d6" font-weight="700" text-anchor="start">정렬 + 이진 탐색</text>
+<text x="634" y="201" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">n log n + k log n</text>
+<line x1="90" y1="196" x2="102" y2="196" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="84" y="200" font-size="11" fill="#2a78d6" font-weight="700" text-anchor="end">정렬 비용</text>
+<text x="84" y="216" font-size="11" fill="#52514e" font-weight="400" text-anchor="end" font-family="ui-monospace, Consolas, monospace">120 ms</text>
+<line x1="379.7" y1="187.4" x2="379.7" y2="272" stroke="#e34948" stroke-width="1.2" stroke-dasharray="4 4"/>
+<circle cx="379.7" cy="187.4" r="6" fill="#e34948" stroke="#e34948"/>
+<text x="379.7" y="192.26" font-size="13.5" fill="#ffffff" font-weight="700" text-anchor="middle"></text>
+<text x="379.7" y="171.4" font-size="12" fill="#e34948" font-weight="700" text-anchor="middle">손익분기점</text>
+<text x="379.7" y="292" font-size="12" fill="#e34948" font-weight="700" text-anchor="middle">약 52회</text>
+<text x="237.85" y="316" font-size="11.5" fill="#eb6834" font-weight="700" text-anchor="middle">선형 탐색이 빠른 구간</text>
+<text x="502.85" y="316" font-size="11.5" fill="#2a78d6" font-weight="700" text-anchor="middle">정렬 + 이진 탐색이 빠른 구간</text>
+<rect x="34" y="336" width="692" height="50" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="374" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">한 번만 찾는다면 준비 비용은 그대로 손해다. 1000회 탐색하면 약 19배 차이로 벌어진다.</text>
+</svg>
