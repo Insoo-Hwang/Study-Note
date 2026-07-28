@@ -19,9 +19,9 @@
 
 ### 4. Java
 
-- Java Collection
-- equals · hashCode
-- Collection 선택 기준
+- [Java Collection](04-Java/Java-Collection/Java-Collection.md)
+- [equals · hashCode](04-Java/equals-hashCode/equals-hashCode.md)
+- [Collection 선택 기준](04-Java/Collection-선택-기준/Collection-선택-기준.md)
 
 ### 5. 동시성
 

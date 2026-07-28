@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 384" width="760" height="384" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="382" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">재정의 조합에 따른 컬렉션 동작</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">하나만 재정의하면 방향이 다른 두 가지 오작동이 생긴다 (JDK 17 실측)</text>
+<text x="314.0" y="112" font-size="12" fill="#52514e" font-weight="700" text-anchor="middle">hashCode 재정의 X</text>
+<text x="602.0" y="112" font-size="12" fill="#52514e" font-weight="700" text-anchor="middle">hashCode 재정의 O</text>
+<text x="168" y="176.0" font-size="12" fill="#52514e" font-weight="700" text-anchor="end">equals 재정의 X</text>
+<text x="168" y="294.0" font-size="12" fill="#52514e" font-weight="700" text-anchor="end">equals 재정의 O</text>
+<rect x="180" y="128" width="268" height="96" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="196" y="154" font-size="12.5" fill="#e34948" font-weight="700" text-anchor="start">값이 같아도 항상 다른 객체</text>
+<text x="196" y="178" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">contains → false</text>
+<text x="196" y="197" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">중복도 그대로 저장된다</text>
+<rect x="468" y="128" width="268" height="96" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="484" y="154" font-size="12.5" fill="#eb6834" font-weight="700" text-anchor="start">같은 버킷에 가지만 중복 저장</text>
+<text x="484" y="178" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">같은 값 2개 add → size = 2</text>
+<text x="484" y="197" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">equals 가 주소 비교라 다르다고 판정</text>
+<rect x="180" y="246" width="268" height="96" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="196" y="272" font-size="12.5" fill="#e34948" font-weight="700" text-anchor="start">넣은 값을 못 찾는다</text>
+<text x="196" y="296" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">contains → false</text>
+<text x="196" y="315" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">해시가 달라 다른 버킷을 뒤진다</text>
+<rect x="468" y="246" width="268" height="96" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="484" y="272" font-size="12.5" fill="#008300" font-weight="700" text-anchor="start">정상 동작</text>
+<text x="484" y="296" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">같은 값 2개 add → size = 1</text>
+<text x="484" y="315" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">contains → true</text>
+<text x="34" y="368" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">hashCode 를 빠뜨리면 "없다"고 하고, equals 를 빠뜨리면 중복이 쌓인다 — 둘 다 예외 없이 조용히 틀린다</text>
+</svg>

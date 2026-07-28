@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 384" width="760" height="384" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="382" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">해시 기반 조회는 2단계로 동작한다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">hashCode 로 버킷을 좁히고, 그 안에서만 equals 로 확정한다</text>
+<rect x="28" y="92" width="250" height="50" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="44" y="113" font-size="12" fill="#2a78d6" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">① x.hashCode()</text>
+<text x="44" y="130" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">객체를 정수 하나로 요약</text>
+<line x1="153" y1="142" x2="153" y2="156" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="28" y="158" width="250" height="50" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="44" y="179" font-size="12" fill="#2a78d6" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">② h ^ (h &gt;&gt;&gt; 16)</text>
+<text x="44" y="196" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">상위 비트를 하위로 섞는다</text>
+<line x1="153" y1="208" x2="153" y2="222" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="28" y="224" width="250" height="50" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="44" y="245" font-size="12" fill="#2a78d6" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">③ (table.length-1) &amp; h</text>
+<text x="44" y="262" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">버킷 인덱스를 얻는다</text>
+<line x1="153" y1="274" x2="153" y2="288" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="28" y="290" width="250" height="50" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="44" y="311" font-size="12" fill="#008300" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">④ 그 버킷 안에서만 equals</text>
+<text x="44" y="328" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">정확하게 확정한다</text>
+<text x="330" y="104" font-size="11.5" fill="#52514e" font-weight="700" text-anchor="start">버킷 배열 (table)</text>
+<rect x="330" y="114" width="46" height="28" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="353.0" y="131.96" font-size="11" fill="#0b0b0b" font-weight="600" text-anchor="middle">0</text>
+<rect x="392" y="114" width="96" height="28" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="440.0" y="131.96" font-size="11" fill="#52514e" font-weight="600" text-anchor="middle">"park"</text>
+<line x1="376" y1="128" x2="390" y2="128" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="330" y="148" width="46" height="28" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="353.0" y="165.96" font-size="11" fill="#0b0b0b" font-weight="600" text-anchor="middle">1</text>
+<rect x="330" y="182" width="46" height="28" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="353.0" y="199.96" font-size="11" fill="#2a78d6" font-weight="600" text-anchor="middle">2</text>
+<rect x="392" y="182" width="96" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="440.0" y="199.96" font-size="11" fill="#008300" font-weight="600" text-anchor="middle">"kim"</text>
+<line x1="376" y1="196" x2="390" y2="196" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="500" y="182" width="96" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="548.0" y="199.96" font-size="11" fill="#008300" font-weight="600" text-anchor="middle">"lee"</text>
+<line x1="488" y1="196" x2="498" y2="196" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<text x="606" y="200" font-size="11" fill="#008300" font-weight="700" text-anchor="start">← equals 는 여기서만</text>
+<rect x="330" y="216" width="46" height="28" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="353.0" y="233.96" font-size="11" fill="#0b0b0b" font-weight="600" text-anchor="middle">3</text>
+<line x1="284" y1="240" x2="326" y2="200" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<text x="292" y="262" font-size="11" fill="#2a78d6" font-weight="700" text-anchor="start">③ 이 계산이 버킷 2 를 가리킨다</text>
+<rect x="330" y="300" width="402" height="60" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="344" y="321" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">hashCode 를 재정의하지 않으면</text>
+<text x="344" y="338" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">값이 같은 두 객체가 서로 다른 버킷으로 간다</text>
+<text x="344" y="350" font-size="11" fill="#e34948" font-weight="700" text-anchor="start">→ 빈 버킷을 뒤지고 false 반환. equals 는 호출조차 되지 않는다</text>
+</svg>
