@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 376" width="760" height="376" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="374" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">락이 하나도 없는데 멈추는 스레드 기아 데드락</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">JDK 17 실측 — 풀 크기 1에서 작업 안에서 같은 풀에 submit 하고 기다린 결과: TimeoutException</text>
+<rect x="34" y="88" width="692" height="168" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="109" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">스레드 1개짜리 풀</text>
+<text x="48" y="126" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">newFixedThreadPool(1)</text>
+<rect x="56" y="140" width="296" height="42" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="204.0" y="165.5" font-size="12.5" fill="#2a78d6" font-weight="600" text-anchor="middle">outer 작업 — 실행 중</text>
+<rect x="410" y="140" width="296" height="42" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="558.0" y="165.5" font-size="12.5" fill="#eb6834" font-weight="600" text-anchor="middle">inner 작업 — 큐에서 대기</text>
+<line x1="358" y1="152" x2="404" y2="152" stroke="#e34948" stroke-width="1.4" marker-end="url(#ahr)"/>
+<line x1="404" y1="172" x2="358" y2="172" stroke="#e34948" stroke-width="1.4" marker-end="url(#ahr)"/>
+<text x="381" y="132" font-size="10.5" fill="#e34948" font-weight="600" text-anchor="middle">결과를 기다린다</text>
+<text x="381" y="198" font-size="10.5" fill="#e34948" font-weight="600" text-anchor="middle">스레드가 비기를 기다린다</text>
+<rect x="56" y="208" width="296" height="32" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="204.0" y="228.14" font-size="11.5" fill="#e34948" font-weight="600" text-anchor="middle">유일한 스레드를 점유한 채 WAITING</text>
+<rect x="410" y="208" width="296" height="32" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="558.0" y="228.14" font-size="11.5" fill="#e34948" font-weight="600" text-anchor="middle">실행할 스레드가 없다</text>
+<rect x="34" y="270" width="340" height="88" rx="9" fill="#7a3ba7" fill-opacity="0.07" stroke="#7a3ba7" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="291" font-size="13" fill="#7a3ba7" font-weight="700" text-anchor="start">락 데드락과 다른 점</text>
+<text x="48" y="308" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">스레드 상태가 BLOCKED 가 아니라 WAITING 이다</text>
+<text x="48" y="332" font-size="11.5" fill="#e34948" font-weight="600" text-anchor="start">findDeadlockedThreads() 로 탐지되지 않는다</text>
+<rect x="398" y="270" width="328" height="88" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="412" y="291" font-size="13" fill="#008300" font-weight="700" text-anchor="start">발견과 해결</text>
+<text x="412" y="308" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">큐는 쌓이는데 completed 가 안 는다</text>
+<text x="412" y="332" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">풀 분리  ·  CompletableFuture  ·  get(timeout)</text>
+</svg>

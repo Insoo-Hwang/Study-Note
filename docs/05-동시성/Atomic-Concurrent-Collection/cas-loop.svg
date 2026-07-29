@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="398" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">락은 기다리고 CAS 는 다시 시도한다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">같은 '값 하나를 안전하게 1 증가시키기'를 두 방식이 다르게 푼다</text>
+<rect x="34" y="82" width="344" height="234" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="103" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">락 방식 — synchronized</text>
+<text x="48" y="120" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">못 잡으면 스레드를 재운다</text>
+<rect x="54" y="146" width="304" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="206.0" y="166.32" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="middle">락 획득 시도</text>
+<line x1="206" y1="180" x2="206" y2="196" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="54" y="198" width="304" height="32" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="206.0" y="218.32" font-size="12" fill="#e34948" font-weight="600" text-anchor="middle">실패 → BLOCKED 로 전환</text>
+<line x1="206" y1="232" x2="206" y2="248" stroke="#e34948" stroke-width="1.4" marker-end="url(#ahr)"/>
+<rect x="54" y="250" width="304" height="32" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="206.0" y="270.32" font-size="12" fill="#e34948" font-weight="600" text-anchor="middle">컨텍스트 스위치 · 커널 호출</text>
+<text x="54" y="302" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">대기 중 CPU 는 안 쓴다  ·  데드락이 가능하다</text>
+<rect x="398" y="82" width="328" height="234" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="412" y="103" font-size="13" fill="#008300" font-weight="700" text-anchor="start">CAS 방식 — AtomicInteger</text>
+<text x="412" y="120" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">실패하면 처음부터 다시 계산한다</text>
+<rect x="434" y="146" width="274" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="571.0" y="166.32" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="middle">current = get()</text>
+<line x1="571" y1="180" x2="571" y2="196" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="434" y="198" width="274" height="32" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="571.0" y="218.32" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="middle">next = current + 1</text>
+<line x1="571" y1="232" x2="571" y2="248" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="434" y="250" width="274" height="32" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="571.0" y="270.32" font-size="12" fill="#008300" font-weight="600" text-anchor="middle">compareAndSet(current, next)</text>
+<line x1="434" y1="266" x2="418" y2="266" stroke="#eb6834" stroke-width="1.4"/>
+<line x1="418" y1="266" x2="418" y2="162" stroke="#eb6834" stroke-width="1.4"/>
+<line x1="418" y1="162" x2="430" y2="162" stroke="#eb6834" stroke-width="1.4" marker-end="url(#aho)"/>
+<text x="434" y="302" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">실패하면 첫 줄로 되돌아간다  ·  데드락이 불가능하다</text>
+<rect x="34" y="328" width="692" height="58" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="349" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">실측 — 100스레드 × 1만 회, 기대값 1,000,000</text>
+<text x="48" y="366" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">plain int 893,788   ·   volatile int 442,379   ·   AtomicInteger 1,000,000   —   경합이 심하면 CAS 재시도가 늘어난다</text>
+</svg>
