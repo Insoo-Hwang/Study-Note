@@ -58,6 +58,10 @@ nav:
       - Thread와 동기화: 05-동시성/Thread-동기화/Thread-동기화.md
       - Atomic과 Concurrent Collection: 05-동시성/Atomic-Concurrent-Collection/Atomic-Concurrent-Collection.md
       - ThreadPool과 Deadlock: 05-동시성/ThreadPool-Deadlock/ThreadPool-Deadlock.md
+  - 데이터베이스:
+      - 인덱스와 실행 계획: 06-데이터베이스/인덱스-실행계획/인덱스-실행계획.md
+      - 조인과 페이지네이션: 06-데이터베이스/조인-페이지네이션/조인-페이지네이션.md
+      - 대용량 데이터 분할: 06-데이터베이스/대용량-데이터-분할/대용량-데이터-분할.md
 
 markdown_extensions:
   - admonition               # !!! note 콜아웃 박스

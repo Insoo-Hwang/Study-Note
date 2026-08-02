@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 404" width="760" height="404" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="402" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">샤드를 하나 늘릴 때 옮겨야 하는 데이터의 비율</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">20만 개 키로 실측 — 나머지 연산 vs 일관성 해싱(가상 노드 150개)</text>
+<line x1="92" y1="268" x2="672" y2="268" stroke="#898781" stroke-width="1.2"/>
+<line x1="92" y1="268" x2="92" y2="118" stroke="#898781" stroke-width="1.2"/>
+<line x1="87" y1="268.0" x2="672" y2="268.0" stroke="#898781" stroke-width="0.7" stroke-dasharray="3 4"/>
+<text x="80" y="272.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">0%</text>
+<line x1="87" y1="230.5" x2="672" y2="230.5" stroke="#898781" stroke-width="0.7" stroke-dasharray="3 4"/>
+<text x="80" y="234.5" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">25%</text>
+<line x1="87" y1="193.0" x2="672" y2="193.0" stroke="#898781" stroke-width="0.7" stroke-dasharray="3 4"/>
+<text x="80" y="197.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">50%</text>
+<line x1="87" y1="155.5" x2="672" y2="155.5" stroke="#898781" stroke-width="0.7" stroke-dasharray="3 4"/>
+<text x="80" y="159.5" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">75%</text>
+<line x1="87" y1="118.0" x2="672" y2="118.0" stroke="#898781" stroke-width="0.7" stroke-dasharray="3 4"/>
+<text x="80" y="122.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">100%</text>
+<rect x="147.2" y="147.85" width="34" height="120.15" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="164.2" y="140.85" font-size="11" fill="#e34948" font-weight="700" text-anchor="middle">80.1%</text>
+<rect x="189.2" y="242.05" width="34" height="25.95" rx="4" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="206.2" y="235.05" font-size="11" fill="#2a78d6" font-weight="700" text-anchor="middle">17.3%</text>
+<line x1="139.2" y1="238.0" x2="231.2" y2="238.0" stroke="#008300" stroke-width="1.8" stroke-dasharray="6 3"/>
+<text x="185.2" y="286" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="middle">4 → 5 샤드</text>
+<rect x="278.4" y="193.0" width="34" height="75.0" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="295.4" y="186.0" font-size="11" fill="#e34948" font-weight="700" text-anchor="middle">50.0%</text>
+<rect x="320.4" y="194.5" width="34" height="73.5" rx="4" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="337.4" y="187.5" font-size="11" fill="#2a78d6" font-weight="700" text-anchor="middle">49.0%</text>
+<line x1="270.4" y1="193.0" x2="362.4" y2="193.0" stroke="#008300" stroke-width="1.8" stroke-dasharray="6 3"/>
+<text x="316.4" y="286" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="middle">4 → 8 샤드</text>
+<rect x="409.59999999999997" y="134.5" width="34" height="133.5" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="426.59999999999997" y="127.5" font-size="11" fill="#e34948" font-weight="700" text-anchor="middle">89.0%</text>
+<rect x="451.59999999999997" y="250.75" width="34" height="17.25" rx="4" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="468.59999999999997" y="243.75" font-size="11" fill="#2a78d6" font-weight="700" text-anchor="middle">11.5%</text>
+<line x1="401.59999999999997" y1="251.35" x2="493.59999999999997" y2="251.35" stroke="#008300" stroke-width="1.8" stroke-dasharray="6 3"/>
+<text x="447.59999999999997" y="286" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="middle">8 → 9 샤드</text>
+<rect x="540.8" y="192.85" width="34" height="75.15" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="557.8" y="185.85" font-size="11" fill="#e34948" font-weight="700" text-anchor="middle">50.1%</text>
+<rect x="582.8" y="192.1" width="34" height="75.9" rx="4" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="599.8" y="185.1" font-size="11" fill="#2a78d6" font-weight="700" text-anchor="middle">50.6%</text>
+<line x1="532.8" y1="193.0" x2="624.8" y2="193.0" stroke="#008300" stroke-width="1.8" stroke-dasharray="6 3"/>
+<text x="578.8" y="286" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="middle">8 → 16 샤드</text>
+<rect x="92" y="76" width="14" height="14" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="112" y="87" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="start">나머지 연산</text>
+<rect x="198" y="76" width="14" height="14" rx="4" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="218" y="87" font-size="11.5" fill="#2a78d6" font-weight="700" text-anchor="start">일관성 해싱</text>
+<line x1="304" y1="83" x2="332" y2="83" stroke="#008300" stroke-width="1.8" stroke-dasharray="6 3"/>
+<text x="338" y="87" font-size="11.5" fill="#008300" font-weight="700" text-anchor="start">이론 최소치</text>
+<rect x="34" y="300" width="350" height="62" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="321" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">8 → 9 샤드: 89.0% 를 옮겨야 한다</text>
+<text x="48" y="338" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">나누는 수가 바뀌면 배치가 통째로 흐트러진다</text>
+<text x="48" y="356" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">2배로 늘릴 때만 50% 로 그친다</text>
+<rect x="396" y="300" width="330" height="62" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="410" y="321" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">같은 전환에서 11.5% (이론 11.1%)</text>
+<text x="410" y="338" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">새 샤드가 맡을 구간의 키만 이동한다</text>
+<text x="410" y="356" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">단, 가상 노드가 없으면 편차 29.14배</text>
+</svg>

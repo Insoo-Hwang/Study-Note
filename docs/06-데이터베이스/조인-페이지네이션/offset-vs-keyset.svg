@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 388" width="760" height="388" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="386" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">OFFSET 은 위치에 비례해 나빠지고 커서는 평평하다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">100만 행 · 커버링 인덱스가 걸린 최선의 조건 · 페이지 크기 20 — 실측</text>
+<line x1="92" y1="268" x2="672" y2="268" stroke="#898781" stroke-width="1.2"/>
+<line x1="92" y1="268" x2="92" y2="100" stroke="#898781" stroke-width="1.2"/>
+<line x1="87" y1="268.0" x2="672" y2="268.0" stroke="#898781" stroke-width="0.7" stroke-dasharray="3 4"/>
+<text x="80" y="272.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">0</text>
+<line x1="87" y1="226.0" x2="672" y2="226.0" stroke="#898781" stroke-width="0.7" stroke-dasharray="3 4"/>
+<text x="80" y="230.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">7</text>
+<line x1="87" y1="184.0" x2="672" y2="184.0" stroke="#898781" stroke-width="0.7" stroke-dasharray="3 4"/>
+<text x="80" y="188.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">14</text>
+<line x1="87" y1="142.0" x2="672" y2="142.0" stroke="#898781" stroke-width="0.7" stroke-dasharray="3 4"/>
+<text x="80" y="146.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">21</text>
+<line x1="87" y1="100.0" x2="672" y2="100.0" stroke="#898781" stroke-width="0.7" stroke-dasharray="3 4"/>
+<text x="80" y="104.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">28</text>
+<text x="80" y="86" font-size="11" fill="#52514e" font-weight="400" text-anchor="end">ms</text>
+<line x1="122.0" y1="267.64" x2="225.57142857142858" y2="267.58" stroke="#e34948" stroke-width="2.2"/>
+<line x1="225.57142857142858" y1="267.58" x2="329.14285714285717" y2="267.1" stroke="#e34948" stroke-width="2.2"/>
+<line x1="329.14285714285717" y1="267.1" x2="432.7142857142858" y2="261.82" stroke="#e34948" stroke-width="2.2"/>
+<line x1="432.7142857142858" y1="261.82" x2="536.2857142857143" y2="193.96" stroke="#e34948" stroke-width="2.2"/>
+<line x1="536.2857142857143" y1="193.96" x2="639.8571428571429" y2="112.78" stroke="#e34948" stroke-width="2.2"/>
+<circle cx="122.0" cy="267.64" r="4.5" fill="#e34948"/>
+<circle cx="225.57142857142858" cy="267.58" r="4.5" fill="#e34948"/>
+<circle cx="329.14285714285717" cy="267.1" r="4.5" fill="#e34948"/>
+<circle cx="432.7142857142858" cy="261.82" r="4.5" fill="#e34948"/>
+<text x="432.7142857142858" y="249.82" font-size="11" fill="#e34948" font-weight="700" text-anchor="middle">1.03 ms</text>
+<circle cx="536.2857142857143" cy="193.96" r="4.5" fill="#e34948"/>
+<text x="536.2857142857143" y="181.96" font-size="11" fill="#e34948" font-weight="700" text-anchor="middle">12.34 ms</text>
+<circle cx="639.8571428571429" cy="112.78" r="4.5" fill="#e34948"/>
+<text x="639.8571428571429" y="100.78" font-size="11" fill="#e34948" font-weight="700" text-anchor="middle">25.87 ms</text>
+<line x1="122.0" y1="267.64" x2="225.57142857142858" y2="267.64" stroke="#2a78d6" stroke-width="2.2"/>
+<line x1="225.57142857142858" y1="267.64" x2="329.14285714285717" y2="267.64" stroke="#2a78d6" stroke-width="2.2"/>
+<line x1="329.14285714285717" y1="267.64" x2="432.7142857142858" y2="267.64" stroke="#2a78d6" stroke-width="2.2"/>
+<line x1="432.7142857142858" y1="267.64" x2="536.2857142857143" y2="267.64" stroke="#2a78d6" stroke-width="2.2"/>
+<line x1="536.2857142857143" y1="267.64" x2="639.8571428571429" y2="267.22" stroke="#2a78d6" stroke-width="2.2"/>
+<circle cx="122.0" cy="267.64" r="4.5" fill="#2a78d6"/>
+<circle cx="225.57142857142858" cy="267.64" r="4.5" fill="#2a78d6"/>
+<circle cx="329.14285714285717" cy="267.64" r="4.5" fill="#2a78d6"/>
+<circle cx="432.7142857142858" cy="267.64" r="4.5" fill="#2a78d6"/>
+<circle cx="536.2857142857143" cy="267.64" r="4.5" fill="#2a78d6"/>
+<circle cx="639.8571428571429" cy="267.22" r="4.5" fill="#2a78d6"/>
+<text x="122.0" y="286" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="middle">0</text>
+<text x="225.57142857142858" y="286" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="middle">1천</text>
+<text x="329.14285714285717" y="286" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="middle">1만</text>
+<text x="432.7142857142858" y="286" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="middle">10만</text>
+<text x="536.2857142857143" y="286" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="middle">50만</text>
+<text x="639.8571428571429" y="286" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="middle">90만</text>
+<text x="382.0" y="304" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">건너뛴 행 수 (OFFSET 값)</text>
+<text x="339.14285714285717" y="120" font-size="12.5" fill="#e34948" font-weight="700" text-anchor="start">OFFSET   SCAN 훑기</text>
+<text x="134.0" y="252" font-size="12.5" fill="#2a78d6" font-weight="700" text-anchor="start">커서(키셋)   SEARCH 탐색</text>
+<rect x="34" y="316" width="350" height="46" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="337" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">OFFSET 90만 = 25.87 ms  (431배)</text>
+<text x="48" y="354" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">버릴 90만 행까지 전부 읽고 20건만 남긴다</text>
+<rect x="396" y="316" width="330" height="46" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="410" y="337" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">커서 90만 = 0.13 ms  (사실상 평평)</text>
+<text x="410" y="354" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">값으로 바로 탐색해 20건만 읽는다</text>
+</svg>

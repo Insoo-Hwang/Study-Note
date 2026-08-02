@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="398" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">N+1 은 쿼리 횟수의 문제이고, 왕복 지연이 그걸 증폭한다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">주문 1,000건에 회원 이름을 붙이는 같은 작업을 세 방식으로 실측</text>
+<line x1="150" y1="214" x2="650" y2="214" stroke="#898781" stroke-width="1.2"/>
+<rect x="209.0" y="201.54742857142858" width="88" height="12.452571428571428" rx="4" fill="#008300" stroke="#008300" stroke-width="1.3"/>
+<text x="253.0" y="179.54742857142858" font-size="13" fill="#008300" font-weight="700" text-anchor="middle">6.81 ms</text>
+<text x="253.0" y="193.54742857142858" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">쿼리 1회</text>
+<text x="253.0" y="232" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">JOIN 한 번</text>
+<rect x="356.0" y="200.52342857142858" width="88" height="13.476571428571429" rx="4" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="400.0" y="178.52342857142858" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="middle">7.37 ms</text>
+<text x="400.0" y="192.52342857142858" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">쿼리 2회</text>
+<text x="400.0" y="232" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">IN 절 배치</text>
+<rect x="503.0" y="102.84114285714286" width="88" height="111.15885714285714" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="547.0" y="80.84114285714286" font-size="13" fill="#e34948" font-weight="700" text-anchor="middle">60.79 ms</text>
+<text x="547.0" y="94.84114285714286" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">쿼리 1,001회</text>
+<text x="547.0" y="232" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">N+1</text>
+<text x="136" y="96" font-size="12" fill="#52514e" font-weight="700" text-anchor="end">실측</text>
+<text x="136" y="112" font-size="11" fill="#52514e" font-weight="400" text-anchor="end">(왕복 0)</text>
+<text x="34" y="276" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">여기에 네트워크 왕복 지연을 더하면 — JOIN 은 1회, N+1 은 1,001회 부담한다</text>
+<text x="52" y="298" font-size="11" fill="#52514e" font-weight="700" text-anchor="start">조건</text>
+<text x="230" y="298" font-size="11" fill="#008300" font-weight="700" text-anchor="end">JOIN</text>
+<text x="400" y="298" font-size="11" fill="#e34948" font-weight="700" text-anchor="end">N+1</text>
+<text x="500" y="298" font-size="11" fill="#52514e" font-weight="700" text-anchor="end">배수</text>
+<text x="52" y="318" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="start">왕복 0 ms</text>
+<text x="230" y="318" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="end" font-family="ui-monospace, Consolas, monospace">6.81 ms</text>
+<text x="400" y="318" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="end" font-family="ui-monospace, Consolas, monospace">60.79 ms</text>
+<text x="500" y="318" font-size="11.5" fill="#52514e" font-weight="700" text-anchor="end">8.9배</text>
+<text x="52" y="337" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="start">왕복 0.2 ms</text>
+<text x="230" y="337" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="end" font-family="ui-monospace, Consolas, monospace">7.01 ms</text>
+<text x="400" y="337" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="end" font-family="ui-monospace, Consolas, monospace">260.99 ms</text>
+<text x="500" y="337" font-size="11.5" fill="#eb6834" font-weight="700" text-anchor="end">37.2배</text>
+<text x="52" y="356" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="start">왕복 0.5 ms</text>
+<text x="230" y="356" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="end" font-family="ui-monospace, Consolas, monospace">7.31 ms</text>
+<text x="400" y="356" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="end" font-family="ui-monospace, Consolas, monospace">561.29 ms</text>
+<text x="500" y="356" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="end">76.8배</text>
+<text x="52" y="375" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="start">왕복 1.0 ms</text>
+<text x="230" y="375" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="end" font-family="ui-monospace, Consolas, monospace">7.81 ms</text>
+<text x="400" y="375" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="end" font-family="ui-monospace, Consolas, monospace">1,061.79 ms</text>
+<text x="500" y="375" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="end">136.0배</text>
+<rect x="528" y="284" width="198" height="92" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="542" y="305" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">로컬에서 안 보이는 이유</text>
+<text x="542" y="322" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">DB 가 같은 머신이라</text>
+<text x="542" y="340" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">왕복이 0 에 가깝다</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 372" width="780" height="372" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="778" height="370" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">행 수를 500배 늘려도 인덱스 탐색은 평평하다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">SQLite 3.50.4 · 탐색 10,000회 반복의 1회 평균 · 단위 마이크로초(us)</text>
+<line x1="58" y1="268" x2="452" y2="268" stroke="#898781" stroke-width="1.1"/>
+<rect x="70" y="162.17000000000002" width="66" height="105.83" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="103.0" y="152.17000000000002" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="middle">55.7</text>
+<text x="103.0" y="287" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">1만 행</text>
+<text x="103.0" y="304" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">log2 = 13.3</text>
+<rect x="172" y="139.75" width="66" height="128.25" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="205.0" y="129.75" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="middle">67.5</text>
+<text x="205.0" y="287" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">10만 행</text>
+<text x="205.0" y="304" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">log2 = 16.6</text>
+<rect x="274" y="146.97" width="66" height="121.03" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="307.0" y="136.97" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="middle">63.7</text>
+<text x="307.0" y="287" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">100만 행</text>
+<text x="307.0" y="304" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">log2 = 19.9</text>
+<rect x="376" y="140.13" width="66" height="127.86999999999999" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="409.0" y="130.13" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="middle">67.3</text>
+<text x="409.0" y="287" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">500만 행</text>
+<text x="409.0" y="304" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">log2 = 22.3</text>
+<line x1="70" y1="162.17000000000002" x2="442" y2="140.13" stroke="#eb6834" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="76" y="114.13" font-size="11.5" fill="#eb6834" font-weight="700" text-anchor="start">실측 추세 — 거의 수평</text>
+<rect x="500" y="96" width="246" height="150" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="514" y="117" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">전체 스캔이었다면</text>
+<text x="514" y="134" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">행 수에 정비례해 나빠진다</text>
+<text x="516" y="158" font-size="12" fill="#0b0b0b" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">1만 행     기준</text>
+<text x="516" y="178" font-size="12" fill="#e34948" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">500만 행   500배</text>
+<line x1="516" y1="192" x2="730" y2="192" stroke="#898781" stroke-width="1"/>
+<text x="516" y="212" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">실측 인덱스 탐색</text>
+<text x="516" y="232" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">500배 늘려서 1.2배</text>
+<text x="58" y="340" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">탐색 깊이가 log2(n) 에만 비례하므로, 데이터가 500배가 되어도 트리를 서너 단 더 내려갈 뿐이다.</text>
+</svg>
