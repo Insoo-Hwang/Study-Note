@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="338" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">낙관적 락의 재시도는 경합이 심해지면 급격히 는다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">320건을 처리하는 동안 발생한 재시도 — 선형이 아니다</text>
+<text x="48" y="120" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">대상 행 1개</text>
+<rect x="190" y="106" width="360.0" height="22" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="560.0" y="122" font-size="12.5" fill="#e34948" font-weight="700" text-anchor="start">617회</text>
+<text x="48" y="138" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">한 건 최대 35회</text>
+<text x="48" y="174" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">대상 행 4개</text>
+<rect x="190" y="160" width="54.262560777957866" height="22" rx="4" fill="#eb6834" stroke="#eb6834" stroke-width="1.3"/>
+<text x="254.26256077795787" y="176" font-size="12.5" fill="#eb6834" font-weight="700" text-anchor="start">93회</text>
+<text x="48" y="192" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">한 건 최대 5회</text>
+<text x="48" y="228" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">대상 행 20개</text>
+<rect x="190" y="214" width="11.669367909238249" height="22" rx="4" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="211.66936790923825" y="230" font-size="12.5" fill="#2a78d6" font-weight="700" text-anchor="start">20회</text>
+<text x="48" y="246" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">한 건 최대 2회</text>
+<text x="48" y="282" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">대상 행 200개</text>
+<rect x="190" y="268" width="4" height="22" rx="4" fill="#008300" stroke="#008300" stroke-width="1.3"/>
+<text x="204" y="284" font-size="12.5" fill="#008300" font-weight="700" text-anchor="start">0회</text>
+<text x="48" y="300" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">재시도 없음</text>
+<rect x="34" y="318" width="0" height="0" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="34" y="328" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">같은 코드인데 재시도가 617회에서 0회로 바뀐다 — 성능이 코드가 아니라 데이터 분포에 달려 있다.</text>
+</svg>

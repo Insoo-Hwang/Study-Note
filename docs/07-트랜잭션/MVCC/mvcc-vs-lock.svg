@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 316" width="760" height="316" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="314" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">읽는 사람이 쓰는 사람을 막는가</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">SQLite 3.50.4 — 읽기 트랜잭션이 열린 상태에서 UPDATE 를 시도</text>
+<rect x="34" y="84" width="340" height="190" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="105" font-size="13" fill="#008300" font-weight="700" text-anchor="start">WAL 모드 (MVCC)</text>
+<text x="48" y="122" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">충돌을 피한다</text>
+<text x="50" y="146" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">읽기 트랜잭션</text>
+<line x1="50" y1="156" x2="356" y2="156" stroke="#008300" stroke-width="1.6"/>
+<text x="50" y="186" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">쓰기 시도</text>
+<line x1="50" y1="196" x2="200" y2="196" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<text x="210" y="200" font-size="12" fill="#008300" font-weight="700" text-anchor="start">성공</text>
+<text x="50" y="232" font-size="20" fill="#008300" font-weight="700" text-anchor="start">17.2 ms</text>
+<text x="50" y="254" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">옛 버전이 남아 있어 서로 안 막는다</text>
+<rect x="386" y="84" width="340" height="190" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="400" y="105" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">DELETE 모드 (락 기반)</text>
+<text x="400" y="122" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">충돌을 막는다</text>
+<text x="402" y="146" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">읽기 트랜잭션</text>
+<line x1="402" y1="156" x2="708" y2="156" stroke="#e34948" stroke-width="1.6"/>
+<text x="402" y="186" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">쓰기 시도</text>
+<line x1="402" y1="196" x2="600" y2="196" stroke="#e34948" stroke-width="1.4" marker-end="url(#ahr)" stroke-dasharray="4 3"/>
+<text x="610" y="200" font-size="12" fill="#e34948" font-weight="700" text-anchor="start">실패</text>
+<text x="402" y="232" font-size="20" fill="#e34948" font-weight="700" text-anchor="start">3,348 ms</text>
+<text x="402" y="254" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">기다리다 database is locked</text>
+<text x="34" y="300" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">MVCC 가 없으면 조회 하나가 그 테이블의 모든 쓰기를 세운다.</text>
+</svg>

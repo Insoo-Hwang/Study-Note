@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 396" width="760" height="396" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="394" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">경합률이 낮으면 낙관적, 높으면 비관적이 유리하다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">H2 1.4.200 — 스레드 8개 × 40회 = 320건, 트랜잭션 안 업무 2 ms</text>
+<line x1="96" y1="296" x2="656" y2="296" stroke="#898781" stroke-width="1.4"/>
+<line x1="96" y1="110" x2="96" y2="296" stroke="#898781" stroke-width="1.4"/>
+<line x1="91" y1="296.0" x2="96" y2="296.0" stroke="#898781" stroke-width="1"/>
+<text x="86" y="300.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">0</text>
+<line x1="91" y1="249.5" x2="96" y2="249.5" stroke="#898781" stroke-width="1"/>
+<text x="86" y="253.5" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">250</text>
+<line x1="91" y1="203.0" x2="96" y2="203.0" stroke="#898781" stroke-width="1"/>
+<text x="86" y="207.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">500</text>
+<line x1="91" y1="156.5" x2="96" y2="156.5" stroke="#898781" stroke-width="1"/>
+<text x="86" y="160.5" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">750</text>
+<line x1="91" y1="110.0" x2="96" y2="110.0" stroke="#898781" stroke-width="1"/>
+<text x="86" y="114.0" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">1000</text>
+<text x="86" y="102" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="end">ms</text>
+<text x="156" y="316" font-size="11.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">1개</text>
+<text x="156" y="332" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">경합 최대</text>
+<text x="296" y="316" font-size="11.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">4개</text>
+<text x="296" y="332" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">높음</text>
+<text x="456" y="316" font-size="11.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">20개</text>
+<text x="456" y="332" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">보통</text>
+<text x="596" y="316" font-size="11.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">200개</text>
+<text x="596" y="332" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">낮음</text>
+<line x1="156" y1="123.76399999999998" x2="296" y2="196.49" stroke="#2a78d6" stroke-width="2.2"/>
+<line x1="156" y1="140.876" x2="296" y2="223.64600000000002" stroke="#7a3ba7" stroke-width="2.2"/>
+<line x1="296" y1="196.49" x2="456" y2="226.994" stroke="#2a78d6" stroke-width="2.2"/>
+<line x1="296" y1="223.64600000000002" x2="456" y2="214.904" stroke="#7a3ba7" stroke-width="2.2"/>
+<line x1="456" y1="226.994" x2="596" y2="225.692" stroke="#2a78d6" stroke-width="2.2"/>
+<line x1="456" y1="214.904" x2="596" y2="208.952" stroke="#7a3ba7" stroke-width="2.2"/>
+<circle cx="156" cy="123.76399999999998" r="5" fill="#2a78d6" stroke="#2a78d6"/>
+<text x="156" y="128.62399999999997" font-size="13.5" fill="#ffffff" font-weight="700" text-anchor="middle"></text>
+<circle cx="156" cy="140.876" r="5" fill="#7a3ba7" stroke="#7a3ba7"/>
+<text x="156" y="145.736" font-size="13.5" fill="#ffffff" font-weight="700" text-anchor="middle"></text>
+<circle cx="296" cy="196.49" r="5" fill="#2a78d6" stroke="#2a78d6"/>
+<text x="296" y="201.35000000000002" font-size="13.5" fill="#ffffff" font-weight="700" text-anchor="middle"></text>
+<circle cx="296" cy="223.64600000000002" r="5" fill="#7a3ba7" stroke="#7a3ba7"/>
+<text x="296" y="228.50600000000003" font-size="13.5" fill="#ffffff" font-weight="700" text-anchor="middle"></text>
+<circle cx="456" cy="226.994" r="5" fill="#2a78d6" stroke="#2a78d6"/>
+<text x="456" y="231.85399999999998" font-size="13.5" fill="#ffffff" font-weight="700" text-anchor="middle"></text>
+<circle cx="456" cy="214.904" r="5" fill="#7a3ba7" stroke="#7a3ba7"/>
+<text x="456" y="219.764" font-size="13.5" fill="#ffffff" font-weight="700" text-anchor="middle"></text>
+<circle cx="596" cy="225.692" r="5" fill="#2a78d6" stroke="#2a78d6"/>
+<text x="596" y="230.55200000000002" font-size="13.5" fill="#ffffff" font-weight="700" text-anchor="middle"></text>
+<circle cx="596" cy="208.952" r="5" fill="#7a3ba7" stroke="#7a3ba7"/>
+<text x="596" y="213.812" font-size="13.5" fill="#ffffff" font-weight="700" text-anchor="middle"></text>
+<line x1="470" y1="128" x2="496" y2="128" stroke="#2a78d6" stroke-width="2.2"/>
+<text x="504" y="132" font-size="11.5" fill="#2a78d6" font-weight="700" text-anchor="start">낙관적 락</text>
+<line x1="596" y1="128" x2="622" y2="128" stroke="#7a3ba7" stroke-width="2.2"/>
+<text x="630" y="132" font-size="11.5" fill="#7a3ba7" font-weight="700" text-anchor="start">비관적 락</text>
+<line x1="376.0" y1="124" x2="376.0" y2="296" stroke="#eb6834" stroke-width="1.6" stroke-dasharray="4 4"/>
+<text x="376.0" y="118" font-size="11.5" fill="#eb6834" font-weight="700" text-anchor="middle">교차점</text>
+<text x="34" y="356" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">가로축: 320건이 노리는 대상 행 수 (적을수록 경합이 심하다)</text>
+<text x="34" y="378" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">행 4개에서는 비관적이 1.4배 빠르고 20개부터는 낙관적이 앞선다. 행 1개에서는 둘 다 나쁘다 — 사실상 직렬화다.</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="760" height="350" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="348" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">트랜잭션 비용은 데이터 양이 아니라 커밋 횟수를 따라간다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">SQLite 3.50.4, WAL, 2,000건 INSERT 실측</text>
+<rect x="34" y="82" width="692" height="108" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="103" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">커밋 횟수</text>
+<text x="48" y="120" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">같은 2,000건, 커밋 방식만 다르다</text>
+<text x="48" y="143" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">건건이 커밋 (2,000 트랜잭션)</text>
+<rect x="310" y="130" width="300.0" height="18" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="620.0" y="143" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="start">2,772.9 ms</text>
+<text x="48" y="171" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">트랜잭션 하나로 묶기</text>
+<rect x="310" y="158" width="3" height="18" rx="4" fill="#008300" stroke="#008300" stroke-width="1.3"/>
+<text x="323" y="171" font-size="11.5" fill="#008300" font-weight="700" text-anchor="start">9.3 ms</text>
+<text x="620" y="172" font-size="15" fill="#0b0b0b" font-weight="700" text-anchor="middle">298배</text>
+<rect x="34" y="204" width="692" height="122" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="225" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">내구성(fsync) 설정</text>
+<text x="48" y="242" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">커밋마다 디스크에 밀어 넣는가 — 잃는 것은 최근 커밋이다</text>
+<text x="48" y="265" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">FULL  (커밋마다 fsync)</text>
+<rect x="310" y="252" width="8.341114737842416" height="18" rx="4" fill="#008300" stroke="#008300" stroke-width="1.3"/>
+<text x="328.3411147378424" y="265" font-size="11.5" fill="#008300" font-weight="700" text-anchor="start">721 tx/s</text>
+<text x="48" y="289" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">NORMAL</text>
+<rect x="310" y="276" width="185.00847002437715" height="18" rx="4" fill="#eb6834" stroke="#eb6834" stroke-width="1.3"/>
+<text x="505.0084700243772" y="289" font-size="11.5" fill="#eb6834" font-weight="700" text-anchor="start">15,992 tx/s</text>
+<text x="48" y="313" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">OFF   (fsync 안 함)</text>
+<rect x="310" y="300" width="280.0" height="18" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="600.0" y="313" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="start">24,203 tx/s</text>
+<text x="34" y="342" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">안전한 쪽(FULL·묶어 커밋)이 성능도 유리한 것은 아니다 — 둘은 서로 다른 축이다.</text>
+</svg>
