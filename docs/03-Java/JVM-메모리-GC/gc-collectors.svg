@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 384" width="780" height="384" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="778" height="382" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">GC 선택 — 처리량과 응답 시간을 맞바꾼다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">STW 막대가 길수록 한 번에 오래 멈춘다</text>
+<text x="34" y="104" font-size="11.5" fill="#52514e" font-weight="700" text-anchor="start">Stop-The-World 상대적 길이</text>
+<text x="34" y="142" font-size="13.5" fill="#898781" font-weight="700" text-anchor="start">Parallel</text>
+<text x="34" y="160" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">배치 · 데이터 처리</text>
+<rect x="150" y="126" width="330" height="30" rx="4" fill="#898781" stroke="#898781" stroke-width="1.3"/>
+<text x="492" y="146" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="start">처리량 최고 · 정지 길다</text>
+<text x="34" y="214" font-size="13.5" fill="#2a78d6" font-weight="700" text-anchor="start">G1</text>
+<text x="34" y="232" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">JDK 9+ 기본 · 웹 서버</text>
+<rect x="150" y="198" width="150" height="30" rx="4" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="312" y="218" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="start">정지 시간 목표 지정 가능</text>
+<text x="34" y="286" font-size="13.5" fill="#008300" font-weight="700" text-anchor="start">ZGC</text>
+<text x="34" y="304" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">초대형 힙 · 초저지연</text>
+<rect x="150" y="270" width="26" height="30" rx="4" fill="#008300" stroke="#008300" stroke-width="1.3"/>
+<text x="188" y="290" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="start">1 ms 미만 · 처리량 양보</text>
+<line x1="34" y1="340" x2="746" y2="340" stroke="#898781" stroke-width="1.4" stroke-dasharray="3,3"/>
+<text x="34" y="364" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">대부분의 서버는 G1 기본값을 그대로 쓴다  —  GC를 바꾸는 것은 측정으로 GC가 병목임을 확인한 다음이다</text>
+</svg>

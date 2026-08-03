@@ -106,7 +106,7 @@
 | -- | ----------------- | ----------------- | ------ |
 | 01 | **복잡도 · 자료구조**    | 성능 비교 기준과 상황별 저장 구조 선택 | 6 / 6  |
 | 02 | **알고리즘**          | 탐색·집계·구간·그래프 처리   | 3 / 3  |
-| 03 | **Java**          | 언어와 JVM 내부 이해     | 2 / 5  |
+| 03 | **Java**          | 언어와 JVM 내부 이해     | 5 / 5  |
 | 04 | **동시성**           | 여러 요청의 안전한 처리     | 3 / 3  |
 | 05 | **Spring**        | 프레임워크가 대신 해 주는 일  | 0 / 4  |
 | 06 | **데이터베이스**        | 대용량 조회·저장 최적화     | 3 / 4  |
@@ -117,7 +117,7 @@
 | 11 | **메시징 · 시스템 설계**  | 전체 지식을 연결해 설명     | 0 / 5  |
 | 12 | **경험 기반 면접**      | 내 경험을 언어로 만들기     | 0 / 5  |
 
-**작성 완료 20개 / 전체 51개**
+**작성 완료 23개 / 전체 51개**
 
 ---
 
@@ -146,9 +146,9 @@ docs/
 ├─ 03-Java/
 │  ├─ ✅ Java-Collection/
 │  ├─ ✅ equals-hashCode/
-│  ├─ ⬜ 객체지향-SOLID/
-│  ├─ ⬜ Generic-Exception-Stream/
-│  └─ ⬜ JVM-메모리-GC/
+│  ├─ ✅ 객체지향-SOLID/
+│  ├─ ✅ Generic-Exception-Stream/
+│  └─ ✅ JVM-메모리-GC/
 │
 ├─ 04-동시성/
 │  ├─ ✅ Thread-동기화/
@@ -403,7 +403,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - HashMap에 넣은 Key 객체의 값을 변경하면 왜 문제가 생기는가?
 - JPA Entity에서 equals와 hashCode 구현이 어려운 이유는 무엇인가?
 
-### ⬜ `객체지향-SOLID`
+### ✅ `객체지향-SOLID`
 
 **포함할 내용** — 캡슐화 · 상속 · 다형성 · 추상화 · SRP · OCP · LSP · ISP · DIP · 인터페이스와 추상 클래스 · 합성과 상속 · 의존성 방향
 
@@ -413,7 +413,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - DIP가 Spring의 DI와 어떻게 연결되는가?
 - 인터페이스를 도입해서 실제로 얻은 것은 무엇인가?
 
-### ⬜ `Generic-Exception-Stream`
+### ✅ `Generic-Exception-Stream`
 
 **포함할 내용** — 제네릭 · 타입 소거 · 와일드카드(PECS) · Checked/Unchecked Exception · 예외 전파 · try-with-resources · Stream · Optional · 지연 평가
 
@@ -423,7 +423,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - Checked Exception을 언제 쓰고 언제 감싸는가?
 - Stream이 반복문보다 나은 경우와 아닌 경우는?
 
-### ⬜ `JVM-메모리-GC`
+### ✅ `JVM-메모리-GC`
 
 **포함할 내용** — 클래스 로더 · 런타임 데이터 영역 · Stack과 Heap · Young/Old · GC 알고리즘(Serial·Parallel·G1·ZGC) · Stop-The-World · 메모리 누수 · OOM · 힙 덤프
 

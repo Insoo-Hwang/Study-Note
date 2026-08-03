@@ -53,6 +53,9 @@ nav:
   - 03. Java:
       - Java Collection: 03-Java/Java-Collection/Java-Collection.md
       - equals · hashCode: 03-Java/equals-hashCode/equals-hashCode.md
+      - 객체지향과 SOLID: 03-Java/객체지향-SOLID/객체지향-SOLID.md
+      - Generic · Exception · Stream: 03-Java/Generic-Exception-Stream/Generic-Exception-Stream.md
+      - JVM 메모리와 GC: 03-Java/JVM-메모리-GC/JVM-메모리-GC.md
   - 04. 동시성:
       - Thread와 동기화: 04-동시성/Thread-동기화/Thread-동기화.md
       - Atomic과 Concurrent Collection: 04-동시성/Atomic-Concurrent-Collection/Atomic-Concurrent-Collection.md

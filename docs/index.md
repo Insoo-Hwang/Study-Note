@@ -30,9 +30,9 @@
 
 - [Java Collection](03-Java/Java-Collection/Java-Collection.md)
 - [equals · hashCode](03-Java/equals-hashCode/equals-hashCode.md)
-- 객체지향과 SOLID
-- Generic · Exception · Stream
-- JVM 메모리와 GC
+- [객체지향과 SOLID](03-Java/객체지향-SOLID/객체지향-SOLID.md)
+- [Generic · Exception · Stream](03-Java/Generic-Exception-Stream/Generic-Exception-Stream.md)
+- [JVM 메모리와 GC](03-Java/JVM-메모리-GC/JVM-메모리-GC.md)
 
 ### 04. 동시성
 

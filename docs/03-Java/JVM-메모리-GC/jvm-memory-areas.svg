@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 446" width="780" height="446" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="778" height="444" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">JVM 메모리 영역 — 나눠 쓰는 곳과 공유하는 곳</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">GC와 동시성 문제는 모두 '공유하는 곳'에서만 생긴다</text>
+<rect x="34" y="92" width="348" height="242" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="113" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">스레드마다 하나씩</text>
+<text x="48" y="130" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">다른 스레드가 못 보므로 동기화가 필요 없다</text>
+<rect x="54" y="148" width="308" height="42" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="68" y="166" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">JVM 스택</text>
+<text x="68" y="182" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">지역 변수 · 참조 변수 · 호출 프레임</text>
+<rect x="54" y="200" width="308" height="42" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="68" y="218" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">PC 레지스터</text>
+<text x="68" y="234" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">지금 실행 중인 명령 주소</text>
+<rect x="54" y="252" width="308" height="42" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="68" y="270" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">네이티브 메서드 스택</text>
+<text x="68" y="286" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">JNI 호출용</text>
+<text x="54" y="320" font-size="11" fill="#2a78d6" font-weight="700" text-anchor="start">메서드가 끝나면 프레임째 즉시 사라진다  ·  GC 대상 아님</text>
+<rect x="398" y="92" width="348" height="242" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="412" y="113" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">모든 스레드가 공유</text>
+<text x="412" y="130" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">여기서만 GC와 동시성 문제가 생긴다</text>
+<rect x="418" y="148" width="308" height="42" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="432" y="166" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">힙 (Heap)</text>
+<text x="432" y="182" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">모든 객체와 배열의 실체 — GC 대상</text>
+<rect x="418" y="200" width="308" height="42" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="432" y="218" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">메타스페이스</text>
+<text x="432" y="234" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">클래스 정보 · static · 상수 풀</text>
+<rect x="418" y="252" width="308" height="42" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="432" y="270" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">코드 캐시</text>
+<text x="432" y="286" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">JIT가 컴파일한 기계어</text>
+<text x="418" y="320" font-size="11" fill="#eb6834" font-weight="700" text-anchor="start">회수 시점을 GC가 정한다  ·  접근하려면 동기화가 필요하다</text>
+<text x="34" y="368" font-size="11.5" fill="#0b0b0b" font-weight="700" text-anchor="start">넘치면   스택 → StackOverflowError (실측 23,404 프레임)   ·   힙 → OutOfMemoryError: Java heap space</text>
+<text x="34" y="394" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">실측 (JDK 17)   최대 힙 4,082 MB (물리 메모리 약 1/4)   ·   초기 힙 256 MB (약 1/64)</text>
+<text x="34" y="420" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">메타스페이스는 Java 8부터 힙 밖 네이티브 메모리로 옮겨져 기본 무제한이다 (이전 이름 PermGen)</text>
+</svg>
