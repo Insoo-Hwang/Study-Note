@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 336" width="780" height="336" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="778" height="334" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">N+1 — 쿼리 1,001번이 1번이 되면 21.3배</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">실측 (사용자 1,000명 · 주문 5,000건 · H2 인메모리)</text>
+<text x="34" y="124" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">N+1</text>
+<text x="34" y="142" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">1 + 1,000번</text>
+<rect x="130" y="108" width="300" height="30" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="442" y="128" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">15.2 ms</text>
+<text x="524" y="128" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">for 문 안에서 매번 조회</text>
+<text x="34" y="186" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">IN 절</text>
+<text x="34" y="204" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">1 + 1번</text>
+<rect x="130" y="170" width="23" height="30" rx="4" fill="#eb6834" stroke="#eb6834" stroke-width="1.3"/>
+<text x="165" y="190" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">1.2 ms</text>
+<text x="524" y="190" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">ID를 모아 한 번에 — 페이징 가능</text>
+<text x="34" y="248" font-size="13" fill="#008300" font-weight="700" text-anchor="start">조인</text>
+<text x="34" y="266" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">1번</text>
+<rect x="130" y="232" width="13" height="30" rx="4" fill="#008300" stroke="#008300" stroke-width="1.3"/>
+<text x="155" y="252" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">0.7 ms</text>
+<text x="524" y="252" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">가장 빠름 — 일대다는 페이징 주의</text>
+<line x1="34" y1="288" x2="746" y2="288" stroke="#898781" stroke-width="1.4" stroke-dasharray="3,3"/>
+<text x="34" y="306" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">H2 인메모리는 네트워크 왕복이 0인데도 21.3배다</text>
+<text x="34" y="328" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="start">원격 DB 라면 쿼리마다 왕복이 붙어 격차가 수백~수천 배가 된다</text>
+</svg>

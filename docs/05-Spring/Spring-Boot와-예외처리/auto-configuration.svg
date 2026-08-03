@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 340" width="780" height="340" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="778" height="338" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">자동 설정 = 조건부 빈 등록</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">마법이 아니다 — @Conditional 을 평가해 등록 여부를 정한다</text>
+<rect x="34" y="100" width="168" height="46" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="118.0" y="127.14" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">자동 설정 클래스 목록</text>
+<text x="118" y="160" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">AutoConfiguration.imports</text>
+<line x1="208" y1="123" x2="244" y2="123" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="252" y="96" width="268" height="34" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="264" y="118" font-size="10.5" fill="#2a78d6" font-weight="700" text-anchor="start">@ConditionalOnClass</text>
+<text x="534" y="118" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">클래스패스에 있나?</text>
+<rect x="252" y="138" width="268" height="34" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="264" y="160" font-size="10.5" fill="#eb6834" font-weight="700" text-anchor="start">@ConditionalOnMissingBean</text>
+<text x="534" y="160" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">내가 안 만들었나?</text>
+<rect x="252" y="180" width="268" height="34" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="264" y="202" font-size="10.5" fill="#7a3ba7" font-weight="700" text-anchor="start">@ConditionalOnProperty</text>
+<text x="534" y="202" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">설정값이 있나?</text>
+<line x1="386" y1="224" x2="386" y2="250" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<rect x="286" y="254" width="200" height="40" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="386.0" y="278.32" font-size="12" fill="#008300" font-weight="600" text-anchor="middle">조건 통과 → 빈 등록</text>
+<text x="34" y="200" font-size="11.5" fill="#0b0b0b" font-weight="700" text-anchor="start">핵심</text>
+<text x="34" y="222" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">사용자 빈이</text>
+<text x="34" y="240" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">먼저 등록되어</text>
+<text x="34" y="258" font-size="11" fill="#eb6834" font-weight="700" text-anchor="start">내 것이 이긴다</text>
+<text x="34" y="316" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">--debug 로 실행하면 Positive / Negative matches 로 '왜 적용됐는지'까지 나온다</text>
+</svg>

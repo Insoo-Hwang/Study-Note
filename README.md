@@ -108,16 +108,16 @@
 | 02 | **알고리즘**          | 탐색·집계·구간·그래프 처리   | 3 / 3  |
 | 03 | **Java**          | 언어와 JVM 내부 이해     | 5 / 5  |
 | 04 | **동시성**           | 여러 요청의 안전한 처리     | 3 / 3  |
-| 05 | **Spring**        | 프레임워크가 대신 해 주는 일  | 0 / 4  |
-| 06 | **데이터베이스**        | 대용량 조회·저장 최적화     | 3 / 4  |
-| 07 | **트랜잭션 · 데이터 접근** | 데이터 정합성 유지        | 3 / 4  |
+| 05 | **Spring**        | 프레임워크가 대신 해 주는 일  | 4 / 4  |
+| 06 | **데이터베이스**        | 대용량 조회·저장 최적화     | 4 / 4  |
+| 07 | **트랜잭션 · 데이터 접근** | 데이터 정합성 유지        | 4 / 4  |
 | 08 | **캐시 · Redis**    | 빠른 조회와 분산 데이터     | 0 / 4  |
 | 09 | **웹 · 보안**        | 요청이 도달하기까지        | 0 / 4  |
 | 10 | **테스트 · 운영**      | 검증하고 관측하고 복구하기    | 0 / 4  |
 | 11 | **메시징 · 시스템 설계**  | 전체 지식을 연결해 설명     | 0 / 5  |
 | 12 | **경험 기반 면접**      | 내 경험을 언어로 만들기     | 0 / 5  |
 
-**작성 완료 23개 / 전체 51개**
+**작성 완료 29개 / 전체 51개**
 
 ---
 
@@ -156,22 +156,22 @@ docs/
 │  └─ ✅ ThreadPool-Deadlock/
 │
 ├─ 05-Spring/
-│  ├─ ⬜ IoC-DI와-Bean/
-│  ├─ ⬜ AOP-Proxy-Transactional/
-│  ├─ ⬜ Spring-MVC-요청흐름/
-│  └─ ⬜ Spring-Boot와-예외처리/
+│  ├─ ✅ IoC-DI와-Bean/
+│  ├─ ✅ AOP-Proxy-Transactional/
+│  ├─ ✅ Spring-MVC-요청흐름/
+│  └─ ✅ Spring-Boot와-예외처리/
 │
 ├─ 06-데이터베이스/
 │  ├─ ✅ 인덱스-실행계획/
 │  ├─ ✅ 조인-페이지네이션/
 │  ├─ ✅ 대용량-데이터-분할/
-│  └─ ⬜ ConnectionPool과-쿼리튜닝/
+│  └─ ✅ ConnectionPool과-쿼리튜닝/
 │
 ├─ 07-트랜잭션-데이터접근/
 │  ├─ ✅ ACID-격리수준/
 │  ├─ ✅ MVCC/
 │  ├─ ✅ 낙관적-비관적-락/
-│  └─ ⬜ JDBC-MyBatis-JPA/
+│  └─ ✅ JDBC-MyBatis-JPA/
 │
 ├─ 08-캐시-Redis/
 │  ├─ ⬜ 캐시-전략과-정합성/
@@ -483,7 +483,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 동시성·트랜잭션·예외 처리를 **프레임워크가 대신 해 주는 방식**을 이해하는 것이 목표다.
 앞 섹션에서 직접 다뤄 본 문제가 Spring에서 어떻게 감춰지는지 연결해서 본다.
 
-### ⬜ `IoC-DI와-Bean`
+### ✅ `IoC-DI와-Bean`
 
 **포함할 내용** — IoC · DI · ApplicationContext · Bean 등록 방식 · 생성자 주입 · Bean Scope · 싱글톤과 상태 · 순환 참조 · 프로파일
 
@@ -493,7 +493,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - 생성자 주입을 권장하는 이유는 무엇인가?
 - 순환 참조는 왜 생기고 어떻게 푸는가?
 
-### ⬜ `AOP-Proxy-Transactional`
+### ✅ `AOP-Proxy-Transactional`
 
 **포함할 내용** — AOP · 프록시 · JDK Dynamic Proxy · CGLIB · self-invocation 문제 · `@Transactional` 전파 속성 · 롤백 규칙 · readOnly
 
@@ -503,7 +503,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - 전파 속성 `REQUIRES_NEW`는 언제 쓰는가?
 - 체크 예외에서 기본적으로 롤백되지 않는 이유는 무엇인가?
 
-### ⬜ `Spring-MVC-요청흐름`
+### ✅ `Spring-MVC-요청흐름`
 
 **포함할 내용** — DispatcherServlet · HandlerMapping · HandlerAdapter · ArgumentResolver · MessageConverter · ViewResolver · Filter와 Interceptor · 요청 스레드
 
@@ -513,7 +513,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - Filter와 Interceptor는 언제 각각 쓰는가?
 - 요청 스레드와 톰캣 스레드 풀은 어떤 관계인가? (04-동시성과 연결)
 
-### ⬜ `Spring-Boot와-예외처리`
+### ✅ `Spring-Boot와-예외처리`
 
 **포함할 내용** — 자동 설정 · 프로퍼티 우선순위 · `@ControllerAdvice` · `@ExceptionHandler` · 에러 응답 표준화 · 검증(Validation) · 로깅 전략
 
@@ -574,7 +574,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - 특정 파티션에 트래픽이 몰리면 어떻게 되는가?
 - 샤딩 후 조인과 트랜잭션은 어떻게 어려워지는가?
 
-### ⬜ `ConnectionPool과-쿼리튜닝`
+### ✅ `ConnectionPool과-쿼리튜닝`
 
 **포함할 내용** — Connection Pool · HikariCP · pool size · connection timeout · leak detection · Slow Query Log · N+1 · 배치 처리 · 통계 정보
 
@@ -639,7 +639,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - 트랜잭션이 오래 유지되는가?
 - 외부 API가 트랜잭션 안에 포함되는가?
 
-### ⬜ `JDBC-MyBatis-JPA`
+### ✅ `JDBC-MyBatis-JPA`
 
 **포함할 내용** — JDBC · DataSource · MyBatis 매핑 · JPA 영속성 컨텍스트 · 1차 캐시 · 변경 감지 · 지연 로딩 · N+1 · fetch join · 벌크 연산과 영속성 컨텍스트 불일치
 

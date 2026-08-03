@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 340" width="780" height="340" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="778" height="338" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">빈 생명주기 — 언제 무엇이 호출되는가</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">실측 순서 (Spring 5.3.8) — 생성자에서는 의존성이 아직 없다</text>
+<rect x="34" y="108" width="122" height="58" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="95" y="132" font-size="12" fill="#e34948" font-weight="700" text-anchor="middle">생성자</text>
+<text x="95" y="152" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">의존성 없음</text>
+<line x1="158" y1="137" x2="178" y2="137" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="182" y="108" width="122" height="58" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="243" y="132" font-size="12" fill="#2a78d6" font-weight="700" text-anchor="middle">의존성 주입</text>
+<text x="243" y="152" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">setter · 메서드</text>
+<line x1="306" y1="137" x2="326" y2="137" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="330" y="108" width="122" height="58" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="391" y="132" font-size="12" fill="#898781" font-weight="700" text-anchor="middle">Aware</text>
+<text x="391" y="152" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">BeanNameAware 등</text>
+<line x1="454" y1="137" x2="474" y2="137" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="478" y="108" width="122" height="58" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="539" y="132" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">InitializingBean</text>
+<text x="539" y="152" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">afterPropertiesSet</text>
+<line x1="602" y1="137" x2="622" y2="137" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="626" y="108" width="122" height="58" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="687" y="132" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">initMethod</text>
+<text x="687" y="152" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">@Bean(initMethod)</text>
+<text x="34" y="96" font-size="11.5" fill="#52514e" font-weight="700" text-anchor="start">기동 시점</text>
+<line x1="34" y1="196" x2="746" y2="196" stroke="#898781" stroke-width="1.4" stroke-dasharray="4,4"/>
+<text x="34" y="220" font-size="11.5" fill="#52514e" font-weight="700" text-anchor="start">── 서비스 중 ──</text>
+<text x="34" y="254" font-size="11.5" fill="#52514e" font-weight="700" text-anchor="start">컨테이너 종료</text>
+<rect x="34" y="264" width="172" height="40" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="120.0" y="288.14" font-size="11.5" fill="#eb6834" font-weight="600" text-anchor="middle">DisposableBean.destroy()</text>
+<text x="230" y="280" font-size="11.5" fill="#0b0b0b" font-weight="700" text-anchor="start">생성자에서 주입된 의존성을 쓰면 안 된다  —  아직 준비 안 됐을 수 있다.</text>
+<text x="230" y="300" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">초기화 작업은 @PostConstruct 나 afterPropertiesSet() 에 둔다.</text>
+</svg>
