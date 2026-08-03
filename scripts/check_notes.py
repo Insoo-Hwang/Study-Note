@@ -21,13 +21,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 
-# 노트가 공통으로 쓰는 16개 섹션 (순서 포함)
+# 노트가 공통으로 쓰는 6개 섹션 (순서 포함)
 SECTIONS = [
-    "핵심 요약", "등장 배경", "핵심 개념", "구조와 동작 원리",
-    "코드 또는 사용 예시", "성능 특성", "장점과 단점", "사용 기준",
-    "비슷한 개념 비교", "백엔드 실무 적용", "자주 하는 오해", "면접 답변",
-    "예상 면접 질문", "추가 학습 방향", "최종 체크리스트", "한 줄 결론",
+    "핵심 요약", "동작 원리", "특징과 비교",
+    "실무 주의사항", "예제", "면접 정리",
 ]
+
+# `3. 특징과 비교`가 반드시 첫머리에 두는 요약표의 4개 행
+SUMMARY_ROWS = ["장점", "단점", "적합한 상황", "주의할 상황"]
+
+# `6. 면접 정리`가 반드시 담아야 하는 하위 절
+INTERVIEW_SUBS = ["자주 나오는 질문", "30초 답변", "핵심 키워드"]
 
 # `면접 답변 > 답변 구조`가 반드시 이 순서로 담아야 하는 8개 항목
 ANSWER_PARTS = [
@@ -64,15 +68,38 @@ def check_note(md: Path) -> None:
     if md.stem != md.parent.name:
         err(rel, f"파일명이 폴더명과 다르다 (폴더 '{md.parent.name}' / 파일 '{md.stem}')")
 
-    # 2) 16개 섹션이 순서대로 있는지
+    # 2) 6개 섹션이 순서대로 있는지
     found = re.findall(r"^## \d+\.\s*(.+?)\s*$", text, flags=re.MULTILINE)
     missing = [s for s in SECTIONS if s not in found]
     if missing:
-        warn(rel, f"빠진 섹션: {', '.join(missing)}")
+        err(rel, f"빠진 섹션: {', '.join(missing)}")
     else:
         order = [found.index(s) for s in SECTIONS]
         if order != sorted(order):
-            warn(rel, "섹션 순서가 표준 순서와 다르다")
+            err(rel, "섹션 순서가 표준 순서와 다르다")
+
+    # 2-1) `특징과 비교`는 요약표(장점/단점/적합한 상황/주의할 상황)로 시작한다
+    m = re.search(r"^## \d+\. 특징과 비교\s*$(.*?)^### ", text,
+                  flags=re.MULTILINE | re.DOTALL)
+    if m:
+        rows = re.findall(r"^\|\s*\*\*(.+?)\*\*\s*\|\s*(.*?)\s*\|",
+                          m.group(1), flags=re.MULTILINE)
+        labels = [r[0] for r in rows]
+        if labels != SUMMARY_ROWS:
+            err(rel, f"`특징과 비교` 요약표가 규칙과 다르다\n"
+                     f"          기대: {' / '.join(SUMMARY_ROWS)}\n"
+                     f"          실제: {' / '.join(labels) if labels else '(표 없음)'}")
+        for label, cell in rows:
+            if not cell.strip():
+                err(rel, f"요약표의 '{label}' 칸이 비어 있다")
+
+    # 2-2) `면접 정리`에 필요한 하위 절이 있는지
+    m = re.search(r"^## \d+\. 면접 정리\s*$(.*)", text, flags=re.MULTILINE | re.DOTALL)
+    if m:
+        subs = re.findall(r"^### (.+?)\s*$", m.group(1), flags=re.MULTILINE)
+        for need in INTERVIEW_SUBS:
+            if need not in subs:
+                err(rel, f"`면접 정리`에 `### {need}` 절이 없다")
 
     # 3) 번호 목록 하위 불릿은 반드시 4칸 들여쓰기
     #    3칸이면 Python-Markdown이 순서 목록의 하위 항목으로 인식하지 못한다.
@@ -82,10 +109,10 @@ def check_note(md: Path) -> None:
                      f"          {line.strip()[:60]}")
 
     # 4) `답변 구조` 8개 항목이 고정 순서로 있는지
-    m = re.search(r"^### 답변 구조\s*$(.*?)^---", text, flags=re.MULTILINE | re.DOTALL)
+    m = re.search(r"^#### 답변 구조\s*$(.*?)^#{3} ", text, flags=re.MULTILINE | re.DOTALL)
     if not m:
-        if "## 12. 면접 답변" in text:
-            err(rel, "`### 답변 구조` 절이 없다")
+        if "## 6. 면접 정리" in text:
+            err(rel, "`#### 답변 구조` 절이 없다 (`30초 답변` 아래에 둔다)")
     else:
         # 불릿(`* **정의**`)과 번호 목록(`1. **정의**`) 양쪽을 인정한다.
         # 노트가 번호 목록으로 바뀌었는데 검사기가 불릿만 보고 전부 오류로 잡던 문제.
