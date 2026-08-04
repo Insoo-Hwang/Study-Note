@@ -40,7 +40,7 @@ theme:
 #
 # 각 섹션의 첫 줄에 라벨 없이 놓인 `index.md`는 그 섹션의 인덱스 페이지입니다.
 # (theme features의 navigation.indexes) 좌측 메뉴에서 섹션 제목을 누르면
-# 별도 항목 없이 그 섹션의 '한 장 요약'이 열립니다.
+# 별도 항목 없이 그 섹션의 '한 페이지 요약'이 열립니다.
 # 파일명은 반드시 `index.md`여야 합니다 — Material이 is_index로 판별합니다.
 nav:
   - 홈: index.md
