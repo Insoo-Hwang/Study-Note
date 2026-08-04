@@ -3,6 +3,9 @@
 **링크가 걸린 항목은 작성 완료**, 링크 없는 항목은 아직 쓰지 않은 노트다.
 `/study-section <번호>`를 실행하면 그 섹션에서 링크 없는 항목을 찾아 작성한다.
 
+**섹션 제목을 누르면 그 섹션의 「한 장 요약」이 열린다** — 노트 전체를 그림 한 장으로 압축한 페이지다
+(좌측 메뉴에서 섹션 이름을 눌러도 같은 페이지로 간다).
+
 모든 노트는 같은 6개 섹션으로 되어 있다.
 
 ```text
@@ -11,7 +14,7 @@
 
 ---
 
-### 01. 복잡도 · 자료구조
+### [01. 복잡도 · 자료구조](01-복잡도-자료구조/index.md)
 
 - [시간 복잡도와 공간 복잡도](01-복잡도-자료구조/시간-공간-복잡도/시간-공간-복잡도.md)
 - [Amortized Analysis (상각 분석)](01-복잡도-자료구조/Amortized-Analysis/Amortized-Analysis.md)
@@ -20,13 +23,13 @@
 - [Heap과 PriorityQueue](01-복잡도-자료구조/Heap-PriorityQueue/Heap-PriorityQueue.md)
 - [Collection 선택 기준](01-복잡도-자료구조/Collection-선택-기준/Collection-선택-기준.md)
 
-### 02. 알고리즘
+### [02. 알고리즘](02-알고리즘/index.md)
 
 - [탐색과 정렬](02-알고리즘/탐색-정렬/탐색-정렬.md)
 - [구간 처리](02-알고리즘/구간-처리/구간-처리.md)
 - [그래프 문제 해결](02-알고리즘/그래프-문제해결/그래프-문제해결.md)
 
-### 03. Java
+### [03. Java](03-Java/index.md)
 
 - [Java Collection](03-Java/Java-Collection/Java-Collection.md)
 - [equals · hashCode](03-Java/equals-hashCode/equals-hashCode.md)

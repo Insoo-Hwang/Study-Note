@@ -37,9 +37,15 @@ theme:
         name: 라이트 모드로 전환
 
 # 좌측 메뉴 구성 — 새 노트를 추가하면 이 목록에 한 줄 추가하면 됩니다.
+#
+# 각 섹션의 첫 줄에 라벨 없이 놓인 `index.md`는 그 섹션의 인덱스 페이지입니다.
+# (theme features의 navigation.indexes) 좌측 메뉴에서 섹션 제목을 누르면
+# 별도 항목 없이 그 섹션의 '한 장 요약'이 열립니다.
+# 파일명은 반드시 `index.md`여야 합니다 — Material이 is_index로 판별합니다.
 nav:
   - 홈: index.md
   - 01. 복잡도 · 자료구조:
+      - 01-복잡도-자료구조/index.md
       - 시간 복잡도와 공간 복잡도: 01-복잡도-자료구조/시간-공간-복잡도/시간-공간-복잡도.md
       - Amortized Analysis: 01-복잡도-자료구조/Amortized-Analysis/Amortized-Analysis.md
       - 선형 자료구조 비교: 01-복잡도-자료구조/선형-자료구조-비교/선형-자료구조-비교.md
@@ -47,10 +53,12 @@ nav:
       - Heap과 PriorityQueue: 01-복잡도-자료구조/Heap-PriorityQueue/Heap-PriorityQueue.md
       - Collection 선택 기준: 01-복잡도-자료구조/Collection-선택-기준/Collection-선택-기준.md
   - 02. 알고리즘:
+      - 02-알고리즘/index.md
       - 탐색과 정렬: 02-알고리즘/탐색-정렬/탐색-정렬.md
       - 구간 처리: 02-알고리즘/구간-처리/구간-처리.md
       - 그래프 문제 해결: 02-알고리즘/그래프-문제해결/그래프-문제해결.md
   - 03. Java:
+      - 03-Java/index.md
       - Java Collection: 03-Java/Java-Collection/Java-Collection.md
       - equals · hashCode: 03-Java/equals-hashCode/equals-hashCode.md
       - 객체지향과 SOLID: 03-Java/객체지향-SOLID/객체지향-SOLID.md

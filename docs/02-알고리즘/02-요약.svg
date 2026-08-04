@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 807" width="880" height="807" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="878" height="805" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">02. 알고리즘 — 한 장 요약</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">노트 3개의 핵심을 한 장으로 — 어떤 질문이 어떤 알고리즘으로 이어지는가</text>
+<rect x="32" y="84" width="254.7" height="34" rx="8" fill="#2a78d6" fill-opacity="0.09" stroke="#2a78d6" stroke-opacity="0.35" stroke-width="1.1"/>
+<text x="159.33333333333331" y="106" font-size="12.5" fill="#2a78d6" font-weight="700" text-anchor="middle">① 몇 번 찾는가</text>
+<line x1="291.66666666666663" y1="101" x2="306.66666666666663" y2="101" stroke="#898781" stroke-width="1.3" marker-end="url(#ah)"/>
+<rect x="312.66666666666663" y="84" width="254.7" height="34" rx="8" fill="#eb6834" fill-opacity="0.09" stroke="#eb6834" stroke-opacity="0.35" stroke-width="1.1"/>
+<text x="439.99999999999994" y="106" font-size="12.5" fill="#eb6834" font-weight="700" text-anchor="middle">② 계산을 이어 쓰는가</text>
+<line x1="572.3333333333333" y1="101" x2="587.3333333333333" y2="101" stroke="#898781" stroke-width="1.3" marker-end="url(#ah)"/>
+<rect x="593.3333333333333" y="84" width="254.7" height="34" rx="8" fill="#7a3ba7" fill-opacity="0.09" stroke="#7a3ba7" stroke-opacity="0.35" stroke-width="1.1"/>
+<text x="720.6666666666666" y="106" font-size="12.5" fill="#7a3ba7" font-weight="700" text-anchor="middle">③ 최단을 보장하는가</text>
+<rect x="32" y="140" width="816" height="175" rx="10" fill="#ffffff" stroke="rgba(11,11,11,0.13)" stroke-width="1.2"/>
+<path d="M32 150 a10,10 0 0 1 10,-10 h0 v175 h0 a10,10 0 0 1 -10,-10 Z" fill="#2a78d6"/>
+<text x="52" y="166" font-size="15" fill="#2a78d6" font-weight="700" text-anchor="start">탐색과 정렬</text>
+<text x="832" y="166" font-size="14" fill="#898781" font-weight="700" text-anchor="end">①</text>
+<text x="52" y="187" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">이 데이터에서 몇 번 찾을 것인가 — 그 답이 전부를 결정한다</text>
+<line x1="52" y1="198" x2="834" y2="198" stroke="rgba(11,11,11,0.09)" stroke-width="1"/>
+<circle cx="55" cy="215" r="2.4" fill="#2a78d6" fill-opacity="0.65"/>
+<text x="65" y="219" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">선형 탐색은 준비 비용이 0이라, 데이터가 작거나 1회 탐색이면 가장 빠르다</text>
+<circle cx="55" cy="234.5" r="2.4" fill="#2a78d6" fill-opacity="0.65"/>
+<text x="65" y="238.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">이진 탐색은 O(log n)이지만 정렬이 전제 — 전제가 깨지면 예외 없이 조용히 틀린 답을 준다</text>
+<circle cx="55" cy="254.0" r="2.4" fill="#2a78d6" fill-opacity="0.65"/>
+<text x="65" y="258.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">정렬 한 번의 비용은 선형 탐색 약 52회와 맞먹는다 (그보다 적게 찾으면 정렬하지 않는 편이 빠르다)</text>
+<circle cx="55" cy="273.5" r="2.4" fill="#2a78d6" fill-opacity="0.65"/>
+<text x="65" y="277.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">Java는 기본형에 Dual-Pivot Quicksort, 객체에 TimSort(안정 정렬)를 쓴다 — 같은 Arrays.sort라도 다른 알고리즘</text>
+<circle cx="55" cy="293.0" r="2.4" fill="#2a78d6" fill-opacity="0.65"/>
+<text x="65" y="297.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">compareTo · compare의 반환값은 크기가 아니라 부호만 의미가 있다 — a - b는 오버플로로 조용히 틀린다</text>
+<rect x="32" y="327" width="816" height="155" rx="10" fill="#ffffff" stroke="rgba(11,11,11,0.13)" stroke-width="1.2"/>
+<path d="M32 337 a10,10 0 0 1 10,-10 h0 v155 h0 a10,10 0 0 1 -10,-10 Z" fill="#eb6834"/>
+<text x="52" y="353" font-size="15" fill="#eb6834" font-weight="700" text-anchor="start">구간 처리</text>
+<text x="832" y="353" font-size="14" fill="#898781" font-weight="700" text-anchor="end">②</text>
+<text x="52" y="374" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">이미 계산한 것을 버리지 않는다 — 세 패턴 모두 같은 아이디어다</text>
+<line x1="52" y1="385" x2="834" y2="385" stroke="rgba(11,11,11,0.09)" stroke-width="1"/>
+<circle cx="55" cy="402" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="65" y="406" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">투 포인터 — 두 위치를 조절하며 조건을 탐색한다. 전제는 단조성(정렬 등)이다</text>
+<circle cx="55" cy="421.5" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="65" y="425.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">슬라이딩 윈도우 — 창이 한 칸 움직일 때 나간 값을 빼고 들어온 값을 더한다. 창 크기 k와 무관하게 이동 한 번이 O(1)</text>
+<circle cx="55" cy="441.0" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="65" y="445.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">누적합 — 미리 O(n)을 선불로 지불해 임의 구간 합을 O(1)로 만든다</text>
+<circle cx="55" cy="460.5" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="65" y="464.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">for 안에 while이 있어도 left가 되돌아가지 않으면 전체는 O(n)이다 — 상환 분석으로 세야 한다</text>
+<rect x="32" y="494" width="816" height="175" rx="10" fill="#ffffff" stroke="rgba(11,11,11,0.13)" stroke-width="1.2"/>
+<path d="M32 504 a10,10 0 0 1 10,-10 h0 v175 h0 a10,10 0 0 1 -10,-10 Z" fill="#7a3ba7"/>
+<text x="52" y="520" font-size="15" fill="#7a3ba7" font-weight="700" text-anchor="start">그래프 문제 해결</text>
+<text x="832" y="520" font-size="14" fill="#898781" font-weight="700" text-anchor="end">③</text>
+<text x="52" y="541" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">최단 거리가 필요한가로 DFS · BFS가, 지금의 최선을 증명할 수 있는가로 Greedy · DP가 갈린다</text>
+<line x1="52" y1="552" x2="834" y2="552" stroke="rgba(11,11,11,0.09)" stroke-width="1"/>
+<circle cx="55" cy="569" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="65" y="573" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">DFS와 BFS는 자료구조만 스택 ↔ 큐로 바꾼 같은 코드인데, 보장하는 성질이 완전히 달라진다</text>
+<circle cx="55" cy="588.5" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="65" y="592.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">BFS만 최단 경로를 보장하고, 그것도 간선 가중치가 모두 같을 때만이다</text>
+<circle cx="55" cy="608.0" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="65" y="612.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">방문 표시는 큐에 넣을 때 해야 한다 — 꺼낼 때 하면 같은 정점이 여러 번 들어간다 (실측 6회 → 16회)</text>
+<circle cx="55" cy="627.5" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="65" y="631.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">재귀 DFS는 JVM 호출 스택을 써서 약 1만 깊이에서 터진다. 명시적 스택은 힙을 써서 1000만도 견딘다</text>
+<circle cx="55" cy="647.0" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="65" y="651.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">Greedy는 지금 최선을 고르고, DP는 겹치는 계산을 저장한다 — 확신이 없으면 각각 BFS와 DP가 안전한 답이다</text>
+<rect x="32" y="691" width="816" height="90" rx="9" fill="#7a3ba7" fill-opacity="0.07" stroke="#7a3ba7" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="46" y="712" font-size="13" fill="#7a3ba7" font-weight="700" text-anchor="start">이 섹션의 결론</text>
+<text x="48" y="735" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">탐색은 손익분기점 문제다 — 반복 조회가 충분히 많을 때만 정렬이라는 선불 비용이 회수된다.</text>
+<text x="48" y="755" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">구간은 매번 다시 세지 말고 이어서 갱신한다 — 한 방향이면 슬라이딩 윈도우, 임의 구간이면 누적합, 짝을 찾으면 투 포인터.</text>
+<text x="48" y="775" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">탐색 알고리즘의 선택은 취향이 아니라 보장의 문제다 — 최단이 필요하면 BFS, 증명할 수 없으면 Greedy 대신 DP.</text>
+</svg>

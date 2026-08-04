@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 866" width="880" height="866" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="878" height="864" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">03. Java — 한 장 요약</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">노트 5개의 핵심을 한 장으로 — 언어의 원칙에서 실행 기반까지</text>
+<rect x="32" y="84" width="184.5" height="34" rx="8" fill="#2a78d6" fill-opacity="0.09" stroke="#2a78d6" stroke-opacity="0.35" stroke-width="1.1"/>
+<text x="124.25" y="106" font-size="12.5" fill="#2a78d6" font-weight="700" text-anchor="middle">① 변경을 가두고(OOP)</text>
+<line x1="221.5" y1="101" x2="236.5" y2="101" stroke="#898781" stroke-width="1.3" marker-end="url(#ah)"/>
+<rect x="242.5" y="84" width="184.5" height="34" rx="8" fill="#eb6834" fill-opacity="0.09" stroke="#eb6834" stroke-opacity="0.35" stroke-width="1.1"/>
+<text x="334.75" y="106" font-size="12.5" fill="#eb6834" font-weight="700" text-anchor="middle">② 자료를 규약 위에 담고</text>
+<line x1="432.0" y1="101" x2="447.0" y2="101" stroke="#898781" stroke-width="1.3" marker-end="url(#ah)"/>
+<rect x="453.0" y="84" width="184.5" height="34" rx="8" fill="#7a3ba7" fill-opacity="0.09" stroke="#7a3ba7" stroke-opacity="0.35" stroke-width="1.1"/>
+<text x="545.25" y="106" font-size="12.5" fill="#7a3ba7" font-weight="700" text-anchor="middle">③ 도구에 맡기고</text>
+<line x1="642.5" y1="101" x2="657.5" y2="101" stroke="#898781" stroke-width="1.3" marker-end="url(#ah)"/>
+<rect x="663.5" y="84" width="184.5" height="34" rx="8" fill="#008300" fill-opacity="0.09" stroke="#008300" stroke-opacity="0.35" stroke-width="1.1"/>
+<text x="755.75" y="106" font-size="12.5" fill="#008300" font-weight="700" text-anchor="middle">④ JVM이 떠받친다</text>
+<rect x="32" y="140" width="402" height="175" rx="10" fill="#ffffff" stroke="rgba(11,11,11,0.13)" stroke-width="1.2"/>
+<path d="M32 150 a10,10 0 0 1 10,-10 h0 v175 h0 a10,10 0 0 1 -10,-10 Z" fill="#2a78d6"/>
+<text x="52" y="166" font-size="15" fill="#2a78d6" font-weight="700" text-anchor="start">객체지향과 SOLID</text>
+<text x="418" y="166" font-size="14" fill="#898781" font-weight="700" text-anchor="end">①</text>
+<text x="52" y="187" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">목적은 현실 흉내가 아니라 변경이 퍼지지 않게 막는 것</text>
+<line x1="52" y1="198" x2="420" y2="198" stroke="rgba(11,11,11,0.09)" stroke-width="1"/>
+<circle cx="55" cy="215" r="2.4" fill="#2a78d6" fill-opacity="0.65"/>
+<text x="65" y="219" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">네 기둥 중 실제 이득을 만드는 것은 다형성 하나다</text>
+<circle cx="55" cy="234.5" r="2.4" fill="#2a78d6" fill-opacity="0.65"/>
+<text x="65" y="238.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">메서드는 오버라이딩되지만 필드는 되지 않는다 (실측 확인)</text>
+<circle cx="55" cy="254.0" r="2.4" fill="#2a78d6" fill-opacity="0.65"/>
+<text x="65" y="258.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">SOLID 다섯은 결국 변할 것과 변하지 않을 것을 분리하라는 한 말</text>
+<circle cx="55" cy="273.5" r="2.4" fill="#2a78d6" fill-opacity="0.65"/>
+<text x="65" y="277.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">상속은 기본 선택지가 아니다 — 이유가 없으면 합성을 쓴다</text>
+<circle cx="55" cy="293.0" r="2.4" fill="#2a78d6" fill-opacity="0.65"/>
+<text x="65" y="297.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">DIP가 Spring 의존성 주입의 이론적 근거다</text>
+<rect x="446" y="140" width="402" height="175" rx="10" fill="#ffffff" stroke="rgba(11,11,11,0.13)" stroke-width="1.2"/>
+<path d="M446 150 a10,10 0 0 1 10,-10 h0 v175 h0 a10,10 0 0 1 -10,-10 Z" fill="#eb6834"/>
+<text x="466" y="166" font-size="15" fill="#eb6834" font-weight="700" text-anchor="start">Java Collection</text>
+<text x="832" y="166" font-size="14" fill="#898781" font-weight="700" text-anchor="end">②</text>
+<text x="466" y="187" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">무엇을 보장하는가와 어떻게 만들었는가의 분리</text>
+<line x1="466" y1="198" x2="834" y2="198" stroke="rgba(11,11,11,0.09)" stroke-width="1"/>
+<circle cx="469" cy="215" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="479" y="219" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">Iterable → Collection → List · Set · Queue (Map은 별개다)</text>
+<circle cx="469" cy="234.5" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="479" y="238.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">ArrayList는 0 → 10에서 1.5배씩, HashMap은 table 16 · 임계 12</text>
+<circle cx="469" cy="254.0" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="479" y="258.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">subList · keySet · Arrays.asList는 복사본이 아니라 뷰다</text>
+<circle cx="469" cy="273.5" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="479" y="277.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">fail-fast는 보장이 아니다 — 끝에서 두 번째 삭제만 조용히 통과</text>
+<circle cx="469" cy="293.0" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="479" y="297.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">구현체 선택은 곧 내부 자료구조 선택이다</text>
+<rect x="32" y="327" width="402" height="175" rx="10" fill="#ffffff" stroke="rgba(11,11,11,0.13)" stroke-width="1.2"/>
+<path d="M32 337 a10,10 0 0 1 10,-10 h0 v175 h0 a10,10 0 0 1 -10,-10 Z" fill="#eb6834"/>
+<text x="52" y="353" font-size="15" fill="#eb6834" font-weight="700" text-anchor="start">equals · hashCode</text>
+<text x="418" y="353" font-size="14" fill="#898781" font-weight="700" text-anchor="end">②</text>
+<text x="52" y="374" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">hashCode는 어디를 뒤질까, equals는 그중 진짜인가</text>
+<line x1="52" y1="385" x2="420" y2="385" stroke="rgba(11,11,11,0.09)" stroke-width="1"/>
+<circle cx="55" cy="402" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="65" y="406" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">버킷을 찾고 최종 확인하는 두 단계라 둘 다 필요하다</text>
+<circle cx="55" cy="421.5" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="65" y="425.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">equals만 재정의 → 못 찾고, hashCode만 → 중복이 그대로 쌓인다</text>
+<circle cx="55" cy="441.0" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="65" y="445.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">해시가 같아도 같은 객체가 아니다 ("Aa"와 "BB" 모두 2112)</text>
+<circle cx="55" cy="460.5" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="65" y="464.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">키 필드를 바꾸면 미아가 된다 — 못 찾는데 size엔 잡힌다</text>
+<circle cx="55" cy="480.0" r="2.4" fill="#eb6834" fill-opacity="0.65"/>
+<text x="65" y="484.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">상수 hashCode면 HashSet 삽입이 2,408배 느려진다 (실측)</text>
+<rect x="446" y="327" width="402" height="194" rx="10" fill="#ffffff" stroke="rgba(11,11,11,0.13)" stroke-width="1.2"/>
+<path d="M446 337 a10,10 0 0 1 10,-10 h0 v194 h0 a10,10 0 0 1 -10,-10 Z" fill="#7a3ba7"/>
+<text x="466" y="353" font-size="15" fill="#7a3ba7" font-weight="700" text-anchor="start">Generic · Exception · Stream</text>
+<text x="832" y="353" font-size="14" fill="#898781" font-weight="700" text-anchor="end">③</text>
+<text x="466" y="374" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">직접 하지 말고 맡겨라 — 대신 각각 함정이 하나씩 있다</text>
+<line x1="466" y1="385" x2="834" y2="385" stroke="rgba(11,11,11,0.09)" stroke-width="1"/>
+<circle cx="469" cy="402" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="479" y="406" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">타입 소거 — List&lt;String&gt;과 List&lt;Integer&gt;는 실행 중 같은 클래스</text>
+<circle cx="469" cy="421.5" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="479" y="425.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">그래서 넣을 때는 조용하고, 꺼낼 때 ClassCastException이 난다</text>
+<circle cx="469" cy="441.0" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="479" y="445.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">와일드카드는 PECS — 읽기만 ? extends, 쓰기만 ? super</text>
+<circle cx="469" cy="460.5" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="479" y="464.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">finally에서 return하면 예외가 통째로 사라진다 (실측 확인)</text>
+<circle cx="469" cy="480.0" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="479" y="484.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">스트림은 지연 평가 — 최종 연산이 없으면 아무 일도 없다</text>
+<circle cx="469" cy="499.5" r="2.4" fill="#7a3ba7" fill-opacity="0.65"/>
+<text x="479" y="503.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">진짜 비용은 스트림이 아니라 박싱이다 (100만 건 5.1배 차이)</text>
+<rect x="32" y="533" width="816" height="175" rx="10" fill="#ffffff" stroke="rgba(11,11,11,0.13)" stroke-width="1.2"/>
+<path d="M32 543 a10,10 0 0 1 10,-10 h0 v175 h0 a10,10 0 0 1 -10,-10 Z" fill="#008300"/>
+<text x="52" y="559" font-size="15" fill="#008300" font-weight="700" text-anchor="start">JVM 메모리와 GC</text>
+<text x="832" y="559" font-size="14" fill="#898781" font-weight="700" text-anchor="end">④</text>
+<text x="52" y="580" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">GC는 메모리가 부족할 때가 아니라 Eden이 찰 때마다 수시로 돈다</text>
+<line x1="52" y1="591" x2="834" y2="591" stroke="rgba(11,11,11,0.09)" stroke-width="1"/>
+<circle cx="55" cy="608" r="2.4" fill="#008300" fill-opacity="0.65"/>
+<text x="65" y="612" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">스레드마다 갖는 곳(스택 · PC)과 모두가 공유하는 곳(힙 · 메타스페이스)으로 나뉜다 — 객체는 힙에, 참조 변수는 스택에 있다</text>
+<circle cx="55" cy="627.5" r="2.4" fill="#008300" fill-opacity="0.65"/>
+<text x="65" y="631.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">GC의 기준은 참조 횟수가 아니라 GC Root에서 따라갈 수 있는가(도달 가능성)다</text>
+<circle cx="55" cy="647.0" r="2.4" fill="#008300" fill-opacity="0.65"/>
+<text x="65" y="651.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">힙은 Young(Eden + Survivor 2개)과 Old로 나뉘고, 근거는 대부분의 객체는 금방 죽는다는 약한 세대 가설이다</text>
+<circle cx="55" cy="666.5" r="2.4" fill="#008300" fill-opacity="0.65"/>
+<text x="65" y="670.5" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">JDK 9부터 기본은 G1 — 실측에서 약 1GB 할당에 GC 8회 · 누적 18 ms로 자주, 그리고 짧게 돌았다</text>
+<circle cx="55" cy="686.0" r="2.4" fill="#008300" fill-opacity="0.65"/>
+<text x="65" y="690.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">메모리 누수는 쓰지 않지만 참조가 남은 객체다. GC는 참조가 있으면 절대 치우지 않는다 — 응답 시간의 주범은 STW다</text>
+<rect x="32" y="730" width="816" height="110" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="46" y="751" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">이 섹션의 결론</text>
+<text x="48" y="774" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">객체지향은 다형성으로 변경의 파급을 가두는 일이고, SOLID는 그 방법을 다섯 문장으로 정리한 것이다.</text>
+<text x="48" y="794" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">컬렉션은 인터페이스라는 계약과 equals · hashCode라는 규약 위에서만 정확하게 동작한다 — 키는 반드시 불변이어야 한다.</text>
+<text x="48" y="814" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">제네릭 · 예외 · 스트림은 편의를 주는 대신 각각 소거 · 예외 삼킴 · 지연 평가라는 함정을 남긴다.</text>
+<text x="48" y="834" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">그 모든 것 아래에서 JVM이 메모리를 나누고 GC가 돈다 — 튜닝의 목표는 GC를 없애는 것이 아니라 짧게 만드는 것이다.</text>
+</svg>
