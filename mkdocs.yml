@@ -75,7 +75,12 @@ nav:
       - MVCC: 07-트랜잭션-데이터접근/MVCC/MVCC.md
       - 낙관적 락 · 비관적 락: 07-트랜잭션-데이터접근/낙관적-비관적-락/낙관적-비관적-락.md
       - JDBC · MyBatis · JPA: 07-트랜잭션-데이터접근/JDBC-MyBatis-JPA/JDBC-MyBatis-JPA.md
-  # 08-캐시-Redis, 09-웹-보안, 10-테스트-운영, 11-메시징-시스템설계,
+  - 08. 캐시 · Redis:
+      - 캐시 전략과 정합성: 08-캐시-Redis/캐시-전략-정합성/캐시-전략-정합성.md
+      - Cache Stampede와 Request Collapsing: 08-캐시-Redis/Cache-Stampede/Cache-Stampede.md
+      - Redis 자료구조와 활용: 08-캐시-Redis/Redis-자료구조/Redis-자료구조.md
+      - 분산 락과 멱등성: 08-캐시-Redis/분산락-멱등성/분산락-멱등성.md
+  # 09-웹-보안, 10-테스트-운영, 11-메시징-시스템설계,
   # 12-경험기반-면접은 노트를 쓰는 시점에 이 자리에 번호 순서대로 추가한다.
 
 markdown_extensions:

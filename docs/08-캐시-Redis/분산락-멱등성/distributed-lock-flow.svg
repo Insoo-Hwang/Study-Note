@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="358" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">락 해제할 때 토큰을 확인하지 않으면 남의 락을 푼다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">SET key token NX PX ttl 로 잡고, Lua 로 '내 토큰일 때만' 지운다</text>
+<rect x="30" y="82" width="700" height="92" rx="9" fill="#898781" fill-opacity="0.07" stroke="#898781" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="44" y="103" font-size="13" fill="#898781" font-weight="700" text-anchor="start">올바른 획득과 해제</text>
+<rect x="46" y="116" width="200" height="40" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="146.0" y="139.96" font-size="11" fill="#2a78d6" font-weight="600" text-anchor="middle">SET lock &lt;토큰&gt; NX PX 3000</text>
+<line x1="250" y1="136" x2="286" y2="136" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<rect x="290" y="116" width="150" height="40" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="365.0" y="140.14" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">임계 구역 작업</text>
+<line x1="444" y1="136" x2="480" y2="136" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<rect x="484" y="108" width="232" height="56" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="494" y="128" font-size="10" fill="#008300" font-weight="600" text-anchor="start" font-family="ui-monospace, Consolas, monospace">EVAL  if get(KEYS[1]) == ARGV[1]</text>
+<text x="494" y="144" font-size="10" fill="#008300" font-weight="600" text-anchor="start" font-family="ui-monospace, Consolas, monospace">        then del(KEYS[1]) end</text>
+<text x="494" y="158" font-size="10" fill="#52514e" font-weight="400" text-anchor="start">내 토큰일 때만 지운다</text>
+<rect x="30" y="188" width="700" height="132" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="44" y="209" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">토큰을 안 보고 DEL 만 했을 때 — 실측 재현</text>
+<text x="44" y="226" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">A 의 락이 TTL 로 만료된 뒤 B 가 새로 잡았는데, A 가 뒤늦게 해제했다</text>
+<text x="46" y="250" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">t=0</text>
+<text x="120" y="250" font-size="11" fill="#2a78d6" font-weight="400" text-anchor="start">A: SET lock token-A NX PX 200</text>
+<text x="46" y="268" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">t=200ms</text>
+<text x="120" y="268" font-size="11" fill="#898781" font-weight="400" text-anchor="start">락이 자동 만료된다 (A 는 아직 작업 중)</text>
+<text x="46" y="286" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">t=210ms</text>
+<text x="120" y="286" font-size="11" fill="#eb6834" font-weight="400" text-anchor="start">B: SET lock token-B NX PX 5000  — B 가 락을 잡는다</text>
+<text x="46" y="304" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">t=300ms</text>
+<text x="120" y="304" font-size="11" fill="#e34948" font-weight="600" text-anchor="start">A: DEL lock  — B 의 락을 지웠다</text>
+<text x="34" y="344" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">실측— 검사 없이 DEL: B 의 락이 사라졌다   /   Lua 토큰 검사: 지운 키 0개, B 의 락 그대로</text>
+</svg>

@@ -63,10 +63,10 @@
 
 ### 08. 캐시 · Redis
 
-- 캐시 전략과 정합성
-- Cache Stampede와 Request Collapsing
-- Redis 자료구조와 활용
-- 분산 락과 멱등성
+- [캐시 전략과 정합성](08-캐시-Redis/캐시-전략-정합성/캐시-전략-정합성.md)
+- [Cache Stampede와 Request Collapsing](08-캐시-Redis/Cache-Stampede/Cache-Stampede.md)
+- [Redis 자료구조와 활용](08-캐시-Redis/Redis-자료구조/Redis-자료구조.md)
+- [분산 락과 멱등성](08-캐시-Redis/분산락-멱등성/분산락-멱등성.md)
 
 ### 09. 웹 · 보안
 

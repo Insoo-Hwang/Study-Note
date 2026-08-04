@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 384" width="760" height="384" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="382" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">캐시와 DB 를 고치는 순서가 정합성을 결정한다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">읽기 스레드 6개가 도는 상태에서 쓰기 1회 수행, 400회 반복 후 캐시와 DB 를 비교</text>
+<rect x="30" y="84" width="348" height="166" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="44" y="105" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">(A)  캐시 삭제  →  DB 갱신</text>
+<text x="44" y="122" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">삭제와 갱신 사이의 창 = DB UPDATE 가 걸리는 시간 (수 ms)</text>
+<text x="46" y="146" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">1.</text>
+<text x="64" y="146" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">캐시 삭제</text>
+<text x="46" y="168" font-size="11.5" fill="#898781" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">2.</text>
+<text x="64" y="168" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">다른 스레드가 미스 → DB 에서 옛값 100 을 읽음</text>
+<text x="46" y="190" font-size="11.5" fill="#898781" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">3.</text>
+<text x="64" y="190" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">옛값 100 을 캐시에 저장</text>
+<text x="46" y="212" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">4.</text>
+<text x="64" y="212" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">DB 를 200 으로 갱신</text>
+<text x="46" y="238" font-size="12" fill="#e34948" font-weight="700" text-anchor="start">결과  DB = 200,  캐시 = 100   →  영구 불일치</text>
+<rect x="390" y="84" width="340" height="166" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="404" y="105" font-size="13" fill="#008300" font-weight="700" text-anchor="start">(B)  DB 갱신  →  캐시 삭제</text>
+<text x="404" y="122" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">갱신 뒤에는 누가 읽어도 이미 새 값이다</text>
+<text x="406" y="146" font-size="11.5" fill="#008300" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">1.</text>
+<text x="424" y="146" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">DB 를 200 으로 갱신</text>
+<text x="406" y="168" font-size="11.5" fill="#898781" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">2.</text>
+<text x="424" y="168" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">다른 스레드가 읽으면 이미 200</text>
+<text x="406" y="190" font-size="11.5" fill="#008300" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">3.</text>
+<text x="424" y="190" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">캐시 삭제</text>
+<text x="424" y="212" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">다음 읽기가 200 으로 채운다</text>
+<text x="406" y="238" font-size="12" fill="#008300" font-weight="700" text-anchor="start">결과  DB = 200,  캐시 = 비어 있음   →  일치</text>
+<text x="34" y="274" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">실측 — 400회 중 영구 불일치가 난 횟수</text>
+<text x="34" y="322" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="start">캐시 삭제 → DB 갱신</text>
+<rect x="220" y="306" width="360" height="22" rx="4" fill="#e34948" stroke="#e34948" stroke-width="1.3"/>
+<text x="590" y="322" font-size="12" fill="#e34948" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">400 / 400 회</text>
+<text x="34" y="354" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="start">DB 갱신 → 캐시 삭제</text>
+<rect x="220" y="338" width="3" height="22" rx="4" fill="#008300" stroke="#008300" stroke-width="1.3"/>
+<text x="233" y="354" font-size="12" fill="#008300" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">0 / 400 회</text>
+</svg>

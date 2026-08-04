@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 356" width="760" height="356" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="354" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">같은 답을 100번 만들면 28초가 된다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">원본 조회 1회 = 327.6 ms, 동시 요청 100개, DB 커넥션 1개</text>
+<rect x="30" y="82" width="700" height="116" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="44" y="103" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">대책 없음</text>
+<text x="44" y="120" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">첫 요청이 캐시를 채우기 전까지 도착한 요청이 전부 미스가 된다</text>
+<text x="46" y="140" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">요청 1</text>
+<text x="46" y="158" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">요청 2</text>
+<text x="46" y="176" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">⋮</text>
+<text x="46" y="191" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">요청 100</text>
+<rect x="106" y="132" width="92" height="14" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="152.0" y="142.24" font-size="9" fill="#e34948" font-weight="600" text-anchor="middle">DB 327 ms</text>
+<rect x="198" y="132" width="92" height="14" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="244.0" y="142.24" font-size="9" fill="#e34948" font-weight="600" text-anchor="middle">DB 327 ms</text>
+<rect x="106" y="150" width="92" height="14" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="152.0" y="160.24" font-size="9" fill="#e34948" font-weight="600" text-anchor="middle">DB 327 ms</text>
+<rect x="290" y="150" width="92" height="14" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="336.0" y="160.24" font-size="9" fill="#e34948" font-weight="600" text-anchor="middle">DB 327 ms</text>
+<rect x="106" y="183" width="92" height="14" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="152.0" y="193.24" font-size="9" fill="#e34948" font-weight="600" text-anchor="middle">DB 327 ms</text>
+<rect x="382" y="183" width="92" height="14" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="428.0" y="193.24" font-size="9" fill="#e34948" font-weight="600" text-anchor="middle">DB 327 ms</text>
+<text x="400" y="176" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">⋮  (총 100회, 커넥션 1개라 줄줄이 밀린다)</text>
+<text x="600" y="140" font-size="12" fill="#e34948" font-weight="700" text-anchor="start">DB 호출 100 회</text>
+<text x="600" y="158" font-size="12" fill="#e34948" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">전체 28,136 ms</text>
+<text x="600" y="191" font-size="11.5" fill="#e34948" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">p50 15,339 ms</text>
+<rect x="30" y="212" width="700" height="100" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="44" y="233" font-size="13" fill="#008300" font-weight="700" text-anchor="start">Request Collapsing</text>
+<text x="44" y="250" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">먼저 온 한 명만 원본을 읽고, 나머지는 그 결과를 기다린다</text>
+<text x="46" y="268" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">요청 1</text>
+<rect x="106" y="260" width="92" height="14" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="152.0" y="270.24" font-size="9" fill="#008300" font-weight="600" text-anchor="middle">DB 327 ms</text>
+<text x="46" y="292" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">요청 2~100</text>
+<rect x="106" y="284" width="92" height="14" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="152.0" y="294.24" font-size="9" fill="#2a78d6" font-weight="600" text-anchor="middle">결과를 기다림</text>
+<line x1="200" y1="267" x2="236" y2="285" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<text x="600" y="268" font-size="12" fill="#008300" font-weight="700" text-anchor="start">DB 호출 1 회</text>
+<text x="600" y="286" font-size="12" fill="#008300" font-weight="700" text-anchor="start" font-family="ui-monospace, Consolas, monospace">전체 238 ms</text>
+<text x="600" y="304" font-size="11.5" fill="#008300" font-weight="700" text-anchor="start">118배 개선</text>
+<text x="34" y="336" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">문제는 원본이 느린 것이 아니라, 같은 답을 100번 만든 것이다.</text>
+</svg>
