@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="318" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">요청이 지나는 여섯 구간</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">각 구간마다 '여기까지 왔는지' 확인하는 방법이 다르다</text>
+<rect x="34.0" y="92" width="108" height="58" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="88.0" y="116" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="middle">Client</text>
+<text x="88.0" y="134" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">curl · 브라우저</text>
+<line x1="145.0" y1="121.0" x2="146.8" y2="121.0" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="150.8" y="92" width="108" height="58" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="204.8" y="116" font-size="13" fill="#7a3ba7" font-weight="700" text-anchor="middle">Network</text>
+<text x="204.8" y="134" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">LAN · AP</text>
+<line x1="261.8" y1="121.0" x2="263.6" y2="121.0" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="267.6" y="92" width="108" height="58" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="321.6" y="116" font-size="13" fill="#e34948" font-weight="700" text-anchor="middle">Firewall</text>
+<text x="321.6" y="134" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">허용 / 차단</text>
+<line x1="378.6" y1="121.0" x2="380.40000000000003" y2="121.0" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="384.4" y="92" width="108" height="58" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="438.4" y="116" font-size="13" fill="#eb6834" font-weight="700" text-anchor="middle">Port</text>
+<text x="438.4" y="134" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">TCP 8080</text>
+<line x1="495.4" y1="121.0" x2="497.2" y2="121.0" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="501.2" y="92" width="108" height="58" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="555.2" y="116" font-size="13" fill="#008300" font-weight="700" text-anchor="middle">Process</text>
+<text x="555.2" y="134" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">java (Tomcat)</text>
+<line x1="612.2" y1="121.0" x2="614.0" y2="121.0" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="618.0" y="92" width="108" height="58" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="672.0" y="116" font-size="13" fill="#898781" font-weight="700" text-anchor="middle">Application</text>
+<text x="672.0" y="134" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">Controller</text>
+<text x="34" y="188" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">이 구간까지 왔는지 확인하는 법</text>
+<rect x="34" y="201" width="9" height="9" rx="4" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="52" y="210" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">요청을 보냈는가</text>
+<text x="186" y="210" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">curl -v</text>
+<rect x="34" y="222" width="9" height="9" rx="4" fill="#7a3ba7" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="52" y="231" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">패킷이 도착했는가</text>
+<text x="186" y="231" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">sudo tcpdump -i en0 'tcp port 8080'</text>
+<rect x="34" y="243" width="9" height="9" rx="4" fill="#eb6834" stroke="#eb6834" stroke-width="1.3"/>
+<text x="52" y="252" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">포트가 열려 있는가</text>
+<text x="186" y="252" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">lsof -nP -iTCP:8080 -sTCP:LISTEN</text>
+<rect x="34" y="264" width="9" height="9" rx="4" fill="#008300" stroke="#008300" stroke-width="1.3"/>
+<text x="52" y="273" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">어디에 bind 됐는가</text>
+<text x="186" y="273" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">NAME 칸이 *:8080 인지 127.0.0.1:8080 인지</text>
+<rect x="34" y="285" width="9" height="9" rx="4" fill="#898781" stroke="#898781" stroke-width="1.3"/>
+<text x="52" y="294" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">앱까지 갔는가</text>
+<text x="186" y="294" font-size="11" fill="#52514e" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">404 가 떴다면 여기까지 온 것이다</text>
+</svg>

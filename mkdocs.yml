@@ -97,6 +97,7 @@ nav:
   # 카테고리(컨테이너·네트워크·CI/CD 등)가 필요해지면 이 그룹 안에서 중첩해 묶는다.
   - 인프라 노트:
       - infra/index.md
+      - 서버와 네트워크 기초: infra/서버-네트워크-기초/서버-네트워크-기초.md
 
 markdown_extensions:
   - admonition               # !!! note 콜아웃 박스
