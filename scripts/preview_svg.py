@@ -14,10 +14,15 @@ import sys
 from pathlib import Path
 
 CHROME_CANDIDATES = [
+    # Windows
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
     r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
     r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
     r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
+    # macOS — 앱 번들 안의 실행 파일은 PATH에 없어서 직접 적어야 한다
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "/Applications/Chromium.app/Contents/MacOS/Chromium",
+    "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
 ]
 
 
