@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="318" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">HTTP/1.1 순차 처리 vs HTTP/2 다중화</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">동시 20요청 실측 · 같은 외부 호스트</text>
+<rect x="28" y="76" width="704" height="108" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="42" y="97" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">HTTP/1.1</text>
+<text x="42" y="114" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">연결 하나에서 요청을 하나씩 — 그래서 연결을 여러 개 연다</text>
+<text x="44" y="134" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">연결 1</text>
+<rect x="96.0" y="122" width="135.0" height="15" rx="3" fill="#eb6834" fill-opacity="0.72" stroke="#eb6834"/>
+<text x="163.5" y="133" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">A</text>
+<rect x="231.0" y="122" width="135.0" height="15" rx="3" fill="#eb6834" fill-opacity="0.72" stroke="#eb6834"/>
+<text x="298.5" y="133" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">D</text>
+<text x="44" y="154" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">연결 2</text>
+<rect x="96.0" y="142" width="135.0" height="15" rx="3" fill="#eb6834" fill-opacity="0.72" stroke="#eb6834"/>
+<text x="163.5" y="153" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">B</text>
+<rect x="231.0" y="142" width="117.0" height="15" rx="3" fill="#eb6834" fill-opacity="0.72" stroke="#eb6834"/>
+<text x="289.5" y="153" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">E</text>
+<text x="44" y="174" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">연결 3</text>
+<rect x="96.0" y="162" width="135.0" height="15" rx="3" fill="#eb6834" fill-opacity="0.72" stroke="#eb6834"/>
+<text x="163.5" y="173" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">C</text>
+<text x="716" y="134" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="end" font-family="ui-monospace, Consolas, monospace">전체 404 ms</text>
+<text x="716" y="152" font-size="12" fill="#52514e" font-weight="400" text-anchor="end" font-family="ui-monospace, Consolas, monospace">p50 242 ms</text>
+<rect x="28" y="196" width="704" height="94" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="42" y="217" font-size="13" fill="#008300" font-weight="700" text-anchor="start">HTTP/2</text>
+<text x="42" y="234" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">연결 하나에 스트림을 섞어 동시에 주고받는다</text>
+<rect x="96" y="242" width="30" height="15" rx="3" fill="#008300" fill-opacity="0.72" stroke="#008300"/>
+<text x="111" y="253" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">A</text>
+<rect x="130" y="242" width="30" height="15" rx="3" fill="#008300" fill-opacity="0.72" stroke="#008300"/>
+<text x="145" y="253" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">C</text>
+<rect x="164" y="242" width="30" height="15" rx="3" fill="#008300" fill-opacity="0.72" stroke="#008300"/>
+<text x="179" y="253" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">B</text>
+<rect x="198" y="242" width="30" height="15" rx="3" fill="#008300" fill-opacity="0.72" stroke="#008300"/>
+<text x="213" y="253" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">E</text>
+<rect x="232" y="242" width="30" height="15" rx="3" fill="#008300" fill-opacity="0.72" stroke="#008300"/>
+<text x="247" y="253" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">D</text>
+<rect x="266" y="242" width="30" height="15" rx="3" fill="#008300" fill-opacity="0.72" stroke="#008300"/>
+<text x="281" y="253" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">A</text>
+<rect x="300" y="242" width="30" height="15" rx="3" fill="#008300" fill-opacity="0.72" stroke="#008300"/>
+<text x="315" y="253" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">B</text>
+<rect x="334" y="242" width="30" height="15" rx="3" fill="#008300" fill-opacity="0.72" stroke="#008300"/>
+<text x="349" y="253" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">C</text>
+<text x="44" y="253" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="start">연결 1</text>
+<text x="716" y="246" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="end" font-family="ui-monospace, Consolas, monospace">전체 147 ms</text>
+<text x="716" y="264" font-size="12" fill="#008300" font-weight="700" text-anchor="end" font-family="ui-monospace, Consolas, monospace">p50 56 ms</text>
+<text x="34" y="306" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="start">p50 차이(4.3배)가 전체 차이(2.7배)보다 큰 것이 핵심 — 뒤에 선 요청이 앞을 기다리지 않는다</text>
+</svg>

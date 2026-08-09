@@ -95,7 +95,6 @@
 
 ```bash
 /study-section 03     # 03-Java 섹션에서 아직 안 쓴 노트를 전부 작성·검증·등록
-/study-note           # 이미 붙여넣은 노트 하나를 다듬고 도식 추가
 ```
 
 ---
@@ -111,13 +110,13 @@
 | 05 | **Spring**        | 프레임워크가 대신 해 주는 일  | 4 / 4  |
 | 06 | **데이터베이스**        | 대용량 조회·저장 최적화     | 4 / 4  |
 | 07 | **트랜잭션 · 데이터 접근** | 데이터 정합성 유지        | 4 / 4  |
-| 08 | **캐시 · Redis**    | 빠른 조회와 분산 데이터     | 0 / 4  |
-| 09 | **웹 · 보안**        | 요청이 도달하기까지        | 0 / 4  |
+| 08 | **캐시 · Redis**    | 빠른 조회와 분산 데이터     | 4 / 4  |
+| 09 | **웹 · 보안**        | 요청이 도달하기까지        | 4 / 4  |
 | 10 | **테스트 · 운영**      | 검증하고 관측하고 복구하기    | 0 / 4  |
 | 11 | **메시징 · 시스템 설계**  | 전체 지식을 연결해 설명     | 0 / 5  |
 | 12 | **경험 기반 면접**      | 내 경험을 언어로 만들기     | 0 / 5  |
 
-**작성 완료 29개 / 전체 51개**
+**작성 완료 37개 / 전체 51개**
 
 > 위 표는 **면접 커리큘럼**이다. 인프라를 직접 만지며 남기는 기록은 번호 체계 밖의
 > 별도 트리에 둔다 → [인프라 노트](#인프라-노트-커리큘럼-밖)
@@ -177,16 +176,16 @@ docs/
 │  └─ ✅ JDBC-MyBatis-JPA/
 │
 ├─ 08-캐시-Redis/
-│  ├─ ⬜ 캐시-전략과-정합성/
-│  ├─ ⬜ CacheStampede-RequestCollapsing/
-│  ├─ ⬜ Redis-자료구조와-활용/
-│  └─ ⬜ 분산락과-멱등성/
+│  ├─ ✅ 캐시-전략-정합성/
+│  ├─ ✅ Cache-Stampede/
+│  ├─ ✅ Redis-자료구조/
+│  └─ ✅ 분산락-멱등성/
 │
 ├─ 09-웹-보안/
-│  ├─ ⬜ HTTP-TCP-네트워크/
-│  ├─ ⬜ REST와-API-설계/
-│  ├─ ⬜ 쿠키-세션-JWT/
-│  └─ ⬜ 인증인가-CORS-CSRF/
+│  ├─ ✅ HTTP-TCP-네트워크/
+│  ├─ ✅ REST-API-설계/
+│  ├─ ✅ 쿠키-세션-JWT/
+│  └─ ✅ 인증인가-CORS-CSRF/
 │
 ├─ 10-테스트-운영/
 │  ├─ ⬜ 단위-통합테스트/
@@ -659,7 +658,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 
 ## 08. 캐시 · Redis
 
-### ⬜ `캐시-전략과-정합성`
+### ✅ `캐시-전략-정합성`
 
 **포함할 내용** — Local Cache · Distributed Cache · Cache Aside · Write Through · Write Behind · TTL · Cache Hit · Cache Miss · Hit Ratio · Eviction · 캐시 일관성 · 캐시 장애 시 Fallback
 
@@ -671,7 +670,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - 캐시와 DB가 불일치하면 어떻게 하는가?
 - 캐시가 장애 나면 DB로 바로 요청이 몰리지 않는가?
 
-### ⬜ `CacheStampede-RequestCollapsing`
+### ✅ `Cache-Stampede`
 
 **포함할 내용** — Cache Stampede · Cache Penetration · Cache Avalanche · Request Collapsing · Hot Key · TTL 지터 · 조기 갱신 · 빈 값 캐싱
 
@@ -683,7 +682,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - 존재하지 않는 키를 계속 조회하면 어떻게 막는가?
 - 같은 키에 대한 동시 요청을 하나로 합칠 수 있는가?
 
-### ⬜ `Redis-자료구조와-활용`
+### ✅ `Redis-자료구조`
 
 **포함할 내용** — String · Hash · List · Set · Sorted Set · Stream · Bitmap · HyperLogLog · TTL · 세션 · 카운터 · 랭킹 · 중복 제거 · 메시지 처리
 
@@ -707,7 +706,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - Redis 데이터는 원본 데이터로 사용해도 되는가?
 - Redis 장애와 데이터 유실에 어떻게 대비하는가?
 
-### ⬜ `분산락과-멱등성`
+### ✅ `분산락-멱등성`
 
 **포함할 내용** — Local Lock · Distributed Lock · Lock Key · Lock TTL · 락 소유권 · 락 해제 · Redisson · Watchdog · Idempotency Key · 중복 요청 · Unique Constraint · 재시도 · 결제 중복 방지 · 메시지 중복 소비 · 처리 상태 저장
 
@@ -730,7 +729,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 
 ## 09. 웹 · 보안
 
-### ⬜ `HTTP-TCP-네트워크`
+### ✅ `HTTP-TCP-네트워크`
 
 **포함할 내용** — TCP 3-way handshake · Keep-Alive · HTTP/1.1과 HTTP/2 · 헤더와 상태 코드 · 캐시 헤더 · TLS 핸드셰이크 · 타임아웃 · 커넥션 재사용
 
@@ -740,7 +739,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - 커넥션 재사용이 왜 중요한가?
 - 타임아웃을 어디에 몇 초로 걸어야 하는가?
 
-### ⬜ `REST와-API-설계`
+### ✅ `REST-API-설계`
 
 **포함할 내용** — 리소스 설계 · HTTP 메서드 의미 · 상태 코드 선택 · 멱등성 · 버저닝 · 페이지네이션 규약 · 에러 응답 형식 · API 문서화
 
@@ -750,7 +749,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - 재시도 가능한 API를 어떻게 설계하는가? (08-멱등성과 연결)
 - 하위 호환을 어떻게 유지하는가?
 
-### ⬜ `쿠키-세션-JWT`
+### ✅ `쿠키-세션-JWT`
 
 **포함할 내용** — 쿠키 속성(HttpOnly·Secure·SameSite) · 세션 저장소 · 세션 클러스터링 · JWT 구조 · 서명과 검증 · 만료와 갱신 · Refresh Token · 로그아웃 처리
 
@@ -760,7 +759,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 - JWT는 왜 즉시 무효화가 어려운가?
 - 세션과 JWT를 어떤 기준으로 고르는가?
 
-### ⬜ `인증인가-CORS-CSRF`
+### ✅ `인증인가-CORS-CSRF`
 
 **포함할 내용** — 인증과 인가의 구분 · Spring Security 필터 체인 · 권한 모델 · CORS 프리플라이트 · CSRF 원리와 방어 · XSS · SQL Injection · 비밀번호 저장
 
@@ -991,7 +990,7 @@ Java 문서    → Java 인터페이스, 구현체, API, 내부 구현 특징
 | **경로** | `docs/<NN-섹션>/<노트명>/<노트명>.md` | `docs/infra/<노트명>/<노트명>.md` |
 | **형식** | 6개 섹션 고정 | 자유 |
 | **목차** | `docs/index.md` · 위 커리큘럼 표 | `docs/infra/index.md` **한 곳만** |
-| **작성 명령** | `/study-section <번호>` · `/study-note` | `/study-infra` |
+| **작성 명령** | `/study-section <번호>` | `/study-infra` |
 | **진행률 집계** | 51개에 포함 | 포함하지 않음 |
 
 두 트리는 목차·번호·진행률만 갈라져 있고 **사이트·검색·배포는 그대로 하나다.**

@@ -64,19 +64,19 @@
 - [낙관적 락 · 비관적 락](07-트랜잭션-데이터접근/낙관적-비관적-락/낙관적-비관적-락.md)
 - [JDBC · MyBatis · JPA](07-트랜잭션-데이터접근/JDBC-MyBatis-JPA/JDBC-MyBatis-JPA.md)
 
-### 08. 캐시 · Redis
+### [08. 캐시 · Redis](08-캐시-Redis/index.md)
 
 - [캐시 전략과 정합성](08-캐시-Redis/캐시-전략-정합성/캐시-전략-정합성.md)
 - [Cache Stampede와 Request Collapsing](08-캐시-Redis/Cache-Stampede/Cache-Stampede.md)
 - [Redis 자료구조와 활용](08-캐시-Redis/Redis-자료구조/Redis-자료구조.md)
 - [분산 락과 멱등성](08-캐시-Redis/분산락-멱등성/분산락-멱등성.md)
 
-### 09. 웹 · 보안
+### [09. 웹 · 보안](09-웹-보안/index.md)
 
-- HTTP · TCP 네트워크
-- REST와 API 설계
-- 쿠키 · 세션 · JWT
-- 인증 · 인가 · CORS · CSRF
+- [HTTP · TCP 네트워크](09-웹-보안/HTTP-TCP-네트워크/HTTP-TCP-네트워크.md)
+- [REST와 API 설계](09-웹-보안/REST-API-설계/REST-API-설계.md)
+- [쿠키 · 세션 · JWT](09-웹-보안/쿠키-세션-JWT/쿠키-세션-JWT.md)
+- [인증 · 인가 · CORS · CSRF](09-웹-보안/인증인가-CORS-CSRF/인증인가-CORS-CSRF.md)
 
 ### 10. 테스트 · 운영
 

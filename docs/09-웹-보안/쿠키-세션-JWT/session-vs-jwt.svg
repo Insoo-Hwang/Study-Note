@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="320" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">세션 vs JWT — 상태를 누가 갖는가</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">실측 쿠키 크기 43 B vs 221 B</text>
+<rect x="28" y="76" width="340" height="206" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="42" y="97" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">세션</text>
+<text x="42" y="114" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">서버가 정보를 갖고 열쇠만 준다</text>
+<rect x="46" y="132" width="128" height="44" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="110.0" y="158.32" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="middle">브라우저</text>
+<text x="110" y="190" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">JSESSIONID=6F93...</text>
+<text x="110" y="206" font-size="10.5" fill="#2a78d6" font-weight="700" text-anchor="middle">43 B · 의미 없는 난수</text>
+<rect x="218" y="132" width="132" height="44" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="284.0" y="158.32" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="middle">서버 저장소</text>
+<text x="284" y="190" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">사용자 정보 본체</text>
+<text x="284" y="206" font-size="10.5" fill="#008300" font-weight="700" text-anchor="middle">지우면 즉시 무효</text>
+<line x1="178" y1="154" x2="214" y2="154" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<text x="196" y="146" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">조회</text>
+<text x="46" y="244" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">매 요청 저장소를 본다</text>
+<text x="46" y="264" font-size="11.5" fill="#e34948" font-weight="600" text-anchor="start">서버가 여러 대면 공유 저장소가 필요하다</text>
+<rect x="392" y="76" width="340" height="206" rx="9" fill="#7a3ba7" fill-opacity="0.07" stroke="#7a3ba7" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="406" y="97" font-size="13" fill="#7a3ba7" font-weight="700" text-anchor="start">JWT</text>
+<text x="406" y="114" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">정보를 서명해 클라이언트에 맡긴다</text>
+<rect x="410" y="132" width="176" height="44" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="498.0" y="158.32" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="middle">브라우저</text>
+<text x="498" y="190" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">eyJhbGci... 221 B</text>
+<text x="498" y="206" font-size="10.5" fill="#7a3ba7" font-weight="700" text-anchor="middle">정보 + 서명 전부</text>
+<rect x="614" y="132" width="100" height="44" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="664.0" y="158.32" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="middle">서버</text>
+<text x="664" y="190" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">저장하지 않는다</text>
+<text x="664" y="206" font-size="10.5" fill="#e34948" font-weight="700" text-anchor="middle">회수할 수 없다</text>
+<line x1="590" y1="154" x2="610" y2="154" stroke="#7a3ba7" stroke-width="1.4" marker-end="url(#ahp)"/>
+<text x="410" y="244" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">서명만 검증한다 (조회 없음)</text>
+<text x="410" y="264" font-size="11.5" fill="#e34948" font-weight="600" text-anchor="start">로그아웃해도 만료까지 유효하다</text>
+<text x="34" y="308" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">확장성과 무효화가 정확히 반대로 트레이드오프된다</text>
+</svg>
