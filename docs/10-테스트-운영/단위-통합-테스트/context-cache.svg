@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 356" width="760" height="356" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="354" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">같은 테스트 20개, 컨텍스트 개수만 다르다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">@SpringBootTest 20개 실측 — C = 컨텍스트 생성(265 ms) · T = 테스트 실행</text>
+<rect x="34" y="80" width="692" height="112" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="101" font-size="13" fill="#008300" font-weight="700" text-anchor="start">설정이 같다 → C 는 한 번뿐, T 20개가 나눠 쓴다</text>
+<rect x="50" y="122" width="62" height="40" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="81.0" y="147.76" font-size="16" fill="#008300" font-weight="600" text-anchor="middle">C</text>
+<text x="81" y="178" font-size="11" fill="#008300" font-weight="700" text-anchor="middle">265 ms</text>
+<line x1="116" y1="142" x2="140" y2="142" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<rect x="148" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="157.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="170" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="179.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="192" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="201.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="214" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="223.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="236" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="245.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="258" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="267.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="280" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="289.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="302" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="311.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="324" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="333.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="346" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="355.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="368" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="377.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="390" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="399.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="412" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="421.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="434" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="443.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="456" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="465.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="478" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="487.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="500" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="509.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="522" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="531.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="544" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="553.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<rect x="566" y="128" width="19" height="28" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="575.5" y="145.6" font-size="10" fill="#008300" font-weight="600" text-anchor="middle">T</text>
+<text x="148" y="178" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">T 20개 × 2.65 ms</text>
+<text x="710" y="178" font-size="14" fill="#008300" font-weight="700" text-anchor="end">합계  3,570 ms</text>
+<rect x="34" y="206" width="692" height="112" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="227" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">@DirtiesContext → T 마다 C 를 버리고 다시 만든다</text>
+<rect x="50" y="248" width="34" height="34" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="67.0" y="269.68" font-size="13" fill="#e34948" font-weight="600" text-anchor="middle">C</text>
+<rect x="86" y="252" width="19" height="26" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="95.5" y="268.6" font-size="10" fill="#7a3ba7" font-weight="600" text-anchor="middle">T</text>
+<rect x="110" y="248" width="34" height="34" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="127.0" y="269.68" font-size="13" fill="#e34948" font-weight="600" text-anchor="middle">C</text>
+<rect x="146" y="252" width="19" height="26" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="155.5" y="268.6" font-size="10" fill="#7a3ba7" font-weight="600" text-anchor="middle">T</text>
+<rect x="170" y="248" width="34" height="34" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="187.0" y="269.68" font-size="13" fill="#e34948" font-weight="600" text-anchor="middle">C</text>
+<rect x="206" y="252" width="19" height="26" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="215.5" y="268.6" font-size="10" fill="#7a3ba7" font-weight="600" text-anchor="middle">T</text>
+<rect x="230" y="248" width="34" height="34" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="247.0" y="269.68" font-size="13" fill="#e34948" font-weight="600" text-anchor="middle">C</text>
+<rect x="266" y="252" width="19" height="26" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="275.5" y="268.6" font-size="10" fill="#7a3ba7" font-weight="600" text-anchor="middle">T</text>
+<rect x="290" y="248" width="34" height="34" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="307.0" y="269.68" font-size="13" fill="#e34948" font-weight="600" text-anchor="middle">C</text>
+<rect x="326" y="252" width="19" height="26" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="335.5" y="268.6" font-size="10" fill="#7a3ba7" font-weight="600" text-anchor="middle">T</text>
+<rect x="350" y="248" width="34" height="34" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="367.0" y="269.68" font-size="13" fill="#e34948" font-weight="600" text-anchor="middle">C</text>
+<rect x="386" y="252" width="19" height="26" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="395.5" y="268.6" font-size="10" fill="#7a3ba7" font-weight="600" text-anchor="middle">T</text>
+<rect x="410" y="248" width="34" height="34" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="427.0" y="269.68" font-size="13" fill="#e34948" font-weight="600" text-anchor="middle">C</text>
+<rect x="446" y="252" width="19" height="26" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="455.5" y="268.6" font-size="10" fill="#7a3ba7" font-weight="600" text-anchor="middle">T</text>
+<rect x="470" y="248" width="34" height="34" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="487.0" y="269.68" font-size="13" fill="#e34948" font-weight="600" text-anchor="middle">C</text>
+<rect x="506" y="252" width="19" height="26" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="515.5" y="268.6" font-size="10" fill="#7a3ba7" font-weight="600" text-anchor="middle">T</text>
+<rect x="530" y="248" width="34" height="34" rx="4" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="547.0" y="269.68" font-size="13" fill="#e34948" font-weight="600" text-anchor="middle">C</text>
+<rect x="566" y="252" width="19" height="26" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="575.5" y="268.6" font-size="10" fill="#7a3ba7" font-weight="600" text-anchor="middle">T</text>
+<text x="594" y="269" font-size="12" fill="#52514e" font-weight="600" text-anchor="start">…  ×20 쌍</text>
+<text x="50" y="304" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">C 를 19번 더 만든다 · 재로드 1회 295 ms</text>
+<text x="710" y="304" font-size="14" fill="#eb6834" font-weight="700" text-anchor="end">합계  9,180 ms</text>
+<line x1="34" y1="322" x2="726" y2="322" stroke="rgba(11,11,11,0.10)" stroke-width="1"/>
+<text x="34" y="344" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="start">T 개수는 똑같은데 2.6 배 — 늘려야 할 것은 T, 줄여야 할 것은 C 의 종류</text>
+</svg>

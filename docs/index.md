@@ -78,12 +78,12 @@
 - [쿠키 · 세션 · JWT](09-웹-보안/쿠키-세션-JWT/쿠키-세션-JWT.md)
 - [인증 · 인가 · CORS · CSRF](09-웹-보안/인증인가-CORS-CSRF/인증인가-CORS-CSRF.md)
 
-### 10. 테스트 · 운영
+### [10. 테스트 · 운영](10-테스트-운영/index.md)
 
-- 단위 테스트와 통합 테스트
-- Mock · Spring Test · Testcontainers
-- 로그 · 메트릭 · 트레이싱
-- 장애 분석과 성능 개선
+- [단위 테스트와 통합 테스트](10-테스트-운영/단위-통합-테스트/단위-통합-테스트.md)
+- [Mock · Spring Test · Testcontainers](10-테스트-운영/Mock-SpringTest-Testcontainers/Mock-SpringTest-Testcontainers.md)
+- [로그 · 메트릭 · 트레이싱](10-테스트-운영/로그-메트릭-트레이싱/로그-메트릭-트레이싱.md)
+- [장애 분석과 성능 개선](10-테스트-운영/장애분석-성능개선/장애분석-성능개선.md)
 
 ### 11. 메시징 · 시스템 설계
 
