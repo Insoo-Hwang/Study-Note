@@ -1158,35 +1158,10 @@ List<String> immutable = List.of("A", "B");
 
 ### 이어서 볼 주제
 
-#### 바로 이어서 공부
-
-| 키워드                       | 연결되는 이유                                          |
-| ------------------------- | ------------------------------------------------ |
-| **equals와 hashCode**      | `Set`·`Map`의 중복 판정과 조회가 전부 이 두 메서드에 달려 있다.       |
-| **Collection 선택 기준**      | 계층을 알았으니 실제 상황에서 무엇을 고를지 판단할 수 있다.               |
-| **제네릭과 와일드카드**            | `List<? extends T>`가 왜 필요한지, 왜 `add`가 막히는지 이해한다. |
-| **Comparable과 Comparator** | `TreeMap`·`TreeSet`·`sort`의 정렬 기준을 정하는 방법이다.     |
-| **Iterator 패턴**           | 순회 책임을 컬렉션에서 분리한 설계 의도를 이해할 수 있다.                |
-
-#### 실무 확장
-
-| 키워드                    | 연결되는 이유                                    |
-| ---------------------- | ------------------------------------------ |
-| **Stream API**         | 컬렉션을 선언적으로 다루는 표준 방식이다.                    |
-| **Concurrent Collection** | `ConcurrentHashMap`의 버킷 단위 락과 CAS 동작을 배운다. |
-| **JPA 컬렉션 매핑**         | `List`와 `Set` 선택이 지연 로딩·N+1과 어떻게 얽히는지 안다.  |
-| **불변 객체와 방어적 복사**      | `List.copyOf()`가 필요한 이유를 설계 관점에서 이해한다.     |
-| **Guava·Apache Commons** | `Multimap`·`BiMap` 등 표준에 없는 컬렉션을 알 수 있다.   |
-
-#### 심화 학습
-
-| 키워드                        | 연결되는 이유                                        |
-| -------------------------- | ---------------------------------------------- |
-| **레드-블랙 트리**               | `TreeMap`과 `HashMap` 트리화 버킷의 실제 구현이다.          |
-| **오토박싱과 Integer 캐시**       | 컬렉션에 기본형을 담을 때의 숨은 비용을 정량적으로 안다.               |
-| **Object Layout과 GC**      | 컬렉션 종류에 따라 GC 부담이 얼마나 달라지는지 계산할 수 있다.          |
-| **Java 21 Sequenced Collections** | `getFirst`·`reversed` 등 순서 개념이 어떻게 정리됐는지 본다.   |
-| **JMH 벤치마크**               | 컬렉션 성능 주장을 신뢰할 수 있게 측정하는 방법이다.                 |
+* **[equals · hashCode](../equals-hashCode/equals-hashCode.md)** — `Set`·`Map`의 중복 판정과 조회가 전부 이 두 메서드에 달려 있다.
+* **[Collection 선택 기준](../../01-복잡도-자료구조/Collection-선택-기준/Collection-선택-기준.md)** — 계층을 알았으니 실제 상황에서 무엇을 고를지 판단한다.
+* **[Generic · Exception · Stream](../Generic-Exception-Stream/Generic-Exception-Stream.md)** — `List<? extends T>`가 왜 필요한지, Stream이 컬렉션을 선언적으로 다루는 표준 방식인 이유.
+* **[Atomic과 Concurrent Collection](../../04-동시성/Atomic-Concurrent-Collection/Atomic-Concurrent-Collection.md)** — `ConcurrentHashMap`의 버킷 단위 락과 CAS 동작.
 
 > JDK 17에는 `java.util.SequencedCollection`과 `ArrayList.getFirst()`가 **없다.** 실행해 확인한 결과 둘 다 존재하지 않으며, **Java 21부터** 추가된 기능이다.
 
