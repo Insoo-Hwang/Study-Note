@@ -1233,35 +1233,11 @@ Semaphore(2)       2회 acquire 후 tryAcquire = false, 가용 permit = 0
 
 ### 이어서 볼 주제
 
-#### 바로 이어서 공부
-
-| 키워드 | 연결되는 이유 |
-| --- | --- |
-| **Thread와 동기화** | 락 기반 접근을 이해해야 CAS의 이점이 보인다. |
-| **ThreadPool과 Deadlock** | `BlockingQueue`가 스레드 풀의 핵심 부품이다. |
-| **Java Collection** | `HashMap`의 버킷·트리화를 알면 `ConcurrentHashMap`이 쉬워진다. |
-| **불변 객체** | `AtomicReference`로 통째로 교체하는 패턴의 기반이다. |
-| **`equals`·`hashCode`** | 해시가 나쁘면 버킷이 몰려 락 경합도 함께 늘어난다. |
-
-#### 실무 확장
-
-| 키워드 | 연결되는 이유 |
-| --- | --- |
-| **Caffeine 캐시** | `ConcurrentHashMap` 위에 만료·크기 제한·통계를 얹은 구현이다. |
-| **Redis `INCR`과 분산 카운터** | 인스턴스가 여러 대일 때의 정답이다. |
-| **분산 락 (Redisson)** | `putIfAbsent` 중복 방지를 클러스터로 확장한다. |
-| **Micrometer 메트릭** | 내부적으로 `LongAdder`류 자료구조를 쓴다. |
-| **낙관적 락 (`@Version`)** | CAS와 완전히 같은 아이디어를 DB에서 구현한 것이다. |
-
-#### 심화 학습
-
-| 키워드 | 연결되는 이유 |
-| --- | --- |
-| **`VarHandle`과 `Unsafe`** | JDK 9 이후 CAS의 실제 진입점이다. |
-| **`Striped64`** | `LongAdder`의 부모 클래스. 셀 분산과 `@Contended` 패딩을 본다. |
-| **락 프리 자료구조** | Michael-Scott 큐 등 CAS만으로 만드는 구조다. |
-| **거짓 공유 (false sharing)** | 셀을 캐시 라인 단위로 띄우는 이유다. |
-| **메모리 순서와 `acquire`/`release`** | `volatile`과 CAS가 하드웨어에서 무엇으로 번역되는지 본다. |
+* **[Thread와 동기화](../Thread-동기화/Thread-동기화.md)** — 락 기반 접근을 이해해야 CAS의 이점이 보인다.
+* **[ThreadPool과 Deadlock](../ThreadPool-Deadlock/ThreadPool-Deadlock.md)** — `BlockingQueue`가 스레드 풀의 핵심 부품이다.
+* **[Java Collection](../../03-Java/Java-Collection/Java-Collection.md)** — `HashMap`의 버킷·트리화를 알면 `ConcurrentHashMap`이 쉬워진다.
+* **[캐시 전략과 정합성](../../08-캐시-Redis/캐시-전략-정합성/캐시-전략-정합성.md)** — `Caffeine`이 `ConcurrentHashMap` 위에 만료·크기 제한을 얹은 구현이다.
+* **[낙관적 락 · 비관적 락](../../07-트랜잭션-데이터접근/낙관적-비관적-락/낙관적-비관적-락.md)** — `@Version` 낙관적 락은 CAS와 완전히 같은 아이디어를 DB에서 구현한 것이다.
 
 ### 최종 체크리스트
 

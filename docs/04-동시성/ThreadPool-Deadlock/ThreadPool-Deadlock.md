@@ -1155,35 +1155,11 @@ public void logPoolStatus() {
 
 ### 이어서 볼 주제
 
-#### 바로 이어서 공부
-
-| 키워드 | 연결되는 이유 |
-| --- | --- |
-| **Thread와 동기화** | 락 데드락과 인터럽트 개념이 이 노트의 전제다. |
-| **Atomic과 Concurrent Collection** | `BlockingQueue`가 풀의 핵심 부품이다. |
-| **`CompletableFuture`** | `Future.get()` 대기를 없애 기아 데드락을 피하는 방법이다. |
-| **`ForkJoinPool`과 작업 훔치기** | 병렬 스트림의 기본 실행기 구조다. |
-| **`ScheduledExecutorService`** | 주기 작업에서 예외가 스케줄을 죽이는 문제를 다룬다. |
-
-#### 실무 확장
-
-| 키워드 | 연결되는 이유 |
-| --- | --- |
-| **Spring `@Async`와 `TaskExecutor`** | 실무에서 실제로 다루는 설정 지점이다. |
-| **톰캣·HikariCP 풀 설정** | 스레드 풀만으로는 처리량이 안 오르는 이유를 안다. |
-| **스레드 덤프 분석 (`jstack`)** | 두 종류의 데드락을 구분해 찾는다. |
-| **Micrometer + Actuator** | 큐 길이·활성 스레드를 지표로 노출한다. |
-| **Resilience4j** | Bulkhead·CircuitBreaker로 풀 격리를 선언적으로 한다. |
-
-#### 심화 학습
-
-| 키워드 | 연결되는 이유 |
-| --- | --- |
-| **가상 스레드 (JDK 21)** | 풀 크기 고민 자체를 바꾼다. I/O 바운드에서 특히 크다. |
-| **리액티브 프로그래밍 (WebFlux)** | 스레드를 붙잡지 않는 모델의 극단이다. |
-| **Little's Law** | 처리량·대기 시간·동시 실행 수의 관계를 수식으로 본다. |
-| **Bulkhead 패턴** | 풀을 나눠 장애가 번지지 않게 한다. |
-| **백프레셔 (back-pressure)** | `CallerRunsPolicy`가 하는 일의 일반화된 개념이다. |
+* **[Thread와 동기화](../Thread-동기화/Thread-동기화.md)** — 락 데드락과 인터럽트 개념이 이 노트의 전제다.
+* **[Atomic과 Concurrent Collection](../Atomic-Concurrent-Collection/Atomic-Concurrent-Collection.md)** — `BlockingQueue`가 풀의 핵심 부품이다.
+* **[Connection Pool과 쿼리 튜닝](../../06-데이터베이스/ConnectionPool과-쿼리튜닝/ConnectionPool과-쿼리튜닝.md)** — 스레드 풀만 늘려서는 처리량이 안 오르는 이유(HikariCP 풀 설정).
+* **[장애 분석과 성능 개선](../../10-테스트-운영/장애분석-성능개선/장애분석-성능개선.md)** — `jstack`으로 두 종류의 데드락을 구분해 찾는 법, Little's Law.
+* **[로그 · 메트릭 · 트레이싱](../../10-테스트-운영/로그-메트릭-트레이싱/로그-메트릭-트레이싱.md)** — 큐 길이·활성 스레드를 지표로 노출하는 방법.
 
 ### 최종 체크리스트
 

@@ -1331,35 +1331,11 @@ private final Object lock = new Object();     // final 이어야 한다
 
 ### 이어서 볼 주제
 
-#### 바로 이어서 공부
-
-| 키워드 | 연결되는 이유 |
-| --- | --- |
-| **Atomic과 Concurrent Collection** | 락 없이 원자성을 얻는 CAS와 동시성 컬렉션을 다룬다. |
-| **ThreadPool과 Deadlock** | 스레드를 직접 만들지 않고 관리하는 방법과 풀 특유의 교착을 본다. |
-| **Java Memory Model (JMM)** | happens-before를 명세 수준에서 이해한다. |
-| **불변 객체와 `final`** | 동기화를 아예 없애는 설계 원칙이다. |
-| **`ThreadLocal`** | 공유하지 않음으로써 문제를 없애는 또 다른 방법이다. |
-
-#### 실무 확장
-
-| 키워드 | 연결되는 이유 |
-| --- | --- |
-| **스레드 덤프 분석** | `jstack`으로 `BLOCKED` 스레드와 데드락을 읽는다. |
-| **Spring `@Async`와 `TaskExecutor`** | 비동기 실행에서 컨텍스트가 사라지는 문제를 다룬다. |
-| **비관적 락 · 낙관적 락** | JVM 밖(DB)에서 동시성을 제어하는 방법이다. |
-| **분산 락 (Redis · ZooKeeper)** | 서버가 여러 대일 때 `synchronized`를 대체한다. |
-| **JMH 벤치마크** | 동시성 코드의 성능을 제대로 측정하는 도구다. |
-
-#### 심화 학습
-
-| 키워드 | 연결되는 이유 |
-| --- | --- |
-| **가상 스레드 (JDK 21)** | 플랫폼 스레드의 생성 비용·스택 문제를 근본적으로 바꾼다. |
-| **AQS (AbstractQueuedSynchronizer)** | `ReentrantLock`·`Semaphore`·`CountDownLatch`의 공통 뼈대다. |
-| **메모리 배리어와 CPU 캐시 일관성** | `volatile`이 하드웨어에서 무엇으로 번역되는지 본다. |
-| **거짓 공유 (false sharing)** | 인접한 필드가 같은 캐시 라인에 있어 성능이 떨어지는 문제다. |
-| **락 프리 자료구조** | CAS만으로 큐·스택을 만드는 기법이다. |
+* **[Atomic과 Concurrent Collection](../Atomic-Concurrent-Collection/Atomic-Concurrent-Collection.md)** — 락 없이 원자성을 얻는 CAS와 동시성 컬렉션.
+* **[ThreadPool과 Deadlock](../ThreadPool-Deadlock/ThreadPool-Deadlock.md)** — 스레드를 직접 만들지 않고 관리하는 방법과 풀 특유의 교착.
+* **[장애 분석과 성능 개선](../../10-테스트-운영/장애분석-성능개선/장애분석-성능개선.md)** — `jstack`으로 `BLOCKED` 스레드와 데드락을 실제로 읽는 법.
+* **[낙관적 락 · 비관적 락](../../07-트랜잭션-데이터접근/낙관적-비관적-락/낙관적-비관적-락.md)** — JVM 밖(DB)에서 동시성을 제어하는 방법.
+* **[분산 락과 멱등성](../../08-캐시-Redis/분산락-멱등성/분산락-멱등성.md)** — 서버가 여러 대일 때 `synchronized`를 대체하는 방법.
 
 ### 최종 체크리스트
 
