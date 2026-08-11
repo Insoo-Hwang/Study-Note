@@ -1005,16 +1005,6 @@ class GlobalExceptionHandlerTest {
 
 > Spring Boot의 자동 설정은 마법이 아니라 **`@Conditional`을 이용한 조건부 빈 등록**입니다. 클래스패스에 그 클래스가 있는지, 내가 같은 타입 빈을 이미 만들었는지를 보고 등록 여부를 정합니다. 그래서 **`@ConditionalOnMissingBean` 덕분에 내가 직접 만들면 내 것이 이기고**, `--debug`로 실행하면 무엇이 왜 적용됐는지 보고서로 확인할 수 있습니다. 예외 처리는 `@RestControllerAdvice` 한곳에 모아 컨트롤러에서 `try-catch`를 없애는 것이 기본입니다.
 
-#### 이어서 더 물으면
-
-설정에서 자주 헤매는 게 **우선순위**입니다. `Environment`가 `PropertySource` 목록을 순서대로 뒤져 **먼저 찾은 값**을 쓰는 구조인데, 직접 확인해 보니 앞에 등록된 것이 이기고 시스템 프로퍼티가 환경 변수보다 앞에 있었습니다. Boot 기준으로는 커맨드라인 인자가 가장 세고 그다음 시스템 프로퍼티, 환경 변수, 프로파일별 yml, 기본 yml 순입니다. 여기서 실무 규칙이 하나 나오는데, **비밀번호를 `application.yml`에 쓰지 않는 것**입니다. yml은 저장소에 커밋되니까요. `${DB_PASSWORD:localpassword}` 문법을 쓰면 로컬에서는 기본값으로 돌고 운영에서는 환경 변수가 덮어씁니다.
-
-예외 처리에서 제가 가장 중요하게 보는 건 **예상된 실패와 예상 못 한 실패를 구분하는 것**입니다. 재고 부족 같은 비즈니스 예외를 `error`로 찍으면 하루에 수천 건이 쌓이고, 그 안에 진짜 장애인 NPE나 커넥션 실패가 묻힙니다. 그래서 **4xx로 나갈 것은 `warn`, 5xx만 `error`에 스택트레이스와 알람**을 겁니다. 그리고 5xx 응답에는 내부 예외 메시지를 절대 넣지 않습니다. SQL 문이나 테이블명이 그대로 나가면 공격 정보가 되기 때문에, 일반 메시지와 `requestId`만 주고 상세는 로그에서 그 ID로 찾습니다.
-
-에러 응답 형식은 하나로 고정하는데 세 가지를 꼭 넣습니다. **클라이언트가 분기할 수 있는 `code` 문자열**, 사람이 읽을 `message`, 그리고 **로그와 대조할 `requestId`** 입니다. `code`가 있으면 메시지 문구를 바꿔도 클라이언트가 안 깨지고, `requestId`가 있으면 사용자가 "에러 났어요" 할 때 그 값만 받아서 로그를 바로 찾을 수 있습니다.
-
-경계 하나를 더 알아 둘 필요가 있는데, **Filter에서 던진 예외는 `@RestControllerAdvice`가 못 잡습니다.** `DispatcherServlet` 바깥이라 톰캣 기본 HTML 오류 페이지가 나가서, JSON을 기대한 클라이언트가 파싱에 실패합니다. JWT 검증을 Filter에서 하는 경우가 흔해서 실제로 자주 겪는 문제인데, `HandlerExceptionResolver`를 주입받아 위임하면 해결됩니다.
-
 ### 핵심 키워드
 
 `자동 설정` · `@Conditional` · `@ConditionalOnMissingBean` · `AutoConfiguration.imports` · `PropertySource` · `프로퍼티 우선순위` · `프로파일` · `@ConfigurationProperties` · `@RestControllerAdvice` · `@ExceptionHandler` · `HandlerExceptionResolver` · `에러 코드` · `requestId` · `Actuator`

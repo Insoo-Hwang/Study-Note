@@ -1130,14 +1130,6 @@ List<String> immutable = List.of("A", "B");
 
 > Collection Framework는 데이터 묶음을 다루는 **인터페이스와 구현체를 표준화한 체계**입니다. 핵심은 계약과 구현의 분리라서, `List`로 선언하고 `ArrayList`로 생성하면 나중에 구현체를 바꿔도 사용하는 코드가 바뀌지 않습니다.
 
-#### 이어서 더 물으면
-
-구조는 최상위 `Iterable` 아래 `Collection`이 있고, 그 아래 **`List`·`Set`·`Queue`** 세 갈래가 있습니다. `List`는 순서와 중복을 허용하고 인덱스 접근이 되며, `Set`은 중복을 허용하지 않고, `Queue`는 넣고 빼는 위치가 제한됩니다. **`Map`은 `Collection`을 상속하지 않습니다.** 원소가 하나가 아니라 키-값 쌍이라 `add(E)` 계약에 맞지 않기 때문이고, 대신 `entrySet()` 같은 뷰로 연결됩니다.
-
-내부를 보면 `ArrayList`는 동적 배열이라 조회가 `O(1)`이고, `HashMap`은 키의 해시로 버킷을 정해 평균 `O(1)`입니다. JDK 17에서 직접 확인해 보면 `ArrayList`는 생성 직후 내부 배열이 **길이 0**이고 첫 `add()`에서 10이 된 뒤 1.5배씩 늘어나며, `HashMap`은 첫 `put()`에서 table 16, 임계값 12로 시작합니다.
-
-주의할 점 두 가지를 덧붙이면, 첫째로 `subList`·`keySet`·`Arrays.asList`는 복사본이 아니라 **뷰**라서 한쪽 수정이 원본에 반영됩니다. 둘째로 fail-fast는 보장이 아닙니다. 실제로 측정해 보면 **끝에서 두 번째 원소를 지울 때만 예외가 나지 않고 마지막 원소를 건너뛴 채 조용히 끝나서**, 오히려 예외가 나는 경우보다 위험합니다. 그래서 순회 중 삭제는 `Iterator.remove()`나 `removeIf()`를 씁니다.
-
 ### 핵심 키워드
 
 `Collection Framework` · `인터페이스와 구현체 분리` · `Iterable` · `Collection` · `List` · `Set` · `Queue / Deque` · `Map` · `Iterator` · `fail-fast` · `modCount` · `뷰(view)`

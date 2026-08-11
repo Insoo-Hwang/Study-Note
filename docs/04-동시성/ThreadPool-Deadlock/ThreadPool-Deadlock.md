@@ -1124,16 +1124,6 @@ public void logPoolStatus() {
 
 > ThreadPool은 **스레드를 미리 만들어 두고 재사용하면서 동시 실행 수를 제한하는 장치**입니다. 요청마다 스레드를 만들면 생성 비용도 크고 폭주할 때 서버가 죽기 때문에 씁니다. 동작에서 가장 중요한 건 `ThreadPoolExecutor`의 판단 순서가 **코어 스레드 → 큐 → 추가 스레드 → 거부**라는 점, 즉 **큐가 스레드보다 먼저**라는 것입니다. 이 순서를 모르면 `maximumPoolSize`를 키워도 아무 효과가 없습니다.
 
-#### 이어서 더 물으면
-
-`core=2, max=4, queue=2`인 풀에 작업을 순서대로 넣어 관측해 보면, 작업 1·2가 코어 스레드에서 실행되고 **작업 3·4는 스레드를 더 만들 수 있는데도 큐로 갑니다.** 큐가 가득 찬 뒤인 작업 5부터 스레드가 3개, 4개로 늘고, 작업 7에서 `RejectedExecutionException`이 발생했습니다.
-
-이 순서 때문에 **무한 큐를 쓰면 `maximumPoolSize`가 완전히 무시됩니다.** `core=1, max=100`에 `LinkedBlockingQueue`를 두고 50개를 던졌더니 `poolSize`가 1로 고정되고 큐에 49개가 쌓였습니다. 문제는 `Executors.newFixedThreadPool`이 바로 이 무한 큐를 쓴다는 것입니다. 소비보다 제출이 빠르면 큐가 무한정 자라 `OutOfMemoryError`가 납니다. `newCachedThreadPool`은 반대로 `max`가 `Integer.MAX_VALUE`이고 `SynchronousQueue`라 요청이 몰리면 스레드를 무제한 만듭니다. 그래서 운영 코드에서는 `ThreadPoolExecutor`를 직접 만들고 **유한 큐와 거부 정책을 명시**합니다.
-
-풀 크기는 작업 성격에 따라 완전히 다릅니다. 6코어 환경에서 100ms 대기 작업 100개를 처리했을 때 **I/O 바운드는 풀 1개 10,922ms에서 64개 220ms까지 계속 빨라졌습니다.** 반면 CPU 바운드 작업은 코어 수인 6개에서 89ms로 사실상 포화됐고, 24개로 늘려도 77ms에 그쳤습니다. 스레드가 대기 중이면 CPU를 다투지 않으니 많이 만들 수 있고, 계산 중이면 코어 수가 상한이라는 뜻입니다.
-
-데드락은 두 종류를 구분해야 합니다. 락 데드락은 스레드가 `BLOCKED`가 되고 `findDeadlockedThreads()`로 탐지됩니다. 반면 **스레드 기아 데드락은 락이 하나도 없는데 발생**합니다. 풀 크기 1에서 작업 안에서 같은 풀에 `submit`하고 결과를 기다리게 했더니 `TimeoutException`이 났습니다. 바깥 작업이 유일한 스레드를 점유한 채 안쪽 작업을 기다리는데, 안쪽 작업은 그 스레드가 비어야 시작할 수 있기 때문입니다. 이 경우 스레드가 `WAITING`이라 **`findDeadlockedThreads()`로 탐지되지 않습니다.** 큐는 쌓이는데 완료 건수가 늘지 않는 지표로 발견해야 합니다.
-
 ### 핵심 키워드
 
 `Executor` · `ExecutorService` · `ThreadPoolExecutor` · `corePoolSize` · `maximumPoolSize` · `keepAliveTime` · `작업 큐` · `거부 정책` · `ThreadFactory` · `Future` · `shutdown` · `shutdownNow`

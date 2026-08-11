@@ -1203,14 +1203,6 @@ Semaphore(2)       2회 acquire 후 tryAcquire = false, 가용 permit = 0
 
 > 동시성을 확보하는 방법은 크게 **락으로 막는 것**과 **CAS로 재시도하는 것**이 있습니다. `Atomic` 클래스는 후자입니다. `compareAndSet(expected, new)`이라는 CPU 명령을 써서, 값이 아직 기대값이면 바꾸고 아니면 실패를 반환합니다. `incrementAndGet()`은 이것을 실패할 때까지 도는 루프로 감싼 것입니다. 락을 잡지 않으므로 **데드락이 원리적으로 불가능하고 컨텍스트 스위치도 없습니다.**
 
-#### 이어서 더 물으면
-
-다만 CAS도 만능은 아닙니다. 스레드가 많아지면 실패해서 다시 도는 횟수가 폭증합니다. 총 2,000만 회 누적을 측정했을 때 1스레드에서는 `AtomicLong` 168ms, `LongAdder` 176ms로 차이가 없었는데, **16스레드에서는 778ms 대 42ms로 18.5배**까지 벌어졌습니다. `LongAdder`는 값 하나를 두들기는 대신 셀 배열에 나눠 더하고 읽을 때만 합치기 때문입니다. 그래서 통계처럼 쓰기가 잦고 읽기가 드문 경우에 맞습니다.
-
-컬렉션 쪽에서는 `ConcurrentHashMap`이 표준입니다. Java 7까지는 세그먼트 16개로 나눴는데, **Java 8에서 세그먼트가 제거되고 버킷마다 첫 노드를 잠그는 방식**으로 바뀌었습니다. 읽기는 노드가 `volatile`이라 락을 아예 잡지 않습니다. 8스레드가 200만 번씩 조회했을 때 `Collections.synchronizedMap`이 662ms, `ConcurrentHashMap`이 62ms로 약 10.7배 차이가 났습니다.
-
-가장 중요한 것은 **`ConcurrentHashMap`을 써도 복합 연산은 여전히 깨진다는 점**입니다. `map.put(k, map.get(k) + 1)`을 100스레드가 1,000번씩 실행했더니 기대값 100,000에 대해 46,585만 남았습니다. 각 호출은 원자적인데 **두 호출 사이는 아무도 지켜 주지 않기 때문**입니다. `merge`나 `computeIfAbsent` 같은 원자적 복합 연산을 써야 정확히 100,000이 나옵니다.
-
 ### 핵심 키워드
 
 `CAS (compare-and-swap)` · `락 프리 (lock-free)` · `스핀 (spin)` · `ABA 문제` · `AtomicInteger·AtomicLong` · `LongAdder` · `AtomicReference` · `AtomicStampedReference` · `ConcurrentHashMap` · `CopyOnWriteArrayList` · `BlockingQueue` · `약한 일관성 (weakly consistent)`

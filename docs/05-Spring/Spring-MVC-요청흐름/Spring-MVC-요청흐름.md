@@ -896,16 +896,6 @@ class OrderControllerTest {
 
 > 요청은 먼저 **톰캣 스레드 풀에서 스레드 하나를 배정받고**, Filter 체인을 지나 `DispatcherServlet`에 도착합니다. `DispatcherServlet`은 Front Controller로서 **`HandlerMapping`에게 누가 처리할지 묻고, `HandlerAdapter`가 `ArgumentResolver`로 매개변수를 채워 컨트롤러를 호출하고, 반환값을 `MessageConverter`가 JSON으로 바꿉니다.** 그래서 컨트롤러는 HTTP를 거의 모른 채 값만 받고 값만 돌려주면 됩니다.
 
-#### 이어서 더 물으면
-
-실무에서 이 흐름을 알아야 하는 이유는 **경계 때문**입니다. Filter는 서블릿 컨테이너 영역이고 Interceptor는 Spring 영역인데, `@RestControllerAdvice`는 `DispatcherServlet` 안쪽만 커버합니다. 그래서 **JWT 검증을 Filter에서 하고 예외를 던지면 Advice가 못 잡아서** 톰캣 기본 HTML 오류 페이지가 나가고, JSON을 기대한 클라이언트가 파싱에 실패합니다. 이럴 땐 `HandlerExceptionResolver`를 주입받아 위임합니다.
-
-바인딩도 자주 문제가 됩니다. **`@RequestBody`는 본문을 통째로 역직렬화하고 `@ModelAttribute`는 요청 파라미터를 setter로 바인딩**하는 완전히 다른 경로인데, JSON을 보내면서 `@ModelAttribute`를 쓰면 값이 전부 `null`이 되고 form 데이터에 `@RequestBody`를 쓰면 415가 납니다. 더 까다로운 건 **JSON 필드명이 DTO와 안 맞으면 예외 없이 그냥 `null`** 이라는 점입니다. 조용히 비어 있다가 나중에 엉뚱한 곳에서 NPE로 터집니다.
-
-또 하나 중요한 건 **컨트롤러도 싱글톤 빈**이라는 사실입니다. 필드에 사용자 ID 같은 걸 담으면 요청끼리 덮어쓰는데, 이건 값이 틀리는 정도가 아니라 **다른 사용자의 데이터가 응답으로 나가는 사고**가 됩니다. 같은 이유로 `ThreadLocal`이나 MDC는 반드시 `afterCompletion`에서 정리해야 합니다. 톰캣 스레드가 재사용되기 때문에 안 지우면 다음 요청 로그에 이전 요청 ID가 찍힙니다. `postHandle`이 아니라 `afterCompletion`인 이유는 **컨트롤러가 예외를 던지면 `postHandle`은 호출되지 않기 때문**입니다.
-
-성능 쪽에서는 **요청당 스레드 하나**라는 모델을 이해하는 게 핵심입니다. 컨트롤러가 DB를 기다리는 동안에도 그 스레드는 블로킹된 채 붙잡혀 있어서, CPU는 놀고 스레드만 소진됩니다. 그래서 **톰캣 스레드 풀과 커넥션 풀을 함께 봐야** 합니다. 스레드 200개에 커넥션 20개면 나머지는 대기하는데, 커넥션을 무작정 늘리는 것도 답이 아닙니다. 실제로 재 봤을 때 풀 크기를 20에서 50으로 늘려도 처리량이 늘지 않았습니다. `connection-timeout`을 짧게 걸어 **빨리 실패시키는 것**이 무한정 대기하다 스레드까지 다 소진되는 것보다 낫습니다.
-
 ### 핵심 키워드
 
 `DispatcherServlet` · `Front Controller` · `HandlerMapping` · `HandlerAdapter` · `ArgumentResolver` · `MessageConverter` · `ViewResolver` · `Filter` · `Interceptor` · `HandlerExceptionResolver` · `요청당 스레드` · `max-threads` · `@RequestBody` · `@ModelAttribute` · `MDC`
