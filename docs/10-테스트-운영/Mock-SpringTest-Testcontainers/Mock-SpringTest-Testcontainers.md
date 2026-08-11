@@ -288,7 +288,7 @@ MockMvc                          MockHttpServletRequest → DispatcherServlet �
 확인 안 된다   실제 커넥션 · HTTP/2 · 압축 · 톰캣 설정 · 타임아웃 · 포트 바인딩
 ```
 
-진짜 서버까지 봐야 하면 `@SpringBootTest(webEnvironment = RANDOM_PORT)`로 톰캣을 띄우고 `TestRestTemplate`으로 실제 요청을 보낸다. **그만큼 비싸진다**(앞 노트 실측 265 ms).
+진짜 서버까지 봐야 하면 `@SpringBootTest(webEnvironment = RANDOM_PORT)`로 톰캣을 띄우고 `TestRestTemplate`으로 실제 요청을 보낸다. **그만큼 비싸진다**(앞 노트 265 ms).
 
 #### Testcontainers — 진짜를 띄운다
 
@@ -794,24 +794,6 @@ class OrderRepositoryTest extends ContainerTestBase {
 
 **반대쪽 극단이 Testcontainers입니다.** 가짜로만 채우면 "다 통과하는데 운영에서 깨지는" 상황이 생기는데, 특히 DB가 그렇습니다. H2에서는 되고 MySQL 8에서는 `rank`가 예약어라 깨지거나, 함수 지원 범위나 정렬 규칙이 달라 결과가 바뀝니다. Testcontainers는 도커로 **운영과 같은 이미지**를 띄워 이 차이를 없앱니다. 대신 컨테이너를 클래스마다 띄우면 감당이 안 되므로 **`static`으로 잡아 JVM 하나에서 재사용**하는 게 기본 패턴이고, 그러면 데이터가 공유되니 롤백이나 정리를 함께 설계해야 합니다. 다만 **이번 측정 환경에는 도커가 없어서 Testcontainers 수치는 재지 못했고**, 그래서 기동 시간 같은 숫자는 적지 않았습니다.
 
-#### 답변 구조
-
-1. **정의** — 테스트 대역은 협력 객체를 대신하는 가짜로 스텁·페이크·목으로 나뉜다. Mockito는 인터페이스를 구현한 프록시를 실행 중에 만들어 스텁 응답과 호출 검증을 제공하고, 스프링 테스트는 슬라이스와 전체 컨텍스트로 올릴 범위를 정하며, Testcontainers는 도커로 운영과 같은 미들웨어를 띄운다
-2. **내부 원리** — `mock()`은 Byte Buddy로 바이트코드를 생성해 프록시 클래스를 만들고, 호출마다 Invocation을 만들어 기록한 뒤 인자가 맞는 스텁을 찾아 값을 돌려준다. 슬라이스는 계층에 필요한 자동 구성만 적용해 빈 수를 줄이고, `MockMvc`는 서블릿 요청 객체를 만들어 `DispatcherServlet`에 직접 넣는다. `@MockitoBean`은 빈 오버라이드라 컨텍스트 캐시 키를 바꿔 새 컨텍스트를 만든다
-3. **복잡도**
-    * 목 호출 **4,331 ns** vs 페이크 **7.0 ns** vs 실제 구현 **3.6 ns** → **621배**
-    * `mock()` 최초 **1,011 ms** / 이후 **100.6 µs**, `when()` **105.9 µs**, `verify()` **36.4 µs**
-    * 호출 기록 **301 B/회** → 100만 회에 힙 **287 MB**
-    * `stubOnly()` **-17%**, `mock-maker-subclass` **-12%**
-    * 빈 개수 — `@WebMvcTest` **108개** vs `@SpringBootTest` **292개** (2.7배)
-    * 컨텍스트 1개당 — 슬라이스 **207 ms** vs 전체 **348 ms** (41% 절감)
-    * 캐시 키 — `@MockitoBean` 1개 + 프로퍼티 1개가 컨텍스트를 **1개 → 3개**로 (3,598 → 4,956 ms)
-4. **장점** — 목은 타임아웃·실패처럼 진짜로는 만들 수 없는 경로를 한 줄로 재현하고 부수 효과를 `verify()`로 검증한다. 슬라이스는 빈을 292 → 108개로 줄여 컨텍스트를 41% 싸게 만든다. `MockMvc`는 톰캣 없이 매핑·바인딩·검증·직렬화·예외 처리를 확인한다. Testcontainers는 대체품 때문에 생기는 거짓 통과를 없앤다
-5. **단점** — 목은 페이크보다 621배 느리고 호출을 301 B씩 기록해 반복문에서 OOM을 낸다. `@MockitoBean`은 컨텍스트를 하나 더 만들어 목 자체보다 8만 배 비싼 부수 효과를 낸다. 목이 많으면 테스트가 구현에 붙어 리팩터링마다 깨진다. 슬라이스는 계층 간 연동을 못 보고, `MockMvc`는 실제 서버 동작을 못 본다. Testcontainers는 도커가 필요하다
-6. **사용 기준** — 스스로 간단히 만들 수 있으면 페이크, 재현 불가 경로가 필요하면 목, 호출 자체가 요구사항이면 `verify()`를 쓴다. 컨트롤러 검증은 `@WebMvcTest` + `@MockitoBean`, 쿼리 검증은 `@DataJpaTest`, 계층 연동은 `@SpringBootTest`, 서버 설정까지는 `RANDOM_PORT`를 쓴다. DB 종류에 결과가 좌우되면 Testcontainers를 쓴다
-7. **대안과 비교** — 페이크는 싸고 안 깨지지만 직접 만들어야 하고, 목은 비싸지만 재현 불가 경로를 만든다. 슬라이스는 싸지만 연동을 못 보고 전체 컨텍스트는 비싸지만 다 본다. `MockMvc`는 빠르지만 실제 HTTP를 못 보고 `TestRestTemplate`은 반대다. 대체품 DB는 빠르지만 거짓 통과를 만들고 Testcontainers는 정확하지만 도커에 의존한다
-8. **실무 적용 사례** — 저장소는 `HashMap` 기반 페이크로 두고 외부 결제·알림만 목으로 만든다. 외부 연동 목은 `IntegrationTestBase` 한 곳에 모아 컨텍스트 조합을 통일하고, `@WebMvcTest`에는 `controllers`를 명시해 범위를 좁힌다. 반복이 많은 테스트에는 `stubOnly()`를 쓰거나 페이크로 바꾼다. Testcontainers는 `static` 컨테이너와 `@DynamicPropertySource`로 재사용하고 `@Transactional`로 데이터를 되돌린다
-
 ### 핵심 키워드
 
 `테스트 대역` · `스텁 / 페이크 / 목` · `Mockito` · `Byte Buddy 프록시` · `호출 기록` · `stubOnly` · `verify` · `상태 검증 vs 행위 검증` · `@MockitoBean` · `컨텍스트 캐시 키` · `슬라이스 테스트` · `@WebMvcTest` · `@DataJpaTest` · `MockMvc` · `TestRestTemplate` · `Testcontainers` · `@DynamicPropertySource`
@@ -823,17 +805,3 @@ class OrderRepositoryTest extends ContainerTestBase {
 * **장애 분석과 성능 개선** — 목으로 가려진 실제 연동에서 나는 문제들.
 * **IoC · DI와 Bean** — 빈 오버라이드가 컨텍스트를 왜 다른 것으로 만드는지.
 * **JDBC · MyBatis · JPA** — Testcontainers가 잡아 주는 DB 방언 차이.
-
-### 최종 체크리스트
-
-* [ ] 목을 쓰는 이유가 **속도가 아니라 재현성**이라는 것을 설명할 수 있다.
-* [ ] 목 호출 4,331 ns vs 페이크 7.0 ns(**621배**)를 말할 수 있다.
-* [ ] 목이 **호출을 301 B씩 기록**한다는 것과 그 결과(OOM)를 설명할 수 있다.
-* [ ] `mock()` 첫 호출이 1,011 ms인 이유를 안다.
-* [ ] 스텁·페이크·목을 구분하고 **페이크가 기본**인 이유를 설명할 수 있다.
-* [ ] `verify()`를 써야 하는 경우와 쓰면 안 되는 경우를 구분할 수 있다.
-* [ ] `@WebMvcTest`와 `@SpringBootTest`의 빈 개수(108 vs 292)와 비용(207 vs 348 ms)을 말할 수 있다.
-* [ ] `@MockitoBean`이 **컨텍스트를 하나 더 만든다**는 것을 설명할 수 있다.
-* [ ] `MockMvc`가 무엇을 확인하고 무엇을 못 보는지 나눌 수 있다.
-* [ ] Testcontainers가 해결하는 문제(대체품과 운영의 차이)를 예로 들 수 있다.
-* [ ] Testcontainers 컨테이너를 `static`으로 두는 이유와 그 부작용을 안다.

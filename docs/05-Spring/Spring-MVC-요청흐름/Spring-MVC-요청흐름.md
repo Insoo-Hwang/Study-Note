@@ -593,7 +593,7 @@ spring:
 
   · 모든 요청이 동시에 DB 를 쓰지는 않는다
   · 커넥션을 늘려도 DB 가 못 버티면 소용없다
-    (실측: 풀 20 → 50 으로 늘려도 처리량이 안 늘었다)
+    (풀 20 → 50 으로 늘려도 처리량이 안 늘었다)
   · connection-timeout 을 짧게 두어 "빨리 실패"시키는 것이
     무한정 대기하다 스레드까지 다 소진되는 것보다 낫다
 ```
@@ -906,21 +906,6 @@ class OrderControllerTest {
 
 성능 쪽에서는 **요청당 스레드 하나**라는 모델을 이해하는 게 핵심입니다. 컨트롤러가 DB를 기다리는 동안에도 그 스레드는 블로킹된 채 붙잡혀 있어서, CPU는 놀고 스레드만 소진됩니다. 그래서 **톰캣 스레드 풀과 커넥션 풀을 함께 봐야** 합니다. 스레드 200개에 커넥션 20개면 나머지는 대기하는데, 커넥션을 무작정 늘리는 것도 답이 아닙니다. 실제로 재 봤을 때 풀 크기를 20에서 50으로 늘려도 처리량이 늘지 않았습니다. `connection-timeout`을 짧게 걸어 **빨리 실패시키는 것**이 무한정 대기하다 스레드까지 다 소진되는 것보다 낫습니다.
 
-#### 답변 구조
-
-1. **정의** — Spring MVC는 `DispatcherServlet`을 단일 창구로 두고 요청 처리에 필요한 일(핸들러 탐색·호출·값 변환)을 표준화된 협력자에게 위임하는 웹 프레임워크다
-2. **내부 원리** — 톰캣이 스레드를 배정하고 Filter 체인을 거쳐 `DispatcherServlet`에 도달한다. `HandlerMapping`이 핸들러를 찾고 Interceptor `preHandle`을 거쳐 `HandlerAdapter`가 `ArgumentResolver`로 매개변수를 채워 컨트롤러를 호출한다. 반환값은 `ReturnValueHandler`와 `MessageConverter`가 응답으로 바꾸고, 예외는 `HandlerExceptionResolver`가 `@ControllerAdvice`로 넘긴다
-3. **복잡도**
-    * 요청당 스레드 **1개** 점유, 톰캣 기본 `max-threads` **200**, `accept-count` **100**
-    * 핸들러 조회는 캐시되어 사실상 무료
-    * 실질 병목은 프레임워크가 아니라 **DB·외부 API 대기**
-    * 커넥션 풀은 실측상 **20을 넘겨도 처리량이 늘지 않았다**
-4. **장점** — 파싱·타입 변환·검증·직렬화를 프레임워크가 처리해 컨트롤러에 비즈니스 의도만 남는다. Filter·Interceptor·`ArgumentResolver`·`MessageConverter`라는 확장 지점이 표준화되어 공통 처리를 한곳에 넣을 수 있고, `MockMvc`로 서버 없이 흐름을 검증할 수 있다
-5. **단점** — 경로가 길어 어느 단계에서 값이 비었는지 추적하기 어렵고, 요청당 스레드 모델이라 I/O 대기가 길면 스레드가 놀면서 소진된다. Filter 예외를 Advice가 못 잡고, `@RequestBody` 바인딩 실패가 예외 없이 `null`이 되며, 컨트롤러 싱글톤 함정이 있다
-6. **사용 기준** — 요청/응답 자체를 바꾸거나 Security 관련이면 Filter, 핸들러 정보가 필요하거나 Advice로 예외를 처리하려면 Interceptor를 쓴다. JSON이면 `@RequestBody`, 쿼리 스트링·form이면 `@ModelAttribute`를 쓴다. 정리 코드는 항상 `afterCompletion`에 둔다. 스레드 풀과 커넥션 풀은 함께 정하고 `connection-timeout`으로 빨리 실패시킨다
-7. **대안과 비교** — Filter는 요청 교체가 가능하지만 Advice 밖이고, Interceptor는 핸들러를 알지만 요청을 못 바꾸며, AOP는 계층 무관하게 걸리지만 자기호출에 약하다. WebFlux는 대기 중 스레드를 반납해 적은 스레드로 많은 연결을 처리하지만 학습 비용이 크고 블로킹 코드 하나가 전체를 망친다
-8. **실무 적용 사례** — 컨트롤러는 DTO 변환과 위임만 하도록 얇게 유지해 트랜잭션 경계를 Service에 정확히 놓는다. `OncePerRequestFilter`로 요청 ID를 MDC에 심고 `finally`에서 제거해 로그를 추적하며, 인증 컨텍스트는 Interceptor `preHandle`에서 설정하고 `afterCompletion`에서 정리한다. 반복되는 헤더 추출은 `@LoginUser` 같은 커스텀 `ArgumentResolver`로 걷어내고, 컨트롤러 테스트는 `@WebMvcTest`로 계층만 띄운다
-
 ### 핵심 키워드
 
 `DispatcherServlet` · `Front Controller` · `HandlerMapping` · `HandlerAdapter` · `ArgumentResolver` · `MessageConverter` · `ViewResolver` · `Filter` · `Interceptor` · `HandlerExceptionResolver` · `요청당 스레드` · `max-threads` · `@RequestBody` · `@ModelAttribute` · `MDC`
@@ -934,22 +919,3 @@ class OrderControllerTest {
 * **[JVM 메모리와 GC](../../03-Java/JVM-메모리-GC/JVM-메모리-GC.md)** — `ThreadLocal`·MDC 누수가 왜 스레드 풀에서만 문제가 되는지.
 * **Spring Security 필터 체인** — 인증·인가가 Filter 영역에서 어떤 순서로 도는지.
 * **`DeferredResult`와 WebFlux** — 요청당 스레드 모델을 벗어나는 선택지.
-
-### 최종 체크리스트
-
-* [ ] 요청 하나가 지나가는 전체 경로를 순서대로 말할 수 있다.
-* [ ] `DispatcherServlet`이 **Front Controller**로서 하는 일을 설명할 수 있다.
-* [ ] `HandlerMapping`과 `HandlerAdapter`의 역할을 구분할 수 있다.
-* [ ] `ArgumentResolver`가 무엇을 하는지 알고 직접 만드는 방법을 안다.
-* [ ] **`@RequestBody`와 `@ModelAttribute`의 경로 차이**를 설명할 수 있다.
-* [ ] JSON 필드명이 안 맞으면 **예외 없이 `null`** 이 된다는 것을 안다.
-* [ ] Filter와 Interceptor의 경계와 그것이 예외 처리에 미치는 영향을 안다.
-* [ ] **Filter 예외를 `@ControllerAdvice`가 못 잡는 이유**와 해결책을 안다.
-* [ ] 정리 코드를 `postHandle`이 아니라 **`afterCompletion`** 에 두는 이유를 설명할 수 있다.
-* [ ] `ThreadLocal`·MDC를 안 지우면 무슨 일이 생기는지 안다.
-* [ ] **컨트롤러가 싱글톤**이라는 것과 그것이 만드는 보안 사고를 안다.
-* [ ] 요청당 스레드 모델과 그 한계를 설명할 수 있다.
-* [ ] **스레드 풀과 커넥션 풀을 함께 봐야 하는 이유**를 설명할 수 있다.
-* [ ] 느린 응답의 원인을 의심하는 순서를 말할 수 있다.
-* [ ] `@Controller`로 REST API를 만들면 무엇이 문제인지 안다.
-* [ ] `@WebMvcTest`와 `@SpringBootTest`의 차이를 안다.

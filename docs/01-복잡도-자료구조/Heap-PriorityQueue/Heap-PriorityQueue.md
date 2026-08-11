@@ -855,21 +855,6 @@ queue.offer(newTask);    // O(log n)
 
 주의할 점은 **순회 순서가 정렬 순서가 아니라는 것**과, **무계 구조라 기아 상태와 OOM에 대비해야 한다는 것**입니다.
 
-#### 답변 구조
-
-1. **정의** — 완전 이진 트리 + 힙 속성. 부분 정렬. PriorityQueue는 규칙, Heap은 구현
-2. **내부 원리** — 배열 인덱스 대응(`2i+1`, `2i+2`, `(i-1)/2`), `siftUp`으로 삽입, `siftDown`으로 삭제, `heapify`는 `O(n)`
-3. **복잡도**
-    * `peek` `O(1)`, `offer`·`poll` `O(log n)`, 평균과 최악이 같음
-    * `heapify` `O(n)` — 하나씩 넣는 `O(n log n)`보다 빠름
-    * `contains`·`remove(Object)` `O(n)` — 부분 정렬이라 검색 불가
-    * Top-K `O(n log K)`, 메모리 `O(K)`
-4. **장점** — 최우선 원소 조회 `O(1)`, 최악 보장, 배열이라 가볍고 캐시 친화적
-5. **단점** — 검색·범위 조회 불가, 불안정, 순회 순서가 정렬이 아님, 무계
-6. **사용 기준** — 전체 정렬이 필요 없고 최댓값·최솟값만 반복해서 꺼낼 때. 상위 K개만 필요할 때
-7. **대안과 비교** — 전체 정렬(`O(n log n)`), TreeMap(범위 조회 가능하지만 최댓값이 `O(log n)`), Redis ZSET(분산)
-8. **실무 적용 사례** — Spring 스케줄러의 `DelayedWorkQueue`, 다익스트라, 실시간 랭킹 Top-K, 여러 정렬 목록 병합
-
 ### 핵심 키워드
 
 `완전 이진 트리` · `힙 속성` · `Max Heap` · `Min Heap` · `부분 정렬` · `siftUp` · `siftDown` · `heapify` · `PriorityQueue` · `Top-K` · `기아 상태` · `에이징(aging)`
@@ -882,17 +867,3 @@ queue.offer(newTask);    // O(log n)
 * **그래프 문제 해결** — 다익스트라가 우선순위 큐 없이는 `O(n²)`, 있으면 `O(E log V)`인 이유.
 * **[ThreadPool과 Deadlock](../../04-동시성/ThreadPool-Deadlock/ThreadPool-Deadlock.md)** — 무계 큐가 `maximumPoolSize`를 무력화하는 구조.
 * **[Redis 자료구조와 활용](../../08-캐시-Redis/Redis-자료구조/Redis-자료구조.md)** — 분산 환경에서 우선순위·랭킹을 다루는 Sorted Set.
-
-### 최종 체크리스트
-
-* [ ] Heap의 두 조건(완전 이진 트리, 힙 속성)을 구분해 설명할 수 있다
-* [ ] Heap이 왜 배열로 구현되는지 인덱스 공식과 함께 설명할 수 있다
-* [ ] `siftUp`과 `siftDown` 과정을 예시 배열로 따라갈 수 있다
-* [ ] `heapify`가 `O(n)`인 이유를 설명할 수 있다
-* [ ] Heap이 부분 정렬이라는 것과 그 결과(검색 `O(n)`)를 설명할 수 있다
-* [ ] Top-K에 최소 힙을 쓰는 이유를 설명할 수 있다
-* [ ] 전체 정렬과 Heap의 복잡도·메모리 차이를 수치로 말할 수 있다
-* [ ] Java `PriorityQueue`가 최소 힙이고 순회가 정렬이 아님을 설명할 수 있다
-* [ ] 동일 우선순위 FIFO 보장 방법을 설명할 수 있다
-* [ ] 기아 상태와 무계 큐의 위험, 그 대응책을 설명할 수 있다
-* [ ] 분산 환경에서 전역 우선순위를 어떻게 다루는지 설명할 수 있다

@@ -15,7 +15,7 @@
 * 구현체 선택은 곧 **내부 자료구조 선택**이다. `ArrayList`는 배열, `LinkedList`는 이중 연결 리스트, `HashMap`은 버킷 배열, `TreeMap`은 레드-블랙 트리다.
 * JDK 17 실측 기준 `ArrayList`의 내부 배열은 **`0 → 10`으로 시작해 1.5배씩** 늘고, `HashMap`은 **table 16 · 임계값 12**에서 시작한다.
 * `subList`·`keySet`·`Arrays.asList`는 **복사본이 아니라 뷰**다. 한쪽을 고치면 다른 쪽이 함께 바뀐다.
-* 순회 중 구조를 바꾸면 `ConcurrentModificationException`이 나는데, **끝에서 두 번째 원소를 지울 때만 예외 없이 조용히 넘어간다** (실측). 이것이 fail-fast가 "보장"이 아닌 이유다.
+* 순회 중 구조를 바꾸면 `ConcurrentModificationException`이 나는데, **끝에서 두 번째 원소를 지울 때만 예외 없이 조용히 넘어간다**. 이것이 fail-fast가 "보장"이 아닌 이유다.
 
 ### 무엇을 해결하는가
 
@@ -198,7 +198,7 @@ JDK 17 실측 기준 내부 상수는 다음과 같다.
 new HashMap<>()  직후  →  table = null       (아직 배열이 없다)
 첫 put() 직후          →  table = 16, threshold = 12   (16 × 0.75)
 
-table 확장 시점 (실측)
+table 확장 시점
 size 13 → table 32
 size 25 → table 64
 size 49 → table 128
@@ -821,7 +821,7 @@ synchronized (map) {                 // 이 블록이 없으면 CME 가 날 수 
 | `ArrayList` 확장은 2배씩 일어난다                      | 약 1.5배(`기존 + 기존/2`)다. 실측 `10 → 15 → 22 → 33 → 49`.                           |
 | `new HashMap<>()`를 하면 버킷 16개가 바로 생긴다          | `table`은 `null`이고, 첫 `put()`에서 16이 만들어진다.                                    |
 | `new HashMap<>(1000)`이면 1000개까지 resize가 없다    | 임계값이 768이라 resize가 일어난다. `1000/0.75+1 = 1334`가 필요하다.                         |
-| `HashMap` 버킷은 8개가 되면 트리가 된다                   | table 길이가 64 이상일 때만이다. 미만이면 트리화 대신 resize 한다 (실측: 기본 상태에서는 11번째에야 트리가 됐다).   |
+| `HashMap` 버킷은 8개가 되면 트리가 된다                   | table 길이가 64 이상일 때만이다. 미만이면 트리화 대신 resize 한다 (기본 상태에서는 11번째에야 트리가 됐다).   |
 | 트리가 된 버킷은 6개 이하가 되면 바로 리스트로 돌아온다              | resize로 쪼개질 때 적용된다. 실측에서 4개까지 지워도 `TreeNode`였다.                              |
 | for-each 안에서 `remove()`하면 항상 예외가 난다           | **끝에서 두 번째 원소를 지우면 예외 없이 조용히 끝난다.** 마지막 원소를 건너뛰어 더 위험하다.                     |
 | fail-fast는 동시 수정을 막아 준다                       | 감지를 시도할 뿐 보장하지 않는다. 스레드 안전과는 무관하다.                                           |
@@ -1138,20 +1138,6 @@ List<String> immutable = List.of("A", "B");
 
 주의할 점 두 가지를 덧붙이면, 첫째로 `subList`·`keySet`·`Arrays.asList`는 복사본이 아니라 **뷰**라서 한쪽 수정이 원본에 반영됩니다. 둘째로 fail-fast는 보장이 아닙니다. 실제로 측정해 보면 **끝에서 두 번째 원소를 지울 때만 예외가 나지 않고 마지막 원소를 건너뛴 채 조용히 끝나서**, 오히려 예외가 나는 경우보다 위험합니다. 그래서 순회 중 삭제는 `Iterator.remove()`나 `removeIf()`를 씁니다.
 
-#### 답변 구조
-
-1. **정의** — 데이터 묶음을 다루는 인터페이스와 구현체를 표준화한 체계. 계약(`List`)과 구현(`ArrayList`)의 분리가 핵심
-2. **내부 원리** — `Iterable` → `Collection` → `List`/`Set`/`Queue`, `Map`은 별도 계층. `ArrayList`는 동적 배열, `HashMap`은 버킷 배열 + 리스트/레드-블랙 트리, `TreeMap`은 레드-블랙 트리. fail-fast는 `modCount` 비교로 구현
-3. **복잡도**
-    * `ArrayList` — `get` `O(1)`, 끝 `add` 분할 상환 `O(1)`, 중간 삽입·삭제 `O(n)`
-    * `HashMap`/`HashSet` — 평균 `O(1)`, 충돌 심하면 트리화 후 `O(log n)`
-    * `TreeMap`/`TreeSet` — 전부 `O(log n)`. 실측 `HashMap` 대비 11배 느림
-4. **장점** — 구현체 교체 용이, 이름 규칙 통일, `Collections` 알고리즘 재사용, 제네릭 타입 안전성
-5. **단점** — 기본형 불가(오토박싱), 대부분 스레드 안전하지 않음, 뷰와 복사본이 구분되지 않음, fail-fast가 보장이 아님
-6. **사용 기준** — 키로 찾는가(`Map`) → 중복 허용하는가(`List`/`Set`) → 순서가 필요한가(없음/삽입/정렬) 순으로 좁힌다
-7. **대안과 비교** — `Hashtable`·`Vector`·`Stack` 대신 `ConcurrentHashMap`·`ArrayList`·`ArrayDeque`. `synchronizedMap`은 복합 연산이 안전하지 않아 `ConcurrentHashMap`이 낫다
-8. **실무 적용 사례** — 반환 타입은 인터페이스로, `in` 절 조회 결과를 `Map`으로 바꿔 N+1 제거, `LinkedHashMap`으로 LRU 캐시, DTO 컬렉션 필드는 `List.copyOf()`로 방어
-
 ### 핵심 키워드
 
 `Collection Framework` · `인터페이스와 구현체 분리` · `Iterable` · `Collection` · `List` · `Set` · `Queue / Deque` · `Map` · `Iterator` · `fail-fast` · `modCount` · `뷰(view)`
@@ -1164,16 +1150,3 @@ List<String> immutable = List.of("A", "B");
 * **[Atomic과 Concurrent Collection](../../04-동시성/Atomic-Concurrent-Collection/Atomic-Concurrent-Collection.md)** — `ConcurrentHashMap`의 버킷 단위 락과 CAS 동작.
 
 > JDK 17에는 `java.util.SequencedCollection`과 `ArrayList.getFirst()`가 **없다.** 실행해 확인한 결과 둘 다 존재하지 않으며, **Java 21부터** 추가된 기능이다.
-
-### 최종 체크리스트
-
-* [ ] `Iterable` → `Collection` → `List`/`Set`/`Queue` 계층을 그릴 수 있다
-* [ ] `Map`이 `Collection`이 아닌 이유를 설명할 수 있다
-* [ ] `ArrayList`의 초기 용량과 1.5배 확장 규칙을 수치로 말할 수 있다
-* [ ] `HashMap`의 해시 확산·버킷 계산·로드 팩터를 설명할 수 있다
-* [ ] 버킷 트리화에 table 길이 64 조건이 함께 필요하다는 것을 안다
-* [ ] fail-fast의 구현(`modCount`)과 그것이 보장이 아닌 이유를 설명할 수 있다
-* [ ] 순회 중 삭제의 안전한 방법 세 가지를 제시할 수 있다
-* [ ] 뷰(`subList`·`keySet`·`Arrays.asList`)와 복사본을 구분할 수 있다
-* [ ] `Arrays.asList`·`List.of`·`unmodifiableList`·`copyOf`의 차이를 말할 수 있다
-* [ ] `HashMap` 초기 용량을 예상 원소 수로부터 계산할 수 있다

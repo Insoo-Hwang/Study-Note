@@ -190,7 +190,7 @@ Set.of("a", "b", "c", "d", "e") 순회 결과
 ```text
 TreeMap / TreeSet / PriorityQueue
   → null 을 비교할 수 없다. compareTo 를 호출하는 순간 NPE
-  → Comparator.nullsFirst() 를 주면 허용된다 (실측 확인)
+  → Comparator.nullsFirst() 를 주면 허용된다
 
 ArrayDeque
   → poll() 이 null 을 "비어 있음" 신호로 쓴다. 값과 구분이 안 된다
@@ -863,7 +863,7 @@ public class EnumCollections {
 }
 ```
 
-`EnumMap`은 내부가 **`ordinal()`을 인덱스로 쓰는 배열**이라 해시 계산이 없고, 순회하면 **enum 선언 순서**로 나온다 (실측 확인). `EnumSet`은 원소 64개 이하일 때 `long` 하나의 비트로 표현하는 `RegularEnumSet`이다.
+`EnumMap`은 내부가 **`ordinal()`을 인덱스로 쓰는 배열**이라 해시 계산이 없고, 순회하면 **enum 선언 순서**로 나온다. `EnumSet`은 원소 64개 이하일 때 `long` 하나의 비트로 표현하는 `RegularEnumSet`이다.
 
 다만 `EnumMap`도 `null` 키는 `NullPointerException`이다.
 
@@ -997,20 +997,6 @@ List<OrderResponse> responses = new ArrayList<OrderResponse>(orders.size());
 
 주의할 점을 하나 덧붙이면, **순서와 `null` 허용은 반드시 명시적으로 판단해야 합니다.** `HashSet`에 1부터 10을 넣으면 정렬된 것처럼 나와서 순서가 보장된다고 착각하기 쉬운데, 흩어진 값을 넣으면 순서가 뒤섞입니다. `null`도 `HashMap`은 되지만 `TreeMap`·`ConcurrentHashMap`·`ArrayDeque`는 예외가 납니다.
 
-#### 답변 구조
-
-1. **정의** — 요구사항(중복·순서·접근 방식·동시성)에서 인터페이스와 구현체를 기계적으로 도출하는 판단 절차
-2. **내부 원리** — 인터페이스는 중복 허용과 접근 방식으로, 구현체는 순서 요구로 결정된다. `Hash~`는 버킷 배열, `Linked~`는 거기에 순서 링크, `Tree~`는 레드-블랙 트리
-3. **복잡도**
-    * 해시 계열 — 조회·삽입·삭제 `O(1)` 평균
-    * 트리 계열 — 전부 `O(log n)`, 대신 범위 조회와 최소·최대가 가능
-    * `List.contains` `O(n)` vs `Set.contains` `O(1)` — 실측 2,000배 이상
-4. **장점** — 요구사항이 타입에 드러나 의도가 읽히고, 기본값 전략을 두면 선택 논쟁이 사라지며, 구현체 교체가 쉽다
-5. **단점** — 구현체마다 `null` 허용과 순서 보장이 달라 외워야 할 예외가 있고, 잘못 골라도 예외 없이 조용히 틀린다
-6. **사용 기준** — ① 동시 접근 여부 → ② 중복 허용 여부 → ③ 접근 방식 → ④ 순서 요구 순으로 좁힌다
-7. **대안과 비교** — `Vector`·`Hashtable`·`Stack` 대신 `ArrayList`·`ConcurrentHashMap`·`ArrayDeque`. `synchronizedMap`은 복합 연산이 안전하지 않아 `ConcurrentHashMap`이 낫다. enum 키에는 `EnumMap`
-8. **실무 적용 사례** — 응답 JSON 필드 순서는 `LinkedHashMap`, 등급 구간 판정은 `TreeMap.floorEntry`, N+1 제거는 `HashMap` 조회, 설정값은 `Set.of()`, 동시 카운터는 `ConcurrentHashMap.computeIfAbsent`
-
 ### 핵심 키워드
 
 `인터페이스 우선 선택` · `중복 허용 여부` · `접근 방식` · `순서 보장 3종` · `삽입 순서` · `정렬 순서` · `로드 팩터` · `초기 용량 산정` · `스레드 안전성` · `오토박싱 비용` · `기본값 전략`
@@ -1023,16 +1009,3 @@ List<OrderResponse> responses = new ArrayList<OrderResponse>(orders.size());
 * **[Redis 자료구조와 활용](../../08-캐시-Redis/Redis-자료구조/Redis-자료구조.md)** — 분산 환경에서 로컬 컬렉션을 대체하는 선택지.
 
 > JDK 17에는 `java.util.SequencedCollection`과 `ArrayList.getFirst()`가 **없다.** 실행해 확인한 결과 둘 다 존재하지 않으며 **Java 21부터** 추가됐다. Java 21 이상이라면 `getFirst`·`getLast`·`reversed`로 "첫 원소·마지막 원소·역순"을 인터페이스 차원에서 통일되게 다룰 수 있다.
-
-### 최종 체크리스트
-
-* [ ] 인터페이스를 먼저 정하고 구현체를 나중에 고르는 순서를 지킬 수 있다
-* [ ] 중복·순서·접근 방식·동시성 네 질문으로 구현체를 좁힐 수 있다
-* [ ] 기본값 네 개(`ArrayList`·`HashSet`·`HashMap`·`ArrayDeque`)를 말할 수 있다
-* [ ] 순서 보장 3종(없음·삽입·정렬)에 대응하는 구현체를 짝지을 수 있다
-* [ ] `HashSet`이 정렬되어 보이는 것이 왜 우연인지 설명할 수 있다
-* [ ] `null`을 허용하지 않는 컬렉션과 그 이유를 각각 말할 수 있다
-* [ ] `TreeSet`의 중복 판정 기준이 `compareTo`임을 알고 위험을 설명할 수 있다
-* [ ] `HashMap`의 초기 용량을 예상 원소 수로부터 계산할 수 있다
-* [ ] 동시 접근이 필요할 때의 선택지와 `computeIfAbsent`의 필요성을 설명할 수 있다
-* [ ] 복잡도를 바꾸는 선택과 상수 배수를 바꾸는 선택의 우선순위를 구분할 수 있다

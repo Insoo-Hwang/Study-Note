@@ -2,7 +2,7 @@
 <rect x="1" y="1" width="778" height="418" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
 <defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
 <text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">DFS — 깊이부터 내려가고 막히면 되돌아온다</text>
-<text x="34" y="61" font-size="12.5" fill="#52514e">방문 순서 0 → 1 → 3 → 4 → 2 → 5 → 6 (JDK 17 실측)</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">방문 순서 0 → 1 → 3 → 4 → 2 → 5 → 6 (JDK 17)</text>
 <line x1="200" y1="140" x2="120" y2="170" stroke="#898781" stroke-width="1.4"/>
 <line x1="200" y1="140" x2="280" y2="170" stroke="#898781" stroke-width="1.4"/>
 <line x1="120" y1="210" x2="80" y2="242" stroke="#898781" stroke-width="1.4"/>

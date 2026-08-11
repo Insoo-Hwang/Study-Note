@@ -26,7 +26,7 @@
 앞 노트에서 `synchronized`가 세 가지 동시성 문제를 모두 해결한다는 것을 봤다. 그런데 비용이 있었다.
 
 ```text
-단일 스레드 1억 회 증가 (실측)
+단일 스레드 1억 회 증가
   plain long ++   =    11 ms
   synchronized    = 1,794 ms      163배
 ```
@@ -142,7 +142,7 @@ public class SafeCounterMap {
 그러나 어느 층도 해결하지 못하는 것이 있다
 
   복합 연산    map.get(k) 후 map.put(k, v+1)
-             → 각 호출은 원자적인데 사이가 벌어진다 (실측 46,585 / 100,000)
+             → 각 호출은 원자적인데 사이가 벌어진다 (46,585 / 100,000)
 ```
 
 **세 번째 줄이 이 노트의 핵심이다.** 동시성 컬렉션을 쓴다고 코드가 자동으로 안전해지지 않는다.
@@ -570,7 +570,7 @@ public boolean add(E e) {
 3. **경합이 얼마나 심한가?** — 스레드가 많으면 `LongAdder`
 4. **값을 읽어서 판단에 쓰는가?** — 그렇다면 `AtomicLong`
 5. **복합 연산이 필요한가?** — `merge`·`compute`로 표현 가능한가 확인한다
-6. **크기를 미리 아는가?** — 알면 초기 용량을 준다 (실측 2.4배)
+6. **크기를 미리 아는가?** — 알면 초기 용량을 준다 (2.4배)
 
 ### 비슷한 기술과 비교
 
@@ -593,8 +593,8 @@ public boolean add(E e) {
 | 내부 구조 | 값 하나 | base + 셀 배열 |
 | 증가 | 하나의 값에 CAS | 자기 셀에 CAS |
 | 읽기 | `get()` 즉시 정확 | `sum()`이 전부 순회 |
-| 1스레드 (실측) | 168 ms | 176 ms |
-| 16스레드 (실측) | 778 ms | **42 ms** |
+| 1스레드 | 168 ms | 176 ms |
+| 16스레드 | 778 ms | **42 ms** |
 | 메모리 | 작다 | 셀 배열만큼 크다 |
 | `compareAndSet` | 지원 | **없다** |
 | 선택 기준 | 값을 읽어 판단 | 누적만 하고 가끔 읽기 |
@@ -605,7 +605,7 @@ public boolean add(E e) {
 | --- | --- | --- |
 | 락 범위 | 버킷 하나 | 맵 전체 |
 | 읽기 시 락 | 없다 | 있다 |
-| 읽기 성능 (실측) | 62 ms | 662 ms |
+| 읽기 성능 | 62 ms | 662 ms |
 | `null` 키/값 | **금지** | 허용 |
 | 순회 | 약한 일관성, 예외 없음 | **직접 동기화해야 한다** |
 | 복합 연산 | `merge`·`compute` 제공 | 없다 (밖에서 `synchronized`) |
@@ -632,8 +632,8 @@ synchronized (m) {
 | 비교 항목 | `CopyOnWriteArrayList` | `synchronizedList` |
 | --- | --- | --- |
 | 읽기 시 락 | 없다 | 있다 |
-| 읽기 (실측 600만 회) | 33 ms | 173 ms |
-| 쓰기 (실측 5만 건) | **1,087 ms** | 1 ms |
+| 읽기 (600만 회) | 33 ms | 173 ms |
+| 쓰기 (5만 건) | **1,087 ms** | 1 ms |
 | 쓰기 복잡도 | `O(n)` | `O(1)` 상각 |
 | 순회 | 스냅샷, 예외 없음 | 직접 동기화 필요 |
 | 반복자 수정 | 불가 (`UnsupportedOperationException`) | 가능 |
@@ -656,7 +656,7 @@ synchronized (m) {
 | --- | --- | --- | --- |
 | 대표 | `HashMap`, `ArrayList` | `ConcurrentHashMap` | `CopyOnWriteArrayList` |
 | 순회 중 수정 | `ConcurrentModificationException` | 허용 | 허용 |
-| 새 항목이 보이나 | — | 보일 수도 있다 (실측 보였다) | **절대 안 보인다** |
+| 새 항목이 보이나 | — | 보일 수도 있다 | **절대 안 보인다** |
 | 메모리 | 없음 | 없음 | 배열 복사본 유지 |
 | 반복자 `remove()` | 가능 | 가능 | **불가** |
 
@@ -1211,22 +1211,6 @@ Semaphore(2)       2회 acquire 후 tryAcquire = false, 가용 permit = 0
 
 가장 중요한 것은 **`ConcurrentHashMap`을 써도 복합 연산은 여전히 깨진다는 점**입니다. `map.put(k, map.get(k) + 1)`을 100스레드가 1,000번씩 실행했더니 기대값 100,000에 대해 46,585만 남았습니다. 각 호출은 원자적인데 **두 호출 사이는 아무도 지켜 주지 않기 때문**입니다. `merge`나 `computeIfAbsent` 같은 원자적 복합 연산을 써야 정확히 100,000이 나옵니다.
 
-#### 답변 구조
-
-1. **정의** — `Atomic`은 CAS로 락 없이 원자성을 얻는 클래스, `Concurrent` 컬렉션은 락 범위를 좁히도록 자료구조 자체를 다시 설계한 것
-2. **내부 원리** — CAS는 "값이 아직 X면 Y로"를 CPU 명령 하나로 처리하고, 실패하면 스레드를 재우지 않고 재시도한다. `LongAdder`는 셀 배열로 경합을 분산한다. `ConcurrentHashMap`은 Java 8에서 세그먼트를 버리고 버킷 첫 노드를 `synchronized`로 잠근다. 읽기는 `volatile` 노드 덕에 락이 없다
-3. **복잡도**
-    * 누적 2,000만 회: 1스레드 `AtomicLong` 168ms / `LongAdder` 176ms, 16스레드 778ms / 42ms (18.5배)
-    * 맵 조회 1,600만 회: `synchronizedMap` 662ms / `ConcurrentHashMap` 62ms (10.7배)
-    * `CopyOnWriteArrayList` 쓰기는 `O(n)` — 5만 건에 1,087ms, `synchronizedList`는 1ms
-    * `CopyOnWriteArrayList` 읽기는 33ms 대 173ms로 5.2배 빠르다
-    * 초기 용량 지정 시 100만 건 `put`이 175ms → 73ms
-4. **장점** — 데드락이 불가능하고 컨텍스트 스위치가 없다. 읽기에 락이 없어 조회 위주 부하에서 압도적이다. 원자적 복합 연산 메서드를 제공한다
-5. **단점** — **복합 연산을 직접 조합하면 여전히 깨진다**(실측 46,585). 경합이 심하면 CAS 재시도가 폭증한다. ABA를 감지 못 한다. `null`을 못 쓴다. `CopyOnWriteArrayList`는 쓰기가 `O(n)`이다
-6. **사용 기준** — 단일 변수이고 값을 읽어 판단하면 `AtomicLong`, 누적만 하면 `LongAdder`. Map은 `ConcurrentHashMap`이 기본, List는 읽기가 압도적일 때만 `CopyOnWriteArrayList`, 생산자-소비자는 `BlockingQueue`
-7. **대안과 비교** — `Collections.synchronizedXxx`는 락 범위가 전체라 읽기끼리도 막힌다. 여러 필드를 함께 지켜야 하면 Atomic으로는 불가능해 `synchronized`가 필요하다. 여러 인스턴스로 확장되면 JVM 안의 어떤 도구도 무의미해져 Redis나 DB 층으로 올라가야 한다
-8. **실무 적용 사례** — 로컬 캐시는 `computeIfAbsent`로 중복 로딩을 막고, 조회수는 `ConcurrentHashMap<Long, LongAdder>`에 모았다가 `sumThenReset()`으로 주기 반영한다. 중복 결제 방지는 `putIfAbsent`의 반환값으로 판정하고 `finally`에서 제거한다. 설정은 불변 객체를 `AtomicReference`로 교체하고, 리스너 목록은 `CopyOnWriteArrayList`, 외부 API 동시 호출은 `Semaphore`로 제한한다
-
 ### 핵심 키워드
 
 `CAS (compare-and-swap)` · `락 프리 (lock-free)` · `스핀 (spin)` · `ABA 문제` · `AtomicInteger·AtomicLong` · `LongAdder` · `AtomicReference` · `AtomicStampedReference` · `ConcurrentHashMap` · `CopyOnWriteArrayList` · `BlockingQueue` · `약한 일관성 (weakly consistent)`
@@ -1238,18 +1222,3 @@ Semaphore(2)       2회 acquire 후 tryAcquire = false, 가용 permit = 0
 * **[Java Collection](../../03-Java/Java-Collection/Java-Collection.md)** — `HashMap`의 버킷·트리화를 알면 `ConcurrentHashMap`이 쉬워진다.
 * **[캐시 전략과 정합성](../../08-캐시-Redis/캐시-전략-정합성/캐시-전략-정합성.md)** — `Caffeine`이 `ConcurrentHashMap` 위에 만료·크기 제한을 얹은 구현이다.
 * **[낙관적 락 · 비관적 락](../../07-트랜잭션-데이터접근/낙관적-비관적-락/낙관적-비관적-락.md)** — `@Version` 낙관적 락은 CAS와 완전히 같은 아이디어를 DB에서 구현한 것이다.
-
-### 최종 체크리스트
-
-* [ ] CAS의 동작과 재시도 루프를 설명할 수 있다
-* [ ] CAS가 경합이 심할 때 느려지는 이유를 말할 수 있다
-* [ ] `LongAdder`의 셀 분산 구조와 `AtomicLong`과의 차이를 안다
-* [ ] `LongAdder`가 1스레드에서는 이점이 없다는 것을 안다
-* [ ] ABA 문제를 설명하고 `AtomicStampedReference`의 역할을 말할 수 있다
-* [ ] `ConcurrentHashMap`이 Java 8에서 어떻게 바뀌었는지 안다
-* [ ] `ConcurrentHashMap`을 써도 복합 연산이 깨지는 이유를 설명할 수 있다
-* [ ] `merge`·`compute`·`putIfAbsent`를 언제 쓰는지 안다
-* [ ] `ConcurrentHashMap`이 `null`을 금지하는 이유를 말할 수 있다
-* [ ] fail-fast·약한 일관성·스냅샷 세 가지 순회 정책을 구분할 수 있다
-* [ ] `CopyOnWriteArrayList`의 쓰기 복잡도와 적합한 용도를 안다
-* [ ] `BlockingQueue`의 네 가지 메서드 계열을 구분할 수 있다

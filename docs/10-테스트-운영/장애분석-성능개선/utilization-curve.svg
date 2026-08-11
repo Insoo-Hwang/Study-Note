@@ -2,7 +2,7 @@
 <rect x="1" y="1" width="758" height="402" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
 <defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
 <text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">이용률이 오르면 대기가 폭발한다</text>
-<text x="34" y="61" font-size="12.5" fill="#52514e">워커 3개 · 건당 5 ms · 지수분포 도착 — 처리 시간은 내내 5 ms 다 (실측)</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">워커 3개 · 건당 5 ms · 지수분포 도착 — 처리 시간은 내내 5 ms 다</text>
 <line x1="74" y1="292" x2="574" y2="292" stroke="#898781" stroke-width="1.2"/>
 <line x1="74" y1="292" x2="74" y2="102" stroke="#898781" stroke-width="1.2"/>
 <line x1="70" y1="292.0" x2="74" y2="292.0" stroke="#898781" stroke-width="1"/>

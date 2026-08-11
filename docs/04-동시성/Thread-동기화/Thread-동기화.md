@@ -632,7 +632,7 @@ AtomicLong         =   579 ms      약 53배
 | 공정성 | 비공정 고정 | 선택 가능 (기본 비공정) |
 | 조건 대기 | `wait`/`notify` 하나 | `Condition` 여러 개 |
 | 락 상태 조회 | 불가 | `getHoldCount()`, `isLocked()` |
-| 경합 시 성능(실측 600만 회) | 212 ms | 154 ms |
+| 경합 시 성능(600만 회) | 212 ms | 154 ms |
 | 스레드 덤프 가독성 | 좋다 | 상대적으로 덜하다 |
 | 선택 기준 | 기본값 | 특수 기능이 필요할 때 |
 
@@ -852,12 +852,12 @@ public static Config get() {
 | `synchronized`는 편향 락 덕분에 무경합이면 거의 공짜다 | JDK 15에서 폐기되어 JDK 17 기본값이 `UseBiasedLocking=false`다. 실측 163배. |
 | `i++`는 한 줄이니 원자적이다 | read-modify-write 세 단계다. |
 | 대입은 전부 원자적이다 | 32비트 환경에서 `long`·`double` 대입은 두 번에 나뉠 수 있다. `volatile`이 이를 막는다. |
-| `synchronized` 메서드끼리는 서로 막아 준다 | 인스턴스 메서드와 `static` 메서드는 다른 락이다 (실측 동시 진입 확인). |
+| `synchronized` 메서드끼리는 서로 막아 준다 | 인스턴스 메서드와 `static` 메서드는 다른 락이다 (동시 진입 확인). |
 | `sleep()`은 락을 놓는다 | 쥔 채로 잔다. `wait()`만 놓는다. |
 | `wait()`는 `if`로 확인해도 된다 | 가짜 각성과 조건 재변경 때문에 반드시 `while`이다. |
 | `notify()`가 `notifyAll()`보다 효율적이라 낫다 | 엉뚱한 스레드를 깨워 전체가 멈출 수 있다. 기본은 `notifyAll()`이다. |
 | `RUNNABLE`이면 CPU를 쓰고 있다 | I/O 대기도 `RUNNABLE`로 보인다. JVM은 구분하지 않는다. |
-| `interrupt()`를 부르면 스레드가 죽는다 | 요청일 뿐이다. 플래그를 확인하지 않는 루프는 끝까지 돈다 (실측 확인). |
+| `interrupt()`를 부르면 스레드가 죽는다 | 요청일 뿐이다. 플래그를 확인하지 않는 루프는 끝까지 돈다. |
 | `InterruptedException`을 잡으면 처리가 끝난 것이다 | 잡히는 순간 플래그가 `false`로 초기화된다. 복원하거나 다시 던져야 한다. |
 | 공정 락이 더 안전하니 기본으로 쓰면 좋다 | 실측 약 400배 느리다. 기아가 관측될 때만 쓴다. |
 | 락을 여러 개로 쪼개면 항상 빨라진다 | 임계 영역이 짧으면 오히려 느려졌다 (89ms 대 130ms). |
@@ -866,7 +866,7 @@ public static Config get() {
 | 싱글턴 빈이라 스레드가 하나씩 쓴다 | 모든 요청 스레드가 같은 인스턴스를 공유한다. |
 | `@Transactional`과 `synchronized`를 같이 쓰면 안전하다 | 커밋이 락 해제 뒤에 일어난다. 서버가 여러 대면 아예 무의미하다. |
 | `Thread.stop()`은 폐기됐지만 급할 때 쓰면 된다 | 락을 쥔 채 죽어 데이터가 깨진다. JDK 17에서 호출은 되지만 폐기 예정이다. |
-| `synchronized ("lock")`처럼 문자열을 락으로 써도 된다 | 상수 풀에서 공유되어 남과 같은 락을 잡는다 (실측 `==` `true`). |
+| `synchronized ("lock")`처럼 문자열을 락으로 써도 된다 | 상수 풀에서 공유되어 남과 같은 락을 잡는다 (`==` `true`). |
 | JDK 17에서도 가상 스레드를 쓸 수 있다 | `Thread.ofVirtual()`이 없다. JDK 21부터 정식이다. |
 | 스레드는 가벼우니 요청마다 만들어도 된다 | 실측 개당 0.15ms + 스택 약 1MB. 풀이 필요한 이유다. |
 
@@ -1310,21 +1310,6 @@ private final Object lock = new Object();     // final 이어야 한다
 
 비용도 알아 둘 필요가 있습니다. 단일 스레드에서 1억 번 증가시킬 때 plain이 11ms인데 `synchronized`는 1,794ms로 약 163배였습니다. 예전에는 편향 락이 무경합 `synchronized`를 거의 공짜로 만들어 줬는데, **JDK 15에서 폐기되어 JDK 17에서는 기본값이 꺼져 있습니다.** 그래서 무경합이라도 락 비용을 무시할 수 없게 됐습니다.
 
-#### 답변 구조
-
-1. **정의** — 동시성 문제는 원자성·가시성·순서 세 축. `synchronized`는 셋 다, `volatile`은 가시성과 순서만 보장한다
-2. **내부 원리** — 각 코어의 캐시에 복사본이 생겨 변경이 전달되지 않고, JIT가 루프 밖으로 읽기를 끌어낸다. `synchronized`는 객체마다 있는 모니터(owner·재진입 횟수·entry set·wait set)를 잠근다. `wait()`는 락을 놓고 `sleep()`은 쥔 채로 잔다
-3. **복잡도**
-    * 무경합 1억 회: plain 11ms / `AtomicLong` 579ms(53배) / `synchronized` 1,794ms(163배)
-    * 경합 600만 회: `AtomicInteger` 113ms / `ReentrantLock` 154ms / `synchronized` 212ms
-    * 공정 락은 1/10 횟수인데 6,323ms — 정규화하면 약 400배
-    * 스레드 생성은 개당 약 0.15ms + 스택 약 1MB
-4. **장점** — `synchronized`는 문법이 간단하고 락 해제를 잊을 수 없으며 세 문제를 한 번에 해결한다. `volatile`은 매우 가볍고 데드락이 불가능하다. `ReentrantLock`은 타임아웃·인터럽트·다중 조건을 지원한다
-5. **단점** — `synchronized`는 무경합에도 163배 비용이 들고 타임아웃을 걸 수 없다. `volatile`은 원자성이 없어 카운터에 쓸 수 없다. `ReentrantLock`은 `finally`를 빠뜨리면 락이 영원히 잠긴다. **동시성 버그는 예외 없이 조용히 틀리고 재현도 안 된다**
-6. **사용 기준** — 공유 상태를 없앨 수 있으면 그것이 최선. 단순 플래그는 `volatile`, 단일 변수의 읽고-쓰기는 Atomic, 여러 변수를 묶으면 `synchronized`, 타임아웃·취소가 필요하면 `ReentrantLock`
-7. **대안과 비교** — 불변 객체와 `ThreadLocal`은 동기화 자체를 없앤다. `BlockingQueue`는 `wait`/`notify`를 대체한다. 데드락은 락 순서 고정이나 `tryLock(timeout)`으로 막는다. 분산 환경에서는 `synchronized`가 무의미하므로 DB 락이나 Redis 분산 락으로 올라가야 한다
-8. **실무 적용 사례** — Spring 싱글턴 빈의 필드에 상태를 두지 않는다. `@Async`나 스레드 풀에서는 `ThreadLocal`(MDC·SecurityContext)이 사라지고 정리하지 않으면 다음 요청에 남는다. 재고 차감은 `synchronized` 대신 `UPDATE ... WHERE stock >= :qty` 원자적 쿼리나 비관적 락으로 처리한다. 응답 멈춤은 `jstack`으로 `BLOCKED` 스레드와 `Found one Java-level deadlock`을 확인한다
-
 ### 핵심 키워드
 
 `프로세스` · `스레드` · `경쟁 상태 (race condition)` · `원자성 (atomicity)` · `가시성 (visibility)` · `순서 (ordering)` · `임계 영역 (critical section)` · `모니터 (monitor)` · `재진입 (reentrant)` · `happens-before` · `데드락 (deadlock)` · `라이브락 (livelock)`
@@ -1336,18 +1321,3 @@ private final Object lock = new Object();     // final 이어야 한다
 * **[장애 분석과 성능 개선](../../10-테스트-운영/장애분석-성능개선/장애분석-성능개선.md)** — `jstack`으로 `BLOCKED` 스레드와 데드락을 실제로 읽는 법.
 * **[낙관적 락 · 비관적 락](../../07-트랜잭션-데이터접근/낙관적-비관적-락/낙관적-비관적-락.md)** — JVM 밖(DB)에서 동시성을 제어하는 방법.
 * **[분산 락과 멱등성](../../08-캐시-Redis/분산락-멱등성/분산락-멱등성.md)** — 서버가 여러 대일 때 `synchronized`를 대체하는 방법.
-
-### 최종 체크리스트
-
-* [ ] 원자성·가시성·순서 세 문제를 구분해 설명할 수 있다
-* [ ] `volatile`이 원자성을 주지 않는 이유와 실측 결과를 말할 수 있다
-* [ ] 가시성 문제가 CPU 캐시와 JIT 최적화에서 나온다는 것을 설명할 수 있다
-* [ ] `synchronized`가 무엇을 잠그는지, 인스턴스와 `static`이 다른 락임을 안다
-* [ ] `wait()`와 `sleep()`의 락 보유 차이를 설명할 수 있다
-* [ ] `wait()`를 `while`로 감싸야 하는 이유를 말할 수 있다
-* [ ] 스레드 6가지 상태와 각각을 만드는 호출을 안다
-* [ ] 데드락의 네 조건과 실무에서 깨는 방법을 설명할 수 있다
-* [ ] 편향 락이 JDK 15에서 폐기됐다는 것과 그 영향을 안다
-* [ ] 공정 락의 비용을 수치로 말할 수 있다
-* [ ] `interrupt()`가 협력적 취소임을 설명하고 플래그 복원을 안다
-* [ ] Spring 싱글턴 빈에서 상태를 두면 안 되는 이유를 말할 수 있다

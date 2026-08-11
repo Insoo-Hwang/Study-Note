@@ -20,7 +20,7 @@
 <line x1="204" y1="282" x2="204" y2="292" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
 <rect x="50" y="292" width="308" height="30" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
 <text x="64" y="312" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">COMMIT — 잠금 해제</text>
-<text x="50" y="340" font-size="11.5" fill="#7a3ba7" font-weight="700" text-anchor="start">비용: 대기 시간 (실측 518 ms)</text>
+<text x="50" y="340" font-size="11.5" fill="#7a3ba7" font-weight="700" text-anchor="start">비용: 대기 시간 (518 ms)</text>
 <rect x="386" y="84" width="340" height="272" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
 <text x="400" y="105" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">낙관적 락</text>
 <text x="400" y="122" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">충돌 안 할 테니 그냥 한다</text>
@@ -38,6 +38,6 @@
 <line x1="556" y1="282" x2="556" y2="292" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
 <rect x="402" y="292" width="308" height="30" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
 <text x="416" y="312" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="start">영향 행 1 → 성공 / 0 → 재시도</text>
-<text x="402" y="340" font-size="11.5" fill="#2a78d6" font-weight="700" text-anchor="start">비용: 재시도로 날린 일 (실측 738회)</text>
+<text x="402" y="340" font-size="11.5" fill="#2a78d6" font-weight="700" text-anchor="start">비용: 재시도로 날린 일 (738회)</text>
 <text x="34" y="382" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">낙관적 락은 사실 아무것도 잠그지 않는다 — WHERE 조건이 확인과 갱신을 원자적으로 묶을 뿐이다.</text>
 </svg>

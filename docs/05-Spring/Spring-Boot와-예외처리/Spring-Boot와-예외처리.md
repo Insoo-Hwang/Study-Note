@@ -13,7 +13,7 @@
 * **자동 설정은 마법이 아니다.** `spring.factories`(Boot 2.7+는 `AutoConfiguration.imports`)에 나열된 설정 클래스를 조건에 따라 적용할 뿐이다.
 * 조건은 `@ConditionalOnClass`(클래스가 있으면), `@ConditionalOnMissingBean`(내가 안 만들었으면), `@ConditionalOnProperty`(설정값이 있으면) 등이다.
 * **`@ConditionalOnMissingBean` 덕분에 "내가 만들면 내 것이 이긴다".** 자동 설정을 덮어쓰는 표준 방법이다.
-* **프로퍼티는 `PropertySource` 목록을 순서대로 뒤져 먼저 찾은 값을 쓴다.** 앞에 있을수록 이긴다(실측 확인).
+* **프로퍼티는 `PropertySource` 목록을 순서대로 뒤져 먼저 찾은 값을 쓴다.** 앞에 있을수록 이긴다.
 * 실측한 기본 순서는 **`systemProperties`(-D) → `systemEnvironment`(환경 변수)** 순이고, Boot는 여기에 커맨드라인 인자와 `application.yml`을 정해진 자리에 끼워 넣는다.
 * **예외 처리는 `@RestControllerAdvice` 한곳에 모은다.** 컨트롤러마다 `try-catch`를 두지 않는다.
 * **예상된 실패와 예상 못 한 실패의 로그 레벨을 반드시 나눈다.** 재고 부족을 `error`로 찍으면 진짜 장애가 묻힌다.
@@ -695,7 +695,7 @@ management:
 | ------------------------------------- | ----------------------------------------------------------------- |
 | 자동 설정은 마법이라 알 수 없다                    | **`@Conditional` 기반 조건부 빈 등록**일 뿐이다. `--debug`로 이유까지 볼 수 있다.      |
 | 자동 설정을 바꾸려면 제외(exclude)해야 한다          | 대부분 **프로퍼티나 같은 타입 빈 등록**으로 끝난다. `@ConditionalOnMissingBean` 덕분이다. |
-| `application.yml`이 가장 우선한다            | **가장 낮은 편이다.** 커맨드라인·시스템 프로퍼티·환경 변수가 모두 이긴다(실측 순서).               |
+| `application.yml`이 가장 우선한다            | **가장 낮은 편이다.** 커맨드라인·시스템 프로퍼티·환경 변수가 모두 이긴다(순서).               |
 | 비밀번호를 yml에 써도 프로파일로 나누면 안전하다          | **저장소에 커밋된다.** 환경 변수나 시크릿 매니저를 쓴다.                                |
 | `@SpringBootApplication` 위치는 아무래도 상관없다 | **`@ComponentScan`의 기준점**이다. 하위 패키지 밖의 빈은 안 찾는다.                  |
 | 예외를 컨트롤러마다 `try-catch`로 잡아야 한다        | **`@RestControllerAdvice` 한곳**에 모은다. 컨트롤러는 흘려보낸다.                 |
@@ -1015,21 +1015,6 @@ class GlobalExceptionHandlerTest {
 
 경계 하나를 더 알아 둘 필요가 있는데, **Filter에서 던진 예외는 `@RestControllerAdvice`가 못 잡습니다.** `DispatcherServlet` 바깥이라 톰캣 기본 HTML 오류 페이지가 나가서, JSON을 기대한 클라이언트가 파싱에 실패합니다. JWT 검증을 Filter에서 하는 경우가 흔해서 실제로 자주 겪는 문제인데, `HandlerExceptionResolver`를 주입받아 위임하면 해결됩니다.
 
-#### 답변 구조
-
-1. **정의** — Spring Boot는 클래스패스와 설정을 보고 필요한 빈을 조건부로 등록해 주는 자동 설정, 검증된 버전 조합, 내장 서버, 일관된 외부 설정 규칙을 제공하는 프레임워크다. 예외 처리는 발생한 실패를 `@RestControllerAdvice`에서 일관된 HTTP 응답으로 바꾸는 것이다
-2. **내부 원리** — `@EnableAutoConfiguration`이 `AutoConfiguration.imports` 목록을 읽고 각 설정 클래스의 `@Conditional`을 평가해 통과한 것만 등록한다. 사용자 빈이 먼저 등록되므로 `@ConditionalOnMissingBean`이 사용자 정의를 우선하게 만든다. 설정값은 `Environment`가 `PropertySource` 목록을 순서대로 뒤져 먼저 찾은 것을 쓰고, 예외는 `HandlerExceptionResolver` 체인에서 `@ExceptionHandler`가 처리한다
-3. **복잡도**
-    * 프로퍼티 우선순위: `PropertySource` 순서상 **앞선 것이 이김**(실측), 시스템 프로퍼티 > 환경 변수
-    * 자동 설정 평가는 기동 시점 1회 — 런타임 비용 없음
-    * 예외 비용의 대부분은 **스택트레이스 수집** — 정상 흐름에 쓰면 안 되는 이유
-    * `@ExceptionHandler` 조회는 캐시되어 사실상 무료
-4. **장점** — 설정 수백 줄이 yml 몇 줄로 줄고 버전 충돌이 사라지며 `java -jar` 하나로 배포된다. 예외 처리가 한곳에 모여 컨트롤러에서 `try-catch`가 사라지고 응답 형식을 통일할 수 있다
-5. **단점** — 무엇이 왜 설정됐는지 코드에 안 보여 `--debug`에 의존해야 하고, 설정값 출처가 여러 곳이라 추적이 필요하다. Filter 예외를 Advice가 못 잡고, 예외를 한곳에 모으면 개별 맥락이 흐려질 수 있다
-6. **사용 기준** — 자동 설정 변경은 프로퍼티 → 같은 타입 빈 등록 → exclude 순으로 시도한다. 비밀값은 환경 변수나 시크릿 매니저에 두고 yml에는 로컬 기본값만 둔다. 4xx는 `warn`, 5xx는 `error` + 알람으로 나누고 5xx 응답에는 내부 정보를 넣지 않는다. 결과 없음은 예외가 아니라 `Optional`로 돌려준다
-7. **대안과 비교** — `@RestControllerAdvice`는 전역이라 형식을 통일하고, 컨트롤러 내 `@ExceptionHandler`는 그 컨트롤러 전용 처리에, `@ResponseStatus`는 본문이 필요 없을 때 쓴다. 도메인 예외는 계층을 분리하고 정보를 담을 수 있는 반면 `ResponseStatusException`은 짧지만 도메인이 HTTP를 알게 된다. `@ConfigurationProperties`는 `@Value`와 달리 오타를 기동 시점에 잡는다
-8. **실무 적용 사례** — 에러 응답에 `code`·`message`·`requestId`를 고정 형식으로 담아 클라이언트가 분기하고 로그를 추적할 수 있게 한다. 검증 실패는 필드별 오류 목록을 내려 클라이언트가 폼에 표시하게 하고, 예상 못 한 예외만 `error`로 스택과 함께 남긴다. 설정은 `@ConfigurationProperties` + `@Validated`로 묶어 오타를 기동 시점에 잡고, `open-in-view: false`로 커넥션 점유를 줄이며 Actuator는 필요한 엔드포인트만 연다
-
 ### 핵심 키워드
 
 `자동 설정` · `@Conditional` · `@ConditionalOnMissingBean` · `AutoConfiguration.imports` · `PropertySource` · `프로퍼티 우선순위` · `프로파일` · `@ConfigurationProperties` · `@RestControllerAdvice` · `@ExceptionHandler` · `HandlerExceptionResolver` · `에러 코드` · `requestId` · `Actuator`
@@ -1043,25 +1028,3 @@ class GlobalExceptionHandlerTest {
 * **[Connection Pool과 쿼리 튜닝](../../06-데이터베이스/ConnectionPool과-쿼리튜닝/ConnectionPool과-쿼리튜닝.md)** — `open-in-view`와 `connection-timeout` 설정이 실제로 무엇을 바꾸는지.
 * **10-테스트·운영의 로그·메트릭·트레이싱** — `requestId`를 분산 환경까지 확장하는 방법.
 * **Spring Boot Actuator와 Micrometer** — 헬스 체크·메트릭을 안전하게 노출하는 설정.
-
-### 최종 체크리스트
-
-* [ ] 자동 설정이 **`@Conditional` 기반 조건부 빈 등록**임을 설명할 수 있다.
-* [ ] `@SpringBootApplication`이 세 애너테이션의 묶음이고 **위치가 스캔 기준점**임을 안다.
-* [ ] `@ConditionalOnMissingBean`이 왜 "내 것이 이긴다"를 보장하는지 설명할 수 있다.
-* [ ] `--debug`로 자동 설정 보고서를 보는 방법을 안다.
-* [ ] 자동 설정을 덮어쓰는 세 가지 방법을 순서대로 말할 수 있다.
-* [ ] **프로퍼티 우선순위**를 위에서부터 말할 수 있다.
-* [ ] 비밀값을 yml에 두면 안 되는 이유와 대안을 안다.
-* [ ] `${VAR:기본값}` 문법이 왜 유용한지 설명할 수 있다.
-* [ ] `@Value` 대신 `@ConfigurationProperties`를 쓰는 이유 네 가지를 안다.
-* [ ] 예외가 응답으로 바뀌는 경로(`HandlerExceptionResolver` 체인)를 설명할 수 있다.
-* [ ] **Filter 예외를 Advice가 못 잡는 이유**와 해결책을 안다.
-* [ ] **4xx와 5xx의 로그 레벨을 나누는 이유**를 설명할 수 있다.
-* [ ] 5xx 응답에 내부 메시지를 넣으면 안 되는 이유를 안다.
-* [ ] 에러 응답에 반드시 들어가야 할 세 가지를 말할 수 있다.
-* [ ] `code`를 문자열 상수로 두는 이점을 설명할 수 있다.
-* [ ] 상황별 상태 코드(400/401/403/404/409/500)를 구분할 수 있다.
-* [ ] **조회 결과 없음이 예외가 아닌 이유**를 성능 근거와 함께 설명할 수 있다.
-* [ ] `open-in-view: false`를 권장하는 이유를 안다.
-* [ ] Actuator를 전부 열면 안 되는 이유를 안다.
