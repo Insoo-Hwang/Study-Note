@@ -138,3 +138,12 @@ markdown_extensions:
 
 plugins:
   - search   # 한국어는 기본 토크나이저로 색인됩니다
+
+# 책갈피(이어읽기) — 읽던 위치를 브라우저 localStorage에 저장하고 되돌아간다.
+# GitHub Pages에는 서버가 없으므로 저장은 전적으로 브라우저 안에서만 이뤄진다.
+extra_css:
+  - stylesheets/typography.css   # 모바일에서 본문 글씨 확대
+  - stylesheets/bookmark.css
+
+extra_javascript:
+  - javascripts/bookmark.js

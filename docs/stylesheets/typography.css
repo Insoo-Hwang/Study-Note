@@ -1,0 +1,26 @@
+/*
+ * 모바일 본문 글씨 크기
+ *
+ * 출퇴근길에 폰으로 읽는 것이 주 용도라 좁은 화면에서만 본문을 키운다.
+ * Material 기본값은 .md-typeset { font-size: .8rem } — root가 125%라 16px이다.
+ * .9rem = 18px. 코드 블록·표·목록은 이 값을 em으로 상속하므로 함께 커진다.
+ *
+ * 76.25em(=1220px)은 Material이 좌측 내비게이션을 접는 경계와 같다.
+ * 즉 "내비가 햄버거로 접히는 화면"에서만 커진다.
+ */
+@media screen and (max-width: 76.1875em) {
+  .md-typeset {
+    font-size: 0.9rem;
+  }
+
+  /* 본문이 커진 만큼 줄 간격도 조금 벌려야 답답하지 않다 */
+  .md-typeset p,
+  .md-typeset li {
+    line-height: 1.7;
+  }
+
+  /* 표는 폭이 좁은 화면에서 가로 스크롤이 생기므로 본문보다 한 단계 작게 둔다 */
+  .md-typeset table:not([class]) {
+    font-size: 0.8rem;
+  }
+}
