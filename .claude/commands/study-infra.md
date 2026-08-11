@@ -296,8 +296,11 @@ python scripts/preview_svg.py "docs/infra/<노트명>/<파일>.svg"
       - Docker 이미지와 레이어: infra/Docker-이미지와-레이어/Docker-이미지와-레이어.md
 ```
 
-- **`infra/index.md`를 첫 줄에서 밀어내지 않는다.** 그 자리를 뺏으면 좌측 메뉴에서
-  `인프라 노트` 제목이 링크가 아니라 그냥 펼침 토글이 된다 (Material의 `navigation.indexes`).
+- **`인프라 노트`는 최상위 항목 그대로 둔다.** 최상위 항목은 `CS 노트`와 `인프라 노트` 둘뿐이고
+  Material의 `navigation.tabs`가 이 둘을 헤더의 탭 — 즉 모드 전환 버튼 — 으로 그린다.
+  이 그룹을 `CS 노트` 안으로 넣거나 최상위 항목을 하나 더 만들면 두 모드 구분이 깨진다.
+- **`infra/index.md`를 첫 줄에서 밀어내지 않는다.** 그 자리를 뺏으면 `인프라 노트` 탭이
+  링크가 아니라 그냥 펼침 토글이 된다 (Material의 `navigation.indexes`).
 - 카테고리가 필요해지면 이 그룹 **안에서** 중첩한다.
   ```yaml
     - 인프라 노트:
