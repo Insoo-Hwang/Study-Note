@@ -129,6 +129,7 @@ nav:
       - 서버와 네트워크 기초: infra/서버-네트워크-기초/서버-네트워크-기초.md
   - 실무 노트:
       - work/index.md
+      - Spring IoC · DI · Bean: work/Spring-IoC-DI-Bean/Spring-IoC-DI-Bean.md
 
 markdown_extensions:
   - admonition               # !!! note 콜아웃 박스

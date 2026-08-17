@@ -42,20 +42,10 @@
 
 ## 노트 목록
 
-아직 작성한 노트가 없다. 첫 노트를 추가하면 이 문단을 지우고 아래 형태로 목록을 만든다.
+### Spring
 
-<!-- 예시 — 첫 노트를 쓸 때 이 주석을 지우고 실제 목록으로 바꾼다.
-
-### 데이터 접근
-
-- [JPA N+1과 페치 조인](JPA-N+1과-페치조인/JPA-N+1과-페치조인.md) — 왜 우리 코드에서만
-  `@EntityGraph`로 안 풀렸는지
-
-### 메시징
-
-- [Kafka 컨슈머 그룹과 리밸런싱](Kafka-컨슈머그룹-리밸런싱/Kafka-컨슈머그룹-리밸런싱.md)
-
--->
+- [Spring IoC · DI · Bean](Spring-IoC-DI-Bean/Spring-IoC-DI-Bean.md) — `@Component`가 Bean이 되기까지의
+  단계와, 직접 돌려서 확인한 Bean 이름 · Singleton 범위 · `@Qualifier` 우선순위
 
 ---
 
