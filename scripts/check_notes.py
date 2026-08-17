@@ -4,13 +4,14 @@
     python scripts/check_notes.py                 # 전체 검사
     python scripts/check_notes.py 03-Java         # 특정 섹션만 검사
     python scripts/check_notes.py infra           # 인프라 노트만 검사
+    python scripts/check_notes.py work            # 실무 노트만 검사
 
 ERROR가 하나라도 있으면 종료 코드 1을 반환한다 (CI/커밋 전 게이트로 사용).
 WARN은 참고용이며 종료 코드에 영향을 주지 않는다.
 
 검사 강도는 트리에 따라 다르다.
   - `01-`~`12-` 면접 커리큘럼 → 공통 규칙 + 6개 섹션 형식
-  - 번호 없는 트리(`infra` 등) → 공통 규칙만 (자유 형식 노트)
+  - 번호 없는 트리(`infra`, `work`) → 공통 규칙만 (자유 형식 노트)
 
 검사 항목은 실제로 겪었던 문제에서 나왔다.
   - 3칸 들여쓰기로 mkdocs 순서 목록이 끊긴 문제 (`들여쓰기 수정` 커밋)
@@ -27,7 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 
 # 면접 커리큘럼 섹션은 `01-`처럼 두 자리 번호로 시작한다.
-# 번호가 없는 최상위 폴더(`docs/infra/` 등)는 커리큘럼 밖의 자유 형식 노트로 보고,
+# 번호가 없는 최상위 폴더(`docs/infra/`, `docs/work/`)는 커리큘럼 밖의 자유 형식 노트로 보고,
 # 6개 섹션·요약표 같은 면접 노트 전용 규칙을 적용하지 않는다.
 CURRICULUM_DIR = re.compile(r"^\d{2}-")
 
@@ -206,8 +207,8 @@ def check_registration(notes: list[Path]) -> None:
     """모든 노트는 nav와 목차 양쪽에 등록되어야 한다.
 
     목차는 트리마다 다르다. 커리큘럼(01~12) 노트는 `docs/index.md`에,
-    커리큘럼 밖 트리(`docs/infra/` 등)의 노트는 그 트리의 `index.md`에 등록한다.
-    두 목차를 섞지 않는 것이 트리를 분리해 둔 이유다.
+    커리큘럼 밖 트리(`docs/infra/`, `docs/work/`)의 노트는 그 트리의 `index.md`에 등록한다.
+    목차를 섞지 않는 것이 트리를 분리해 둔 이유다.
     """
     nav = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
     indexes: dict[Path, str] = {}   # 목차 파일 → 본문 (같은 파일을 여러 번 읽지 않도록)

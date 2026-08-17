@@ -1,23 +1,28 @@
 /* ─────────────────────────────────────────────────────────────
- * 모드별 색 (CS 노트 / 인프라 노트)
+ * 모드별 색 (CS 노트 / 인프라 노트 / 실무 노트)
  *
  * 헤더 탭으로 트리를 갈라 놨지만(mkdocs.yml의 navigation.tabs) 탭 이름만으로는
- * "지금 어느 쪽을 보고 있는지"가 눈에 잘 안 들어온다. 그래서 인프라 모드일 때만
- * 헤더·링크 색을 인디고 → 틸로 바꾼다. 색이 다르면 탭을 안 봐도 구분된다.
+ * "지금 어느 쪽을 보고 있는지"가 눈에 잘 안 들어온다. 그래서 커리큘럼 밖 모드일 때
+ * 헤더·링크 색을 바꾼다. 색이 다르면 탭을 안 봐도 구분된다.
  *
- * 판별 방법 — 최상위 탭은 딱 둘이고, 두 번째가 `인프라 노트`다.
- * 그 탭이 활성(`--active`)일 때만 아래 변수들이 적용된다.
+ *   1번 탭 `CS 노트`    → 인디고 (테마 기본값 그대로, 아래 규칙 없음)
+ *   2번 탭 `인프라 노트` → 틸
+ *   3번 탭 `실무 노트`   → 주황
+ *
+ * 판별 방법 — 최상위 탭의 **순서**로 본다. 그 탭이 활성(`--active`)일 때만
+ * 아래 변수들이 적용된다.
  * `href`로 판별하지 않는 이유: Material이 탭 링크를 상대 경로(`..`, `./`)로
  * 뽑기 때문에 페이지마다 값이 달라 선택자로 쓸 수 없다.
  *
- * 탭을 세 개 이상으로 늘리면 이 `nth-child(2)`가 틀어진다.
- * mkdocs.yml의 nav 주석에 최상위 항목을 늘리지 말라고 적어 둔 이유다.
+ * **mkdocs.yml의 nav에서 최상위 항목의 순서를 바꾸거나 사이에 끼워 넣으면
+ * 아래 `nth-child` 번호가 통째로 틀어진다.** 탭을 늘린다면 여기도 같이 고친다.
  *
  * navigation.instant(SPA 이동)로 페이지를 옮겨도 Material이
  * `[data-md-component=tabs]` 블록을 통째로 갈아 끼우기 때문에
  * `--active`가 따라 움직이고, 순수 CSS인 이 규칙도 그때 다시 평가된다.
  * ───────────────────────────────────────────────────────────── */
 
+/* 2번 탭 — 인프라 노트 (틸) */
 body:has(.md-tabs__list > .md-tabs__item:nth-child(2).md-tabs__item--active) {
   --md-primary-fg-color:        #00695c;
   --md-primary-fg-color--light: #4db6ac;
@@ -26,11 +31,25 @@ body:has(.md-tabs__list > .md-tabs__item:nth-child(2).md-tabs__item--active) {
   --md-typeset-a-color:         #00695c;
 }
 
+/* 3번 탭 — 실무 노트 (주황)
+   인디고·틸과 색상환에서 멀리 떨어져 있어 세 모드가 한눈에 갈린다. */
+body:has(.md-tabs__list > .md-tabs__item:nth-child(3).md-tabs__item--active) {
+  --md-primary-fg-color:        #bf360c;
+  --md-primary-fg-color--light: #ff8a65;
+  --md-primary-fg-color--dark:  #870000;
+  --md-accent-fg-color:         #e64a19;
+  --md-typeset-a-color:         #bf360c;
+}
+
 /* 다크(slate)는 본문 링크 색을 팔레트가 primary와 무관하게 못 박아 둔다
    (indigo면 `#5488e8`). 위에서 primary만 바꾸면 링크만 인디고로 남으므로
-   여기서 어두운 배경에 맞는 밝은 틸로 다시 잡는다. */
+   여기서 어두운 배경에 맞는 밝은 색으로 다시 잡는다. */
 body[data-md-color-scheme="slate"]:has(.md-tabs__list > .md-tabs__item:nth-child(2).md-tabs__item--active) {
   --md-typeset-a-color: #4db6ac;
+}
+
+body[data-md-color-scheme="slate"]:has(.md-tabs__list > .md-tabs__item:nth-child(3).md-tabs__item--active) {
+  --md-typeset-a-color: #ff8a65;
 }
 
 /* 탭 라벨은 단순한 메뉴가 아니라 모드 이름이라 좀 더 또렷해야 한다.
