@@ -2570,18 +2570,3 @@ public PaymentService(PaymentClient paymentClient)
 ```
 
 순서로 결과가 왜 달라지는지 직접 확인한다.
-
----
-
-## (더 볼 것)
-
-이번 주에 확인하지 못하고 남긴 것들.
-
-- **`@Bean` 경로의 BeanDefinition 구현 클래스는 무엇인가** — 스캔 경로는
-  `ScannedGenericBeanDefinition`이었는데 `@Bean` 쪽은 확인하지 않았다.
-  (`ConfigurationClassBeanDefinition` 계열일 것으로 추측 — 미확인)
-- **`@SpringBootApplication`의 기본 스캔 범위를 직접 확인** — 이번엔 `@ComponentScan`을
-  직접 달아 검증해서 Boot의 자동 설정 경로는 못 봤다.
-- **Setter 주입 / 필드 주입을 실제로 돌려 비교** — 생성자 주입만 확인했다.
-- **순환 참조** — Spring Boot 2.6부터 기본 금지로 바뀐 것으로 알고 있는데 직접 재현하지 않았다. (미확인)
-- **Bean 생명주기 콜백** (`@PostConstruct`, `InitializingBean`) — 이번 주 범위 밖이라 건드리지 않았다.
