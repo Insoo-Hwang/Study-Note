@@ -130,6 +130,7 @@ nav:
   - 실무 노트:
       - work/index.md
       - Spring IoC · DI · Bean: work/Spring-IoC-DI-Bean/Spring-IoC-DI-Bean.md
+      - Bean 생명주기와 자동설정: work/Bean-생명주기와-자동설정/Bean-생명주기와-자동설정.md
 
 markdown_extensions:
   - admonition               # !!! note 콜아웃 박스

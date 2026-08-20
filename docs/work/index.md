@@ -46,6 +46,8 @@
 
 - [Spring IoC · DI · Bean](Spring-IoC-DI-Bean/Spring-IoC-DI-Bean.md) — `@Component`가 Bean이 되기까지의
   단계와, 직접 돌려서 확인한 Bean 이름 · Singleton 범위 · `@Qualifier` 우선순위
+- [Bean 생명주기와 자동설정](Bean-생명주기와-자동설정/Bean-생명주기와-자동설정.md) — 주입 · BPP · `@PostConstruct`의
+  실제 순서와, 가짜 starter를 만들어 확인한 자동설정 back-off
 
 ---
 
