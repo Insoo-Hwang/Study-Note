@@ -25,8 +25,23 @@
 
 ## 노트 목록
 
-- [서버와 네트워크 기초](서버-네트워크-기초/서버-네트워크-기초.md) — IP · Port · bind · Loopback,
-  그리고 "어디까지 도달했는지" 잘라 가며 장애를 좁히는 법
+**요청 하나가 브라우저에서 DB까지 가는 길**을 따라 1번부터 순서대로 읽으면 이어진다.
+앞 장의 IP · Port · localhost 규칙이 뒤 장에서 이름만 바꿔 계속 다시 나오기 때문에,
+건너뛰기보다 순서대로 보는 편이 빠르다.
+
+| # | 노트 | 무엇을 잡는가 |
+| -- | -- | -- |
+| 1 | [네트워크](01-네트워크/01-네트워크.md) | Client · Server · IP · Port · localhost · DNS · NAT — 나머지 전부의 바탕 |
+| 2 | [Docker](02-Docker/02-Docker.md) | Image · Container · Dockerfile · Port Mapping · Volume · 컨테이너 네트워크 |
+| 3 | [Docker Compose](03-Docker-Compose/03-Docker-Compose.md) | 여러 컨테이너를 YAML 하나로, Service 이름으로 통신하기 |
+| 4 | [Nginx](04-Nginx/04-Nginx.md) | Web Server · Reverse Proxy · Load Balancing · `proxy_pass` · 502 |
+| 5 | [외부 접속](05-외부-접속/05-외부-접속.md) | 공유기 · NAT · Port Forwarding · Firewall · Tunnel |
+| 6 | [DNS / HTTPS](06-DNS-HTTPS/06-DNS-HTTPS.md) | Domain · A · CNAME · TLS · 인증서 · HTTPS 동작 순서 |
+| 7 | [CI/CD](07-CI-CD/07-CI-CD.md) | GitHub Actions · Workflow · Runner · Registry · Tag · Secret · Rollback |
+| 8 | [모니터링](08-모니터링/08-모니터링.md) | Log · Metric · Actuator · Micrometer · Prometheus · Grafana |
+| 9 | [장애 대응](09-장애-대응/09-장애-대응.md) | Status Code · 각종 로그 · Connection Refused · Timeout · 추적 순서 |
+| 10 | [Kubernetes](10-Kubernetes/10-Kubernetes.md) | Cluster · Pod · Deployment · Service · Ingress · Desired State |
+| 11 | [전체 연결하기](11-전체-연결하기/11-전체-연결하기.md) | 사용자 요청 흐름과 배포 흐름, 두 개를 하나로 겹쳐 보기 |
 
 ---
 
@@ -53,6 +68,10 @@ docs/infra/<노트명>/<노트명>.md
 docs/infra/<노트명>/<도식>.svg
 ```
 
+이 트리는 지금 1~11번이 하나의 흐름을 이루고 있어서 폴더명 앞에 번호를 붙여 두었다.
+**커리큘럼(01~12)의 번호와는 아무 관계가 없다.** 읽는 순서를 표시하는 용도일 뿐이다.
+흐름과 무관한 단발성 기록이라면 번호 없이 주제명만 써도 된다.
+
 카테고리(컨테이너 · 네트워크 · CI/CD …)는 **폴더를 더 파지 않고** `mkdocs.yml`의 `nav`에서
 묶는다. 폴더를 한 단계 더 파면 검사기(`docs/*/*/*.md`)와 도식 경로 규칙에서 벗어난다.
 
@@ -73,7 +92,7 @@ docs/infra/<노트명>/<도식>.svg
 
 1. 이 파일(`docs/infra/index.md`)의 노트 목록
 2. `mkdocs.yml`의 `nav` → 최상위 `인프라 노트` 그룹
-   (최상위 항목은 `CS 노트`와 `인프라 노트` 둘뿐이고, 이 둘이 곧 헤더의 탭이다.
+   (최상위 항목은 `CS 노트` · `인프라 노트` · `실무 노트` 셋뿐이고, 이 셋이 곧 헤더의 탭이다.
    여기에 항목을 더 만들면 탭이 늘어나 모드 구분이 깨진다.)
 
 `docs/index.md`(커리큘럼 목차)와 `README.md`의 커리큘럼 트리에는 **넣지 않는다.**

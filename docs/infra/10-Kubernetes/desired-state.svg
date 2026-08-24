@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="318" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">Desired State와 Current State의 차이를 메운다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">명령을 내리는 게 아니라 원하는 상태를 선언한다</text>
+<rect x="40" y="92" width="300" height="118" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="54" y="113" font-size="13" fill="#008300" font-weight="700" text-anchor="start">Desired State</text>
+<text x="54" y="130" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">replicas: 3 이라고 적어 둔 것</text>
+<rect x="62" y="148" width="82" height="42" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="103.0" y="172.96" font-size="11" fill="#008300" font-weight="700" text-anchor="middle">Pod</text>
+<rect x="154" y="148" width="82" height="42" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="195.0" y="172.96" font-size="11" fill="#008300" font-weight="700" text-anchor="middle">Pod</text>
+<rect x="246" y="148" width="82" height="42" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="287.0" y="172.96" font-size="11" fill="#008300" font-weight="700" text-anchor="middle">Pod</text>
+<rect x="420" y="92" width="300" height="118" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="434" y="113" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">Current State</text>
+<text x="434" y="130" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">지금 실제로 떠 있는 것</text>
+<rect x="442" y="148" width="82" height="42" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="483.0" y="172.96" font-size="11" fill="#008300" font-weight="700" text-anchor="middle">Pod</text>
+<rect x="534" y="148" width="82" height="42" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="575.0" y="172.96" font-size="11" fill="#008300" font-weight="700" text-anchor="middle">Pod</text>
+<rect x="626" y="148" width="82" height="42" rx="6" fill="#ffffff" stroke="#e34948" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="667.0" y="172.96" font-size="11" fill="#e34948" font-weight="700" text-anchor="middle">없음</text>
+<rect x="270" y="240" width="220" height="56" rx="6" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="380.0" y="267.0" font-size="13" fill="#7a3ba7" font-weight="700" text-anchor="middle">Controller</text>
+<text x="380.0" y="282.0" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">차이를 보고 1개 생성</text>
+<line x1="190" y1="214" x2="300" y2="236" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="500" y1="214" x2="460" y2="236" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<polyline points="494,262 667,262 667,196" fill="none" stroke="#7a3ba7" stroke-width="1.4" marker-end="url(#ahp)"/>
+<text x="34" y="312" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">그래서 Pod를 지워도 다시 생긴다. 정말 줄이려면 Desired State(replicas) 자체를 바꿔야 한다.</text>
+</svg>

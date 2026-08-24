@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" width="760" height="390" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="388" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">Firewall — 어떤 통신을 통과시킬지 정한다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">애플리케이션보다 앞이라, 여기서 막히면 앱 로그에는 아무것도 남지 않는다</text>
+<rect x="326" y="120" width="84" height="216" rx="6" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="368.0" y="227.0" font-size="12" fill="#7a3ba7" font-weight="700" text-anchor="middle">Fire</text>
+<text x="368.0" y="244.0" font-size="12" fill="#52514e" font-weight="400" text-anchor="middle">wall</text>
+<rect x="498" y="100" width="222" height="240" rx="9" fill="#898781" fill-opacity="0.07" stroke="#898781" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="512" y="121" font-size="13" fill="#898781" font-weight="700" text-anchor="start">Server</text>
+<rect x="48" y="130" width="240" height="40" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="168.0" y="154.32" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">22   SSH</text>
+<line x1="292" y1="150" x2="322" y2="150" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<line x1="414" y1="150" x2="494" y2="150" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<rect x="518" y="130" width="182" height="40" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="609.0" y="154.32" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">22   SSH</text>
+<rect x="48" y="182" width="240" height="40" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="168.0" y="206.32" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">80   HTTP</text>
+<line x1="292" y1="202" x2="322" y2="202" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<line x1="414" y1="202" x2="494" y2="202" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<rect x="518" y="182" width="182" height="40" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="609.0" y="206.32" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">80   HTTP</text>
+<rect x="48" y="234" width="240" height="40" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="168.0" y="258.32" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">443  HTTPS</text>
+<line x1="292" y1="254" x2="322" y2="254" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<line x1="414" y1="254" x2="494" y2="254" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<rect x="518" y="234" width="182" height="40" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="609.0" y="258.32" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">443  HTTPS</text>
+<rect x="48" y="286" width="240" height="40" rx="6" fill="#ffffff" stroke="#e34948" stroke-width="1.3"/>
+<text x="168.0" y="310.32" font-size="12" fill="#e34948" font-weight="700" text-anchor="middle">5432 PostgreSQL</text>
+<line x1="292" y1="306" x2="322" y2="306" stroke="#e34948" stroke-width="1.4" marker-end="url(#ahr)"/>
+<text x="430" y="311" font-size="12" fill="#e34948" font-weight="700" text-anchor="start">✕ 차단</text>
+<text x="34" y="368" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">DB 포트를 인터넷에 직접 열 이유는 거의 없다. 필요하면 SSH 터널이나 VPN을 통해 붙는다.</text>
+</svg>

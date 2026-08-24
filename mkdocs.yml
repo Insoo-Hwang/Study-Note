@@ -126,7 +126,17 @@ nav:
   # 설치·설정·환경이 주인공이면 `infra/`, 코드·API·라이브러리가 주인공이면 `work/`다.
   - 인프라 노트:
       - infra/index.md
-      - 서버와 네트워크 기초: infra/서버-네트워크-기초/서버-네트워크-기초.md
+      - 1. 네트워크: infra/01-네트워크/01-네트워크.md
+      - 2. Docker: infra/02-Docker/02-Docker.md
+      - 3. Docker Compose: infra/03-Docker-Compose/03-Docker-Compose.md
+      - 4. Nginx: infra/04-Nginx/04-Nginx.md
+      - 5. 외부 접속: infra/05-외부-접속/05-외부-접속.md
+      - 6. DNS · HTTPS: infra/06-DNS-HTTPS/06-DNS-HTTPS.md
+      - 7. CI/CD: infra/07-CI-CD/07-CI-CD.md
+      - 8. 모니터링: infra/08-모니터링/08-모니터링.md
+      - 9. 장애 대응: infra/09-장애-대응/09-장애-대응.md
+      - 10. Kubernetes: infra/10-Kubernetes/10-Kubernetes.md
+      - 11. 전체 연결하기: infra/11-전체-연결하기/11-전체-연결하기.md
   - 실무 노트:
       - work/index.md
       - Spring IoC · DI · Bean: work/Spring-IoC-DI-Bean/Spring-IoC-DI-Bean.md

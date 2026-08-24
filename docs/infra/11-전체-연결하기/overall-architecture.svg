@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" width="760" height="620" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="618" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">네 갈래 흐름이 하나의 시스템을 이룬다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">사용자 요청 · 배포 · 모니터링 · Kubernetes 실행 구조</text>
+<rect x="40" y="88" width="680" height="108" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="54" y="109" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">① 사용자 요청</text>
+<text x="54" y="126" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">브라우저에서 DB까지</text>
+<rect x="55" y="140" width="95" height="44" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="102.5" y="161.0" font-size="10.5" fill="#2a78d6" font-weight="700" text-anchor="middle">User</text>
+<text x="102.5" y="174.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">브라우저</text>
+<line x1="152" y1="162" x2="163" y2="162" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="165" y="140" width="95" height="44" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="212.5" y="161.0" font-size="10.5" fill="#2a78d6" font-weight="700" text-anchor="middle">DNS</text>
+<text x="212.5" y="174.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">이름 → IP</text>
+<line x1="262" y1="162" x2="273" y2="162" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="275" y="140" width="95" height="44" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="322.5" y="161.0" font-size="10.5" fill="#2a78d6" font-weight="700" text-anchor="middle">Cloudflare</text>
+<text x="322.5" y="174.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">· Firewall</text>
+<line x1="372" y1="162" x2="383" y2="162" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="385" y="140" width="95" height="44" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="432.5" y="161.0" font-size="10.5" fill="#2a78d6" font-weight="700" text-anchor="middle">Nginx</text>
+<text x="432.5" y="174.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">Reverse Proxy</text>
+<line x1="482" y1="162" x2="493" y2="162" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="495" y="140" width="95" height="44" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="542.5" y="161.0" font-size="10.5" fill="#2a78d6" font-weight="700" text-anchor="middle">Spring Boot</text>
+<text x="542.5" y="174.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">비즈니스 로직</text>
+<line x1="592" y1="162" x2="603" y2="162" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="605" y="140" width="95" height="44" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="652.5" y="161.0" font-size="10.5" fill="#2a78d6" font-weight="700" text-anchor="middle">PostgreSQL</text>
+<text x="652.5" y="174.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">데이터</text>
+<rect x="40" y="216" width="680" height="108" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="54" y="237" font-size="13" fill="#008300" font-weight="700" text-anchor="start">② 배포 (CI/CD)</text>
+<text x="54" y="254" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">코드가 서버에 도달하기까지</text>
+<rect x="55" y="268" width="95" height="44" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="102.5" y="289.0" font-size="10.5" fill="#008300" font-weight="700" text-anchor="middle">git push</text>
+<text x="102.5" y="302.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">Developer</text>
+<line x1="152" y1="290" x2="163" y2="290" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="165" y="268" width="95" height="44" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="212.5" y="289.0" font-size="10.5" fill="#008300" font-weight="700" text-anchor="middle">GitHub</text>
+<text x="212.5" y="302.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">Actions</text>
+<line x1="262" y1="290" x2="273" y2="290" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="275" y="268" width="95" height="44" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="322.5" y="289.0" font-size="10.5" fill="#008300" font-weight="700" text-anchor="middle">Test · Build</text>
+<text x="322.5" y="302.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">gradlew</text>
+<line x1="372" y1="290" x2="383" y2="290" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="385" y="268" width="95" height="44" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="432.5" y="289.0" font-size="10.5" fill="#008300" font-weight="700" text-anchor="middle">Docker Image</text>
+<text x="432.5" y="302.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">app:1.0.2</text>
+<line x1="482" y1="290" x2="493" y2="290" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="495" y="268" width="95" height="44" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="542.5" y="289.0" font-size="10.5" fill="#008300" font-weight="700" text-anchor="middle">Registry</text>
+<text x="542.5" y="302.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">ghcr.io</text>
+<line x1="592" y1="290" x2="603" y2="290" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="605" y="268" width="95" height="44" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="652.5" y="289.0" font-size="10.5" fill="#008300" font-weight="700" text-anchor="middle">Server</text>
+<text x="652.5" y="302.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">docker pull</text>
+<rect x="40" y="344" width="680" height="108" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="54" y="365" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">③ 모니터링</text>
+<text x="54" y="382" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">정상인지 확인하는 별도 흐름</text>
+<rect x="55" y="396" width="95" height="44" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="102.5" y="417.0" font-size="10.5" fill="#eb6834" font-weight="700" text-anchor="middle">Spring</text>
+<text x="102.5" y="430.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">Actuator</text>
+<line x1="152" y1="418" x2="163" y2="418" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="165" y="396" width="95" height="44" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="212.5" y="417.0" font-size="10.5" fill="#eb6834" font-weight="700" text-anchor="middle">Micrometer</text>
+<text x="212.5" y="430.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">계측</text>
+<line x1="262" y1="418" x2="273" y2="418" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="275" y="396" width="95" height="44" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="322.5" y="417.0" font-size="10.5" fill="#eb6834" font-weight="700" text-anchor="middle">Prometheus</text>
+<text x="322.5" y="430.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">수집 · 저장</text>
+<line x1="372" y1="418" x2="383" y2="418" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="385" y="396" width="95" height="44" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="432.5" y="417.0" font-size="10.5" fill="#eb6834" font-weight="700" text-anchor="middle">Grafana</text>
+<text x="432.5" y="430.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">대시보드</text>
+<line x1="482" y1="418" x2="493" y2="418" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="495" y="396" width="95" height="44" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="542.5" y="417.0" font-size="10.5" fill="#eb6834" font-weight="700" text-anchor="middle">Log</text>
+<text x="542.5" y="430.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">docker logs</text>
+<line x1="592" y1="418" x2="603" y2="418" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="605" y="396" width="95" height="44" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="652.5" y="417.0" font-size="10.5" fill="#eb6834" font-weight="700" text-anchor="middle">Alert</text>
+<text x="652.5" y="430.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">알림</text>
+<rect x="40" y="472" width="680" height="108" rx="9" fill="#7a3ba7" fill-opacity="0.07" stroke="#7a3ba7" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="54" y="493" font-size="13" fill="#7a3ba7" font-weight="700" text-anchor="start">④ Kubernetes 실행 구조</text>
+<text x="54" y="510" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">①의 Nginx 자리를 대신 채운다</text>
+<rect x="55" y="524" width="95" height="44" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="102.5" y="549.78" font-size="10.5" fill="#7a3ba7" font-weight="700" text-anchor="middle">Internet</text>
+<line x1="152" y1="546" x2="163" y2="546" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="165" y="524" width="95" height="44" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="212.5" y="545.0" font-size="10.5" fill="#7a3ba7" font-weight="700" text-anchor="middle">Ingress</text>
+<text x="212.5" y="558.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">경로 분기</text>
+<line x1="262" y1="546" x2="273" y2="546" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="275" y="524" width="95" height="44" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="322.5" y="545.0" font-size="10.5" fill="#7a3ba7" font-weight="700" text-anchor="middle">Service</text>
+<text x="322.5" y="558.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">고정 주소</text>
+<line x1="372" y1="546" x2="383" y2="546" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="385" y="524" width="95" height="44" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="432.5" y="545.0" font-size="10.5" fill="#7a3ba7" font-weight="700" text-anchor="middle">Deployment</text>
+<text x="432.5" y="558.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">replicas</text>
+<line x1="482" y1="546" x2="493" y2="546" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="495" y="524" width="95" height="44" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="542.5" y="545.0" font-size="10.5" fill="#7a3ba7" font-weight="700" text-anchor="middle">ReplicaSet</text>
+<text x="542.5" y="558.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">개수 유지</text>
+<line x1="592" y1="546" x2="603" y2="546" stroke="#898781" stroke-width="1.1" marker-end="url(#ah)"/>
+<rect x="605" y="524" width="95" height="44" rx="4" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="652.5" y="545.0" font-size="10.5" fill="#7a3ba7" font-weight="700" text-anchor="middle">Pod</text>
+<text x="652.5" y="558.5" font-size="8.5" fill="#52514e" font-weight="400" text-anchor="middle">Container</text>
+<text x="34" y="604" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">①이 평소에 흐르고, ②는 배포할 때, ③은 계속 지켜보고, ④는 ①의 진입부터 실행까지를 자동화한다.</text>
+</svg>

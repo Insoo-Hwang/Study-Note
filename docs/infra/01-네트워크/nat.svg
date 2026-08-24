@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="318" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">NAT — 여러 Private IP가 Public IP 하나를 공유한다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">회사 대표번호 하나 뒤에 내선번호가 여럿 있는 것과 같다</text>
+<rect x="48" y="96" width="180" height="44" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="138.0" y="117.0" font-size="12" fill="#2a78d6" font-weight="700" text-anchor="middle">MacBook</text>
+<text x="138.0" y="132.0" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">192.168.0.10</text>
+<line x1="232" y1="118" x2="292" y2="170" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<rect x="48" y="152" width="180" height="44" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="138.0" y="173.0" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">iPhone</text>
+<text x="138.0" y="188.0" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">192.168.0.20</text>
+<line x1="232" y1="174" x2="292" y2="170" stroke="#008300" stroke-width="1.4" marker-end="url(#ahg)"/>
+<rect x="48" y="208" width="180" height="44" rx="6" fill="#ffffff" stroke="#7a3ba7" stroke-width="1.3"/>
+<text x="138.0" y="229.0" font-size="12" fill="#7a3ba7" font-weight="700" text-anchor="middle">TV</text>
+<text x="138.0" y="244.0" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">192.168.0.30</text>
+<line x1="232" y1="230" x2="292" y2="170" stroke="#7a3ba7" stroke-width="1.4" marker-end="url(#ahp)"/>
+<rect x="296" y="134" width="178" height="76" rx="6" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="385.0" y="171.0" font-size="13" fill="#eb6834" font-weight="700" text-anchor="middle">공유기 (NAT)</text>
+<text x="385.0" y="186.5" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">주소를 바꿔 준다</text>
+<line x1="478" y1="172" x2="538" y2="172" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="542" y="146" width="170" height="52" rx="6" fill="#ffffff" stroke="#898781" stroke-width="1.3"/>
+<text x="627.0" y="171.0" font-size="13" fill="#898781" font-weight="700" text-anchor="middle">Internet</text>
+<text x="627.0" y="186.5" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">203.0.113.10</text>
+<text x="34" y="280" font-size="11.5" fill="#0b0b0b" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">192.168.0.10:51234   →   203.0.113.10:40001</text>
+<text x="34" y="302" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">밖에서 보이는 것은 변환된 주소뿐이라, 외부에서 안쪽 기기를 먼저 찾아갈 수는 없다.</text>
+</svg>

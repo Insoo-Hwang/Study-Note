@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="318" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">Error Rate는 평소 낮고, 장애 때 튄다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">절대값보다 '평소 대비 몇 배인가'로 본다</text>
+<line x1="90" y1="100" x2="90" y2="230" stroke="#898781" stroke-width="1.1"/>
+<line x1="90" y1="230" x2="700" y2="230" stroke="#898781" stroke-width="1.1"/>
+<line x1="90" y1="197.5" x2="700" y2="197.5" stroke="#898781" stroke-width="0.6" stroke-dasharray="3 4"/>
+<line x1="90" y1="165.0" x2="700" y2="165.0" stroke="#898781" stroke-width="0.6" stroke-dasharray="3 4"/>
+<line x1="90" y1="132.5" x2="700" y2="132.5" stroke="#898781" stroke-width="0.6" stroke-dasharray="3 4"/>
+<text x="82" y="104" font-size="10" fill="#52514e" font-weight="400" text-anchor="end">10%</text>
+<text x="82" y="234" font-size="10" fill="#52514e" font-weight="400" text-anchor="end">0</text>
+<text x="700" y="248" font-size="10" fill="#52514e" font-weight="400" text-anchor="end">시간 →</text>
+<polyline points="90,224 150,226 210,223 270,225 330,222 390,224 430,218 450,140 470,112 510,118 550,135 590,215 640,224 700,223" fill="none" stroke="#e34948" stroke-width="2.0"/>
+<line x1="450" y1="100" x2="450" y2="230" stroke="#e34948" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="456" y="116" font-size="11" fill="#e34948" font-weight="700" text-anchor="start">배포 직후 급증</text>
+<line x1="590" y1="100" x2="590" y2="230" stroke="#008300" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="596" y="150" font-size="11" fill="#008300" font-weight="700" text-anchor="start">Rollback 후 회복</text>
+<text x="34" y="282" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">총 요청 1000건 중 Error 20건 = 2%. 평소가 0.2%였다면 10배로 튄 것이다.</text>
+<text x="34" y="304" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">이 선 하나가 배포 시각과 장애 시각을 이어 주기 때문에 대시보드 맨 위에 둔다.</text>
+</svg>

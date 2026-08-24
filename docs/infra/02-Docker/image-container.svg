@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="298" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">Image는 템플릿, Container는 실행된 인스턴스</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">Image = 클래스, Container = 객체로 생각하면 어긋나지 않는다</text>
+<rect x="270" y="95" width="220" height="62" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="380.0" y="125.0" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="middle">my-spring-app:1.0</text>
+<text x="380.0" y="140.5" font-size="10.5" fill="#52514e" font-weight="400" text-anchor="middle">Image — 읽기 전용 템플릿</text>
+<rect x="60" y="205" width="180" height="58" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="150.0" y="233.0" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">Container 1</text>
+<text x="150.0" y="248.0" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">쓰기 가능한 실행 상태</text>
+<line x1="380" y1="161" x2="150" y2="201" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="290" y="205" width="180" height="58" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="380.0" y="233.0" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">Container 2</text>
+<text x="380.0" y="248.0" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">쓰기 가능한 실행 상태</text>
+<line x1="380" y1="161" x2="380" y2="201" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<rect x="520" y="205" width="180" height="58" rx="6" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="610.0" y="233.0" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">Container 3</text>
+<text x="610.0" y="248.0" font-size="10" fill="#52514e" font-weight="400" text-anchor="middle">쓰기 가능한 실행 상태</text>
+<line x1="380" y1="161" x2="610" y2="201" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+<text x="388" y="186" font-size="10.5" fill="#0b0b0b" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">docker run</text>
+<text x="34" y="285" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">같은 Image로 몇 개든 찍어낼 수 있다. Container를 지워도 Image는 그대로 남는다.</text>
+</svg>
