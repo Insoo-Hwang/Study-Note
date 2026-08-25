@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 336" width="780" height="336" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="778" height="334" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">컨테이너가 Bean 인스턴스를 만드는 시점</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">같은 설정을 두 컨테이너로 돌려 생성자 로그가 찍히는 자리를 비교했다 (Spring Framework 6.2.19)</text>
+<rect x="30" y="84" width="720" height="96" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="44" y="105" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">ApplicationContext</text>
+<text x="44" y="122" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">생성자 호출 한 번으로 여기까지 끝난다 — 조회 전에 이미 다 만들어져 있다</text>
+<rect x="46" y="126" width="150" height="40" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="121.0" y="150.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">설정 읽기</text>
+<rect x="220" y="126" width="150" height="40" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="295.0" y="150.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">BeanDefinition 등록</text>
+<rect x="394" y="126" width="150" height="40" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="469.0" y="150.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">싱글톤 미리 생성</text>
+<rect x="568" y="126" width="150" height="40" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="643.0" y="150.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">의존관계 주입</text>
+<line x1="199" y1="146" x2="217" y2="146" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<line x1="373" y1="146" x2="391" y2="146" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<line x1="547" y1="146" x2="565" y2="146" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<rect x="30" y="200" width="720" height="96" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="44" y="221" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">BeanFactory</text>
+<text x="44" y="238" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">정의만 등록해 두고, getBean() 을 부르는 순간 처음 만든다</text>
+<rect x="46" y="242" width="150" height="40" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="121.0" y="266.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">정의 등록</text>
+<rect x="220" y="242" width="150" height="40" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="295.0" y="266.5" font-size="12.5" fill="#52514e" font-weight="600" text-anchor="middle">아직 인스턴스 없음</text>
+<rect x="394" y="242" width="150" height="40" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="469.0" y="266.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">getBean() 호출</text>
+<rect x="568" y="242" width="150" height="40" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="643.0" y="266.5" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">이때 생성 · 주입</text>
+<line x1="199" y1="262" x2="217" y2="262" stroke="#eb6834" stroke-width="1.4" marker-end="url(#aho)"/>
+<line x1="373" y1="262" x2="391" y2="262" stroke="#eb6834" stroke-width="1.4" marker-end="url(#aho)"/>
+<line x1="547" y1="262" x2="565" y2="262" stroke="#eb6834" stroke-width="1.4" marker-end="url(#aho)"/>
+<text x="34" y="320" font-size="12" fill="#52514e" font-weight="400" text-anchor="start">설정이 틀렸을 때 ApplicationContext는 기동하다 죽고, BeanFactory는 그 Bean을 처음 쓰는 순간 죽는다.</text>
+</svg>

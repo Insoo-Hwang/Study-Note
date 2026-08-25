@@ -139,8 +139,9 @@ nav:
       - 11. 전체 연결하기: infra/11-전체-연결하기/11-전체-연결하기.md
   - 실무 노트:
       - work/index.md
-      - Spring IoC · DI · Bean: work/Spring-IoC-DI-Bean/Spring-IoC-DI-Bean.md
-      - Bean 생명주기와 자동설정: work/Bean-생명주기와-자동설정/Bean-생명주기와-자동설정.md
+      - 1. Spring IoC · DI · Bean: work/01-Spring-IoC-DI-Bean/01-Spring-IoC-DI-Bean.md
+      - 2. Bean 생명주기와 Spring Boot 자동설정: work/02-Bean-생명주기와-자동설정/02-Bean-생명주기와-자동설정.md
+      - 3. Spring AOP와 Proxy: work/03-Spring-AOP와-Proxy/03-Spring-AOP와-Proxy.md
 
 markdown_extensions:
   - admonition               # !!! note 콜아웃 박스
