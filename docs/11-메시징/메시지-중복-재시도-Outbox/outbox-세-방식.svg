@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="338" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">DB 저장과 이벤트 발행을 어떻게 묶는가</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">주문 1,000건 · 롤백 20% · 커밋과 발행 사이 장애 2%</text>
+<rect x="34" y="86" width="228" height="176" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="107" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">발행 → 커밋</text>
+<text x="48" y="124" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">롤백되면 이미 나간</text>
+<text x="48" y="141" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">메시지를 못 되돌린다</text>
+<text x="50" y="172" font-size="12" fill="#0b0b0b" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">DB      797 건</text>
+<text x="50" y="194" font-size="12" fill="#0b0b0b" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">발행  1,000 건</text>
+<text x="50" y="232" font-size="12" fill="#e34948" font-weight="700" text-anchor="start">유령 메시지 203 건</text>
+<rect x="280" y="86" width="228" height="176" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="294" y="107" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">커밋 → 발행</text>
+<text x="294" y="124" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">커밋과 발행 사이에서</text>
+<text x="294" y="141" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">죽으면 그대로 사라진다</text>
+<text x="296" y="172" font-size="12" fill="#0b0b0b" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">DB      797 건</text>
+<text x="296" y="194" font-size="12" fill="#0b0b0b" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">발행    786 건</text>
+<text x="296" y="232" font-size="12" fill="#eb6834" font-weight="700" text-anchor="start">발행 유실 11 건</text>
+<rect x="526" y="86" width="228" height="176" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="540" y="107" font-size="13" fill="#008300" font-weight="700" text-anchor="start">Outbox</text>
+<text x="540" y="124" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">같은 트랜잭션으로 DB 에만</text>
+<text x="540" y="141" font-size="11" fill="#52514e" font-weight="400" text-anchor="start">쓰고 릴레이가 발행한다</text>
+<text x="542" y="172" font-size="12" fill="#0b0b0b" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">DB      797 건</text>
+<text x="542" y="194" font-size="12" fill="#0b0b0b" font-weight="400" text-anchor="start" font-family="ui-monospace, Consolas, monospace">발행    813 건</text>
+<text x="542" y="232" font-size="12" fill="#008300" font-weight="700" text-anchor="start">유령 0 · 유실 0 · 중복 16</text>
+<rect x="34" y="274" width="692" height="32" rx="9" fill="#898781" fill-opacity="0.07" stroke="#898781" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="294" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">Outbox 의 중복은 릴레이가 발행 후 표시 전에 죽어서 생긴다 — 멱등 컨슈머가 흡수한다.</text>
+</svg>

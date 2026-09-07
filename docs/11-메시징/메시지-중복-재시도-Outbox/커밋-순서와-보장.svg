@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 358" width="760" height="358" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="356" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">커밋과 처리의 순서가 전부를 정한다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">poll() 이 100건씩 주고 550번째를 처리하던 중 사망 — 총 1,000건</text>
+<rect x="34" y="88" width="692" height="74" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="109" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">처리 → 커밋   (at-least-once)</text>
+<text x="48" y="126" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">500~549 를 처리했지만 커밋 전에 죽었다 → 재시작 후 다시 처리</text>
+<text x="712" y="140" font-size="12.5" fill="#eb6834" font-weight="700" text-anchor="end" font-family="ui-monospace, Consolas, monospace">중복 50 건 · 유실 0 건</text>
+<rect x="34" y="170" width="692" height="74" rx="9" fill="#e34948" fill-opacity="0.07" stroke="#e34948" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="191" font-size="13" fill="#e34948" font-weight="700" text-anchor="start">커밋 → 처리   (at-most-once)</text>
+<text x="48" y="208" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">600 까지 커밋해 놓고 550 에서 죽었다 → 550~599 는 아무도 처리 안 함</text>
+<text x="712" y="222" font-size="12.5" fill="#e34948" font-weight="700" text-anchor="end" font-family="ui-monospace, Consolas, monospace">중복 0 건 · 유실 50 건</text>
+<rect x="34" y="252" width="692" height="74" rx="9" fill="#008300" fill-opacity="0.07" stroke="#008300" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="273" font-size="13" fill="#008300" font-weight="700" text-anchor="start">처리 → 커밋 + 멱등 컨슈머</text>
+<text x="48" y="290" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">중복은 오지만 멱등 키가 걸러 낸다 → 실제 반영 1,000 건</text>
+<text x="712" y="304" font-size="12.5" fill="#008300" font-weight="700" text-anchor="end" font-family="ui-monospace, Consolas, monospace">중복 0 건 · 유실 0 건</text>
+<text x="34" y="346" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">고를 수 있는 것은 중복이냐 유실이냐뿐이다 — 지울 수 있는 쪽을 고른다.</text>
+</svg>
