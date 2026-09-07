@@ -4,14 +4,12 @@
     python scripts/check_notes.py                 # 전체 검사
     python scripts/check_notes.py 03-Java         # 특정 섹션만 검사
     python scripts/check_notes.py infra           # 인프라 노트만 검사
-    python scripts/check_notes.py work            # 실무 노트만 검사
 
 ERROR가 하나라도 있으면 종료 코드 1을 반환한다 (CI/커밋 전 게이트로 사용).
 WARN은 참고용이며 종료 코드에 영향을 주지 않는다.
 
 검사 강도는 트리에 따라 다르다.
   - `01-`~`12-` 면접 커리큘럼 → 공통 규칙 + 6개 섹션 형식
-  - `work` 실무 노트          → 공통 규칙 + 2단 형식 (`개념 설명` / `면접 질문`)
   - `infra` 인프라 노트       → 공통 규칙만 (자유 형식 노트)
 
 검사 항목은 실제로 겪었던 문제에서 나왔다.
@@ -29,15 +27,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 
 # 면접 커리큘럼 섹션은 `01-`처럼 두 자리 번호로 시작한다.
-# 번호가 없는 최상위 폴더(`docs/infra/`, `docs/work/`)는 커리큘럼 밖의 노트다.
-# 그중 `work`만 2단 형식을 따로 검사하고, `infra`는 공통 규칙만 본다.
+# 번호가 없는 최상위 폴더(`docs/infra/`)는 커리큘럼 밖의 노트라 공통 규칙만 본다.
 CURRICULUM_DIR = re.compile(r"^\d{2}-")
-
-# 실무 노트(`docs/work/`)가 반드시 갖는 대섹션 (순서 포함)
-WORK_SECTIONS = ["개념 설명", "면접 질문"]
-
-# 위 둘 뒤에 와도 되는 선택 섹션. 이 셋 말고 다른 `##`는 두지 않는다.
-WORK_OPTIONAL = ["참고"]
 
 # 면접 노트가 공통으로 쓰는 6개 섹션 (순서 포함)
 SECTIONS = [
@@ -122,8 +113,6 @@ def check_note(md: Path) -> None:
     # 5) 트리별 형식 규칙
     if is_curriculum(md):
         check_interview_format(rel, text)
-    elif section_of(md) == "work":
-        check_work_format(rel, text)
 
 
 # ─────────────────────────────────────────────────────────────
@@ -174,92 +163,6 @@ def check_interview_format(rel: str, text: str) -> None:
 
 
 # ─────────────────────────────────────────────────────────────
-# 실무 노트(docs/work/) 전용 — 2단 형식 검사
-# ─────────────────────────────────────────────────────────────
-def check_work_format(rel: str, text: str) -> None:
-    """실무 노트는 `## 개념 설명`과 `## 면접 질문` 둘로만 갈린다.
-
-    자유 형식이던 시절의 노트는 사람마다·날마다 절 이름이 달라서
-    나중에 훑어볼 때 어디가 개념이고 어디가 답변 연습인지 구분이 안 됐다.
-    두 섹션만 고정하고 그 안쪽(`###`)은 자유롭게 둔다.
-    """
-    body = strip_code_fences(text)
-    found = re.findall(r"^## (.+?)\s*$", body, flags=re.MULTILINE)
-
-    # 1) 두 대섹션이 순서대로 하나씩 있는지
-    for need in WORK_SECTIONS:
-        n = found.count(need)
-        if n == 0:
-            err(rel, f"빠진 섹션: `## {need}`")
-        elif n > 1:
-            err(rel, f"`## {need}` 섹션이 {n}번 나온다 (하나로 합친다)")
-    if all(s in found for s in WORK_SECTIONS):
-        if found.index(WORK_SECTIONS[0]) > found.index(WORK_SECTIONS[1]):
-            err(rel, "`## 개념 설명`이 `## 면접 질문`보다 뒤에 있다")
-
-    # 2) 정해진 것 말고 다른 대섹션을 두지 않는다 (안쪽은 `###`로 자유롭게)
-    for extra in found:
-        if extra not in WORK_SECTIONS + WORK_OPTIONAL:
-            err(rel, f"허용되지 않은 대섹션이다: `## {extra}`\n"
-                     f"          실무 노트의 `##`는 "
-                     f"{' / '.join(WORK_SECTIONS + WORK_OPTIONAL)}뿐이고, "
-                     f"나머지는 그 안에서 `###`로 나눈다")
-
-    # 3) `개념 설명`이 비어 있지 않은지
-    m = re.search(r"^## 개념 설명\s*$(.*?)(?=^## |\Z)", body,
-                  flags=re.MULTILINE | re.DOTALL)
-    if m and not m.group(1).strip():
-        err(rel, "`## 개념 설명`이 비어 있다")
-
-    # 4) `면접 질문` 안은 `### Q1.` 꼴로, 1부터 순서대로
-    m = re.search(r"^## 면접 질문\s*$(.*?)(?=^## |\Z)", body,
-                  flags=re.MULTILINE | re.DOTALL)
-    if m:
-        section = m.group(1)
-        subs = re.findall(r"^### (.+?)\s*$", section, flags=re.MULTILINE)
-        if not subs:
-            err(rel, "`## 면접 질문`에 질문이 하나도 없다 (`### Q1. …` 꼴로 적는다)")
-        nums = []
-        for sub in subs:
-            q = re.match(r"^Q(\d+)\.\s+\S", sub)
-            if not q:
-                err(rel, f"질문 제목이 `### Q<번호>. <질문>` 꼴이 아니다: `### {sub}`")
-            else:
-                nums.append(int(q.group(1)))
-        if nums and nums != list(range(1, len(nums) + 1)):
-            err(rel, f"질문 번호가 1부터 순서대로가 아니다: "
-                     f"{' / '.join(f'Q{n}' for n in nums)}")
-
-        # 각 질문은 굵은 글씨 한 줄 답으로 시작한다 (훑어볼 때 이 줄만 읽는다)
-        for q in re.finditer(r"^### (Q\d+\..*?)\s*$(.*?)(?=^### |\Z)", section,
-                             flags=re.MULTILINE | re.DOTALL):
-            first = next((ln for ln in q.group(2).split("\n") if ln.strip()), "")
-            if not (first.startswith("**") and first.rstrip().endswith("**")):
-                err(rel, f"`### {q.group(1)}` 아래 첫 줄이 굵은 글씨 한 줄 답이 아니다\n"
-                         f"          기대: `**핵심 답 한 줄.**`  실제: {first.strip()[:50] or '(비어 있음)'}")
-
-    # 5) 제목 — `O주차 학습 :` 껍데기를 떼고 `N. 주제`로 바꿔 적는다
-    title = re.search(r"^# (.+?)\s*$", body, flags=re.MULTILINE)
-    if not title:
-        err(rel, "`# ` 제목이 없다")
-    else:
-        t = title.group(1)
-        if re.search(r"주차|학습\s*(정리)?\s*[:\-]", t):
-            err(rel, f"제목에 `O주차 학습 :` 껍데기가 남아 있다: `# {t}`\n"
-                     f"          주차 번호만 살려 `# 3. 주제명` 꼴로 적는다")
-        elif not re.match(r"^\d+\.\s+\S", t):
-            warn(rel, f"제목이 `N. 주제명` 꼴이 아니다: `# {t}` "
-                      f"(주차 번호가 없는 글이면 그대로 둬도 된다)")
-
-    # 6) 버전 표기 — 없으면 반년 뒤에 못 믿는 문서가 된다 (경고)
-    head = body.split("## ", 1)[0]
-    if "`" not in head:
-        warn(rel, "노트 앞머리에 버전 표기가 없다 (`Spring Boot 3.3.4` · `Hibernate 6.5`)")
-    if not re.search(r"^> ", head, flags=re.MULTILINE):
-        warn(rel, "제목 아래 한 문장 요약(`> …`)이 없다")
-
-
-# ─────────────────────────────────────────────────────────────
 # 도식(.svg) 검사
 # ─────────────────────────────────────────────────────────────
 def check_svg(svg: Path) -> None:
@@ -302,7 +205,7 @@ def check_registration(notes: list[Path]) -> None:
     """모든 노트는 nav와 목차 양쪽에 등록되어야 한다.
 
     목차는 트리마다 다르다. 커리큘럼(01~12) 노트는 `docs/index.md`에,
-    커리큘럼 밖 트리(`docs/infra/`, `docs/work/`)의 노트는 그 트리의 `index.md`에 등록한다.
+    커리큘럼 밖 트리(`docs/infra/`)의 노트는 그 트리의 `index.md`에 등록한다.
     목차를 섞지 않는 것이 트리를 분리해 둔 이유다.
     """
     nav = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")

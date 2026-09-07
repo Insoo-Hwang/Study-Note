@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────
- * 모드별 색 (CS 노트 / 인프라 노트 / 실무 노트)
+ * 모드별 색 (CS 노트 / 인프라 노트)
  *
  * 헤더 탭으로 트리를 갈라 놨지만(mkdocs.yml의 navigation.tabs) 탭 이름만으로는
  * "지금 어느 쪽을 보고 있는지"가 눈에 잘 안 들어온다. 그래서 커리큘럼 밖 모드일 때
@@ -7,7 +7,6 @@
  *
  *   1번 탭 `CS 노트`    → 인디고 (테마 기본값 그대로, 아래 규칙 없음)
  *   2번 탭 `인프라 노트` → 틸
- *   3번 탭 `실무 노트`   → 주황
  *
  * 판별 방법 — 최상위 탭의 **순서**로 본다. 그 탭이 활성(`--active`)일 때만
  * 아래 변수들이 적용된다.
@@ -31,25 +30,11 @@ body:has(.md-tabs__list > .md-tabs__item:nth-child(2).md-tabs__item--active) {
   --md-typeset-a-color:         #00695c;
 }
 
-/* 3번 탭 — 실무 노트 (주황)
-   인디고·틸과 색상환에서 멀리 떨어져 있어 세 모드가 한눈에 갈린다. */
-body:has(.md-tabs__list > .md-tabs__item:nth-child(3).md-tabs__item--active) {
-  --md-primary-fg-color:        #bf360c;
-  --md-primary-fg-color--light: #ff8a65;
-  --md-primary-fg-color--dark:  #870000;
-  --md-accent-fg-color:         #e64a19;
-  --md-typeset-a-color:         #bf360c;
-}
-
 /* 다크(slate)는 본문 링크 색을 팔레트가 primary와 무관하게 못 박아 둔다
    (indigo면 `#5488e8`). 위에서 primary만 바꾸면 링크만 인디고로 남으므로
    여기서 어두운 배경에 맞는 밝은 색으로 다시 잡는다. */
 body[data-md-color-scheme="slate"]:has(.md-tabs__list > .md-tabs__item:nth-child(2).md-tabs__item--active) {
   --md-typeset-a-color: #4db6ac;
-}
-
-body[data-md-color-scheme="slate"]:has(.md-tabs__list > .md-tabs__item:nth-child(3).md-tabs__item--active) {
-  --md-typeset-a-color: #ff8a65;
 }
 
 /* 탭 라벨은 단순한 메뉴가 아니라 모드 이름이라 좀 더 또렷해야 한다.
