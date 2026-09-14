@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="760" height="350" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="348" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">병렬로 부르는 백엔드가 많을수록 느린 요청이 늘어난다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">백엔드 하나는 1%만 1초 이상 — 요청은 부른 것 중 가장 느린 응답을 기다린다 (20만 회 시뮬레이션)</text>
+<text x="136" y="112" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="end">호출 1개</text>
+<rect x="150" y="96" width="440" height="22" rx="3" fill="#898781" fill-opacity="0.10"/>
+<rect x="150" y="96" width="4.6" height="22" rx="3" fill="#eb6834" fill-opacity="0.85"/>
+<text x="162.576" y="112" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">1.04%</text>
+<text x="602" y="112" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">중앙값 20.0 ms</text>
+<text x="136" y="150" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="end">호출 5개</text>
+<rect x="150" y="134" width="440" height="22" rx="3" fill="#898781" fill-opacity="0.10"/>
+<rect x="150" y="134" width="21.6" height="22" rx="3" fill="#eb6834" fill-opacity="0.85"/>
+<text x="179.56" y="150" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">4.90%</text>
+<text x="602" y="150" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">중앙값 23.8 ms</text>
+<text x="136" y="188" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="end">호출 10개</text>
+<rect x="150" y="172" width="440" height="22" rx="3" fill="#898781" fill-opacity="0.10"/>
+<rect x="150" y="172" width="42.4" height="22" rx="3" fill="#eb6834" fill-opacity="0.85"/>
+<text x="200.372" y="188" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">9.63%</text>
+<text x="602" y="188" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">중앙값 24.4 ms</text>
+<text x="136" y="226" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="end">호출 50개</text>
+<rect x="150" y="210" width="440" height="22" rx="3" fill="#898781" fill-opacity="0.10"/>
+<rect x="150" y="210" width="173.9" height="22" rx="3" fill="#eb6834" fill-opacity="0.85"/>
+<text x="331.88800000000003" y="226" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">39.52%</text>
+<text x="602" y="226" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">중앙값 25.0 ms</text>
+<text x="136" y="264" font-size="12.5" fill="#0b0b0b" font-weight="600" text-anchor="end">호출 100개</text>
+<rect x="150" y="248" width="440" height="22" rx="3" fill="#898781" fill-opacity="0.10"/>
+<rect x="150" y="248" width="278.9" height="22" rx="3" fill="#e34948" fill-opacity="0.85"/>
+<text x="436.872" y="264" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">63.38%</text>
+<text x="602" y="264" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="start">중앙값 1,062.2 ms</text>
+<line x1="150.0" y1="284" x2="150.0" y2="290" stroke="#898781" stroke-width="1.4"/>
+<text x="150.0" y="304" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">0%</text>
+<line x1="260.0" y1="284" x2="260.0" y2="290" stroke="#898781" stroke-width="1.4"/>
+<text x="260.0" y="304" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">25%</text>
+<line x1="370.0" y1="284" x2="370.0" y2="290" stroke="#898781" stroke-width="1.4"/>
+<text x="370.0" y="304" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">50%</text>
+<line x1="480.0" y1="284" x2="480.0" y2="290" stroke="#898781" stroke-width="1.4"/>
+<text x="480.0" y="304" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">75%</text>
+<line x1="590.0" y1="284" x2="590.0" y2="290" stroke="#898781" stroke-width="1.4"/>
+<text x="590.0" y="304" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle">100%</text>
+<text x="150" y="322" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">1초 이상 걸린 요청 비율 — 이론값 1 − 0.99^k 과 0.1%p 안에서 일치</text>
+</svg>

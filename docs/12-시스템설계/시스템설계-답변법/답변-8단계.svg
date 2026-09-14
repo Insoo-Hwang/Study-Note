@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="418" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">시스템 설계 답변 8단계</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">단축 URL 예제 — 각 단계의 답이 다음 단계의 입력이 된다</text>
+<rect x="34" y="80" width="692" height="140" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="101" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">①~④ 무엇을 만드는가</text>
+<text x="48" y="118" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">요구사항과 숫자가 설계의 크기를 정한다</text>
+<rect x="56" y="130" width="152" height="78" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="68" y="154" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">① 요구사항</text>
+<text x="68" y="176" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">기능 2개로 좁힌다</text>
+<text x="68" y="194" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">유실 불가 · p99 목표</text>
+<line x1="210" y1="169.0" x2="221" y2="169.0" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<rect x="224" y="130" width="152" height="78" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="236" y="154" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">② 규모 추정</text>
+<text x="236" y="176" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">쓰기 11.6 QPS</text>
+<text x="236" y="194" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">읽기 1,157 QPS</text>
+<line x1="378" y1="169.0" x2="389" y2="169.0" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<rect x="392" y="130" width="152" height="78" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="404" y="154" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">③ 단순한 설계</text>
+<text x="404" y="176" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">LB · 앱 2대 · DB 1대</text>
+<text x="404" y="194" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">병목을 볼 기준선</text>
+<line x1="546" y1="169.0" x2="557" y2="169.0" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<rect x="560" y="130" width="152" height="78" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="572" y="154" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">④ 저장 · 조회</text>
+<text x="572" y="176" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">키 단건 조회뿐</text>
+<text x="572" y="194" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">short_key = PK</text>
+<rect x="34" y="256" width="692" height="140" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="277" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">⑤~⑧ 어디서 깨지는가</text>
+<text x="224" y="296" font-size="11.5" fill="#008300" font-weight="700" text-anchor="start">▼ 기술 이름은 여기서 처음 나온다</text>
+<rect x="56" y="306" width="152" height="78" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="68" y="330" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">⑤ 병목</text>
+<text x="68" y="352" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">피크 읽기 3,472 QPS</text>
+<text x="68" y="370" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">전부 DB로 간다</text>
+<line x1="210" y1="345.0" x2="221" y2="345.0" stroke="#eb6834" stroke-width="1.4" marker-end="url(#aho)"/>
+<rect x="224" y="306" width="152" height="78" rx="4" fill="#ffffff" stroke="#008300" stroke-width="1.3"/>
+<text x="236" y="330" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">⑥ 확장</text>
+<text x="236" y="352" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">키 → URL 캐시</text>
+<text x="236" y="370" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">쓰기는 그대로 둔다</text>
+<line x1="378" y1="345.0" x2="389" y2="345.0" stroke="#eb6834" stroke-width="1.4" marker-end="url(#aho)"/>
+<rect x="392" y="306" width="152" height="78" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="404" y="330" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">⑦ 장애 · 정합성</text>
+<text x="404" y="352" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">캐시가 죽으면?</text>
+<text x="404" y="370" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">DB 앞 동시 요청 제한</text>
+<line x1="546" y1="345.0" x2="557" y2="345.0" stroke="#eb6834" stroke-width="1.4" marker-end="url(#aho)"/>
+<rect x="560" y="306" width="152" height="78" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="572" y="330" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">⑧ 단점</text>
+<text x="572" y="352" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">순번 키 → 충돌 0</text>
+<text x="572" y="370" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">대신 다음 키 추측 가능</text>
+<line x1="636.0" y1="208" x2="636.0" y2="238" stroke="#898781" stroke-width="1.4"/>
+<line x1="636.0" y1="238" x2="44" y2="238" stroke="#898781" stroke-width="1.4"/>
+<line x1="44" y1="238" x2="44" y2="345.0" stroke="#898781" stroke-width="1.4"/>
+<line x1="44" y1="345.0" x2="54" y2="345.0" stroke="#898781" stroke-width="1.4" marker-end="url(#ah)"/>
+</svg>

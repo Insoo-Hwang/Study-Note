@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 410" width="760" height="410" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="408" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">PG 호출을 트랜잭션 안에 두면 풀이 마른다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">커넥션 풀 10 · connectionTimeout 500 ms · 결제 20스레드 + 결제와 무관한 조회 20스레드 · 6초</text>
+<rect x="34" y="78" width="692" height="128" rx="9" fill="#898781" fill-opacity="0.07" stroke="#898781" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="99" font-size="13" fill="#898781" font-weight="700" text-anchor="start">요청 하나가 커넥션을 쥐는 시간 (PG 2초일 때)</text>
+<text x="56" y="136" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">트랜잭션 안</text>
+<rect x="190" y="118" width="510" height="28" rx="4" fill="#e34948" fill-opacity="0.16" stroke="#e34948" stroke-width="1.3"/>
+<text x="445.0" y="137" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="middle">커넥션 점유 — PG 응답 2,000 ms 를 기다리는 동안에도</text>
+<text x="56" y="182" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="start">트랜잭션 밖</text>
+<rect x="190" y="164" width="440" height="28" rx="4" fill="#ffffff" stroke="#898781" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="410.0" y="182.14" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">PG 대기 — 커넥션 없음</text>
+<rect x="638" y="164" width="62" height="28" rx="4" fill="#008300" fill-opacity="0.16" stroke="#008300" stroke-width="1.3"/>
+<text x="669.0" y="183" font-size="11" fill="#008300" font-weight="700" text-anchor="middle">UPDATE</text>
+<rect x="34" y="220" width="692" height="174" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="241" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">결제와 무관한 조회 API 성공 건수</text>
+<text x="228" y="277" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="end">PG 62 ms · 트랜잭션 안</text>
+<rect x="240" y="262" width="9.0" height="21" rx="3" fill="#e34948" fill-opacity="0.85"/>
+<text x="257.03299656596823" y="277" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">550건 (실패 6.9%)</text>
+<text x="228" y="308" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="end">PG 62 ms · 트랜잭션 밖</text>
+<rect x="240" y="293" width="311.7" height="21" rx="3" fill="#008300" fill-opacity="0.85"/>
+<text x="559.7040760463843" y="308" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">18,979건 (실패 0%)</text>
+<text x="228" y="339" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="end">PG 2 초 · 트랜잭션 안</text>
+<rect x="240" y="324" width="2.0" height="21" rx="3" fill="#e34948" fill-opacity="0.85"/>
+<text x="250" y="339" font-size="12" fill="#e34948" font-weight="700" text-anchor="start">0건 (실패 100%)</text>
+<text x="228" y="370" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="end">PG 2 초 · 트랜잭션 밖</text>
+<rect x="240" y="355" width="330.0" height="21" rx="3" fill="#008300" fill-opacity="0.85"/>
+<text x="578.0" y="370" font-size="12" fill="#0b0b0b" font-weight="700" text-anchor="start">20,093건 (실패 0%)</text>
+</svg>

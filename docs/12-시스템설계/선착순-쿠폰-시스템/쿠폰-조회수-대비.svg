@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="378" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">같은 +1, 반대의 설계</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">쿠폰은 정확성을 위해 거절하고, 조회수는 처리량을 위해 유실을 허용한다</text>
+<rect x="34" y="78" width="692" height="136" rx="9" fill="#2a78d6" fill-opacity="0.07" stroke="#2a78d6" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="99" font-size="13" fill="#2a78d6" font-weight="700" text-anchor="start">쿠폰 — 요청마다 원자적으로 판정</text>
+<text x="48" y="116" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">틀리면 비용이 생긴다 · 장애 시 거절</text>
+<rect x="57" y="126" width="140" height="54" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="127.0" y="149" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">요청</text>
+<text x="127.0" y="168" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">POST /coupons/1</text>
+<line x1="200" y1="153" x2="223" y2="153" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<rect x="227" y="126" width="140" height="54" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="297.0" y="149" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">매진 플래그</text>
+<text x="297.0" y="168" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">99%는 여기서 거절</text>
+<line x1="370" y1="153" x2="393" y2="153" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<rect x="397" y="126" width="140" height="54" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="467.0" y="149" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">원자적 판정</text>
+<text x="467.0" y="168" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">WHERE issued&lt;total</text>
+<line x1="540" y1="153" x2="563" y2="153" stroke="#2a78d6" stroke-width="1.4" marker-end="url(#ahb)"/>
+<rect x="567" y="126" width="140" height="54" rx="4" fill="#ffffff" stroke="#2a78d6" stroke-width="1.3"/>
+<text x="637.0" y="149" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">유니크 제약</text>
+<text x="637.0" y="168" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">(coupon, user)</text>
+<text x="57" y="202" font-size="11.5" fill="#2a78d6" font-weight="700" text-anchor="start">결과: 100장 정확 · 중복 0건 — 대신 요청마다 한 행의 잠금을 지난다</text>
+<rect x="34" y="228" width="692" height="136" rx="9" fill="#eb6834" fill-opacity="0.07" stroke="#eb6834" stroke-opacity="0.30" stroke-width="1.2"/>
+<text x="48" y="249" font-size="13" fill="#eb6834" font-weight="700" text-anchor="start">조회수 — 모았다가 한 번에</text>
+<text x="48" y="266" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">틀려도 아무도 모른다 · 장애 시 유실 허용</text>
+<rect x="57" y="276" width="140" height="54" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="127.0" y="299" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">조회</text>
+<text x="127.0" y="318" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">GET /posts/7</text>
+<line x1="200" y1="303" x2="223" y2="303" stroke="#eb6834" stroke-width="1.4" marker-end="url(#aho)"/>
+<rect x="227" y="276" width="140" height="54" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="297.0" y="299" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">메모리 +1</text>
+<text x="297.0" y="318" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">LongAdder</text>
+<line x1="370" y1="303" x2="393" y2="303" stroke="#eb6834" stroke-width="1.4" marker-end="url(#aho)"/>
+<rect x="397" y="276" width="140" height="54" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="467.0" y="299" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">주기마다</text>
+<text x="467.0" y="318" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">100 ms · 1 s</text>
+<line x1="540" y1="303" x2="563" y2="303" stroke="#eb6834" stroke-width="1.4" marker-end="url(#aho)"/>
+<rect x="567" y="276" width="140" height="54" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.3"/>
+<text x="637.0" y="299" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">증분 반영</text>
+<text x="637.0" y="318" font-size="11" fill="#52514e" font-weight="400" text-anchor="middle" font-family="ui-monospace, Consolas, monospace">views = views + n</text>
+<text x="57" y="352" font-size="11.5" fill="#eb6834" font-weight="700" text-anchor="start">결과: 조회 64,000회 → UPDATE 1번 — 대신 최대 유실 = 초당 건수 × 반영 주기</text>
+</svg>

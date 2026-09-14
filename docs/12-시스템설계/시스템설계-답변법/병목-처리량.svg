@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="760" height="350" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="348" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">앱 스레드를 늘려도 처리량은 DB에서 멈춘다</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">앱 작업 10 ms + DB 작업 10 ms, DB 동시 처리 8개 (sleep 1회 실측 15.46 ms)</text>
+<text x="56" y="100" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">처리량 (req/s)</text>
+<line x1="56" y1="282" x2="356" y2="282" stroke="#898781" stroke-width="1.4"/>
+<rect x="64.0" y="249.5" width="34" height="32.5" rx="3" fill="#2a78d6" fill-opacity="0.85"/>
+<text x="81.0" y="266.45625" font-size="11.5" fill="#ffffff" font-weight="700" text-anchor="middle">127</text>
+<text x="81.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">4</text>
+<rect x="114.0" y="218.4" width="34" height="63.6" rx="3" fill="#2a78d6" fill-opacity="0.85"/>
+<text x="131.0" y="235.45" font-size="11.5" fill="#ffffff" font-weight="700" text-anchor="middle">248</text>
+<text x="131.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">8</text>
+<rect x="164.0" y="152.3" width="34" height="129.7" rx="3" fill="#2a78d6" fill-opacity="0.85"/>
+<text x="181.0" y="169.3375" font-size="11.5" fill="#ffffff" font-weight="700" text-anchor="middle">506</text>
+<text x="181.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">16</text>
+<rect x="214.0" y="150.8" width="34" height="131.2" rx="3" fill="#eb6834" fill-opacity="0.85"/>
+<text x="231.0" y="167.79999999999998" font-size="11.5" fill="#ffffff" font-weight="700" text-anchor="middle">512</text>
+<text x="231.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">32</text>
+<rect x="264.0" y="151.6" width="34" height="130.4" rx="3" fill="#eb6834" fill-opacity="0.85"/>
+<text x="281.0" y="168.56875" font-size="11.5" fill="#ffffff" font-weight="700" text-anchor="middle">509</text>
+<text x="281.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">64</text>
+<rect x="314.0" y="153.9" width="34" height="128.1" rx="3" fill="#eb6834" fill-opacity="0.85"/>
+<text x="331.0" y="170.875" font-size="11.5" fill="#ffffff" font-weight="700" text-anchor="middle">500</text>
+<text x="331.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">128</text>
+<text x="206.0" y="318" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">앱 스레드 수</text>
+<line x1="56" y1="149.51874999999998" x2="356" y2="149.51874999999998" stroke="#e34948" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="60" y="141.51874999999998" font-size="11.5" fill="#e34948" font-weight="700" text-anchor="start">상한 8 ÷ 15.46 ms = 517</text>
+<text x="420" y="100" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="start">평균 지연 (ms)</text>
+<line x1="420" y1="282" x2="720" y2="282" stroke="#898781" stroke-width="1.4"/>
+<rect x="428.0" y="262.1" width="34" height="19.9" rx="3" fill="#2a78d6" fill-opacity="0.85"/>
+<text x="445.0" y="256.13076923076926" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">31.5</text>
+<text x="445.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">4</text>
+<rect x="478.0" y="261.8" width="34" height="20.2" rx="3" fill="#2a78d6" fill-opacity="0.85"/>
+<text x="495.0" y="255.75230769230768" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">32.1</text>
+<text x="495.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">8</text>
+<rect x="528.0" y="261.9" width="34" height="20.1" rx="3" fill="#2a78d6" fill-opacity="0.85"/>
+<text x="545.0" y="255.87846153846152" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">31.9</text>
+<text x="545.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">16</text>
+<rect x="578.0" y="242.8" width="34" height="39.2" rx="3" fill="#eb6834" fill-opacity="0.85"/>
+<text x="595.0" y="236.76615384615383" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">62.2</text>
+<text x="595.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">32</text>
+<rect x="628.0" y="205.4" width="34" height="76.6" rx="3" fill="#eb6834" fill-opacity="0.85"/>
+<text x="645.0" y="199.36153846153846" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">121.5</text>
+<text x="645.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">64</text>
+<rect x="678.0" y="135.9" width="34" height="146.1" rx="3" fill="#eb6834" fill-opacity="0.85"/>
+<text x="695.0" y="129.85076923076923" font-size="11.5" fill="#0b0b0b" font-weight="600" text-anchor="middle">231.7</text>
+<text x="695.0" y="299" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">128</text>
+<text x="570.0" y="318" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="middle">앱 스레드 수</text>
+<text x="720" y="100" font-size="11" fill="#52514e" font-weight="400" text-anchor="end">16개까지 파랑 · 32개부터 주황</text>
+</svg>

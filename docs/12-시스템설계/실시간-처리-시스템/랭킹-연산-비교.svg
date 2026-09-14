@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" width="760" height="330" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif">
+<rect x="1" y="1" width="758" height="328" rx="14" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)"/>
+<defs><marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#898781"/></marker><marker id="ahb" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2a78d6"/></marker><marker id="ahr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e34948"/></marker><marker id="aho" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#eb6834"/></marker><marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#008300"/></marker><marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7a3ba7"/></marker></defs>
+<text x="34" y="40" font-size="20" font-weight="700" fill="#0b0b0b">100만 명 랭킹 — 연산마다 무엇이 느린가</text>
+<text x="34" y="61" font-size="12.5" fill="#52514e">DB 는 SQLite 파일 DB · 정렬 유지는 JDK 스킵 리스트 (내 등수는 실제 Redis 7.4 실측 인용)</text>
+<text x="263.0" y="92" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">DB · 인덱스 없음</text>
+<text x="449.0" y="92" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">DB · score 인덱스</text>
+<text x="635.0" y="92" font-size="12.5" fill="#0b0b0b" font-weight="700" text-anchor="middle">정렬 유지 (Sorted Set)</text>
+<text x="156" y="138.0" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="end">상위 10명</text>
+<rect x="174" y="110" width="178" height="46" rx="6" fill="#e34948" fill-opacity="0.10" stroke="#e34948" stroke-opacity="0.45"/>
+<text x="263.0" y="138.0" font-size="12" fill="#e34948" font-weight="700" text-anchor="middle">68.85 ms</text>
+<rect x="360" y="110" width="178" height="46" rx="6" fill="#008300" fill-opacity="0.10" stroke="#008300" stroke-opacity="0.45"/>
+<text x="449.0" y="138.0" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">0.045 ms</text>
+<rect x="546" y="110" width="178" height="46" rx="6" fill="#008300" fill-opacity="0.10" stroke="#008300" stroke-opacity="0.45"/>
+<text x="635.0" y="138.0" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">1 µs 미만</text>
+<text x="156" y="196.0" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="end">내 등수</text>
+<rect x="174" y="168" width="178" height="46" rx="6" fill="#e34948" fill-opacity="0.10" stroke="#e34948" stroke-opacity="0.45"/>
+<text x="263.0" y="196.0" font-size="12" fill="#e34948" font-weight="700" text-anchor="middle">66.84 ms</text>
+<rect x="360" y="168" width="178" height="46" rx="6" fill="#e34948" fill-opacity="0.10" stroke="#e34948" stroke-opacity="0.45"/>
+<text x="449.0" y="196.0" font-size="12" fill="#e34948" font-weight="700" text-anchor="middle">11.50 ms · 꼴찌 23.61 ms</text>
+<rect x="546" y="168" width="178" height="46" rx="6" fill="#008300" fill-opacity="0.10" stroke="#008300" stroke-opacity="0.45"/>
+<text x="635.0" y="196.0" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">4.4 µs · O(log N)</text>
+<text x="156" y="254.0" font-size="13" fill="#0b0b0b" font-weight="700" text-anchor="end">점수 갱신</text>
+<rect x="174" y="226" width="178" height="46" rx="6" fill="#eb6834" fill-opacity="0.10" stroke="#eb6834" stroke-opacity="0.45"/>
+<text x="263.0" y="254.0" font-size="12" fill="#eb6834" font-weight="700" text-anchor="middle">82,206 건/s</text>
+<rect x="360" y="226" width="178" height="46" rx="6" fill="#e34948" fill-opacity="0.10" stroke="#e34948" stroke-opacity="0.45"/>
+<text x="449.0" y="254.0" font-size="12" fill="#e34948" font-weight="700" text-anchor="middle">32,270 건/s (2.5배 느림)</text>
+<rect x="546" y="226" width="178" height="46" rx="6" fill="#008300" fill-opacity="0.10" stroke="#008300" stroke-opacity="0.45"/>
+<text x="635.0" y="254.0" font-size="12" fill="#008300" font-weight="700" text-anchor="middle">약 32만 건/s (3 µs)</text>
+<text x="56" y="304" font-size="11.5" fill="#52514e" font-weight="400" text-anchor="start">인덱스는 상위 10명을 1,530배 빠르게 하지만 "내 등수"는 여전히 앞의 행을 세고, 갱신은 인덱스까지 고치느라 느려진다</text>
+</svg>
