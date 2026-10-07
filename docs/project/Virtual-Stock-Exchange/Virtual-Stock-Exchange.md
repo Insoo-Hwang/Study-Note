@@ -19,7 +19,7 @@
 
 | 세션 | 오늘 구현할 것 | 완료 기준 | 진행 |
 |---|---|---|---|
-| D1 · 1.5h | [1. 프로젝트 셋업](#f1) | 앱 기동, `./gradlew test` · CI 통과 | ☐ |
+| D1 · 1.5h | [1. 프로젝트 셋업](#f1) | 앱 기동, `./gradlew test` · CI 통과 | ✅ |
 | D2 · 1.5h | [2-1. Order 상태 전이](#f2-1) | 상태 전이 테스트 통과 | ☐ |
 | D3 · 1.5h | [2-2. OrderBook 자료구조](#f2-2) | OrderBook 단위 테스트 통과 | ☐ |
 | D4 | 버퍼 · ADR "OrderBook 자료구조 선택" | | ☐ |
@@ -161,7 +161,7 @@ AI   = 단순 노동
 
 | AI | 직접 |
 |---|---|
-| build.gradle, docker-compose, application.yml | OrderBook, Matching, 상태 전이 |
+| build.gradle, compose.yaml, application.yml | OrderBook, Matching, 상태 전이 |
 | DTO, Controller, 예외 핸들러, Entity/Repository | 예약 · 정산 금액 계산 |
 | Flyway DDL · 시드 초안 (제약 조건은 내가 검토) | 트랜잭션 경계, Lock 순서, 멱등 처리 순서 |
 | 테스트 케이스 목록 초안, 테스트 골격 | 테스트 기대값, 불변식 정의 |
@@ -239,7 +239,7 @@ Outbox Publisher ──▶ Kafka  [topic: trade-executed, key: stockCode]
 ## 기술 스택
 
 ```text
-Java 21, Spring Boot 3.x, Spring Web, Spring Data JPA, PostgreSQL, Flyway
+Java 21, Spring Boot 4.x, Spring Web MVC, Spring Data JPA, PostgreSQL 17, Flyway, Lombok
 Kafka (KRaft 단일 노드), Redis
 JUnit 5, Testcontainers, Awaitility, k6, JMH(선택)
 Gradle, Docker Compose
@@ -347,7 +347,7 @@ v1.0           Week 9   조회 최적화 + Redis + 통합 테스트
 완료 기준       체크리스트. 다 체크되면 커밋하고 일정표 ✅
 ```
 
-클래스 이름은 예시다. 바꿔도 되지만 한 번 정하면 끝까지 유지한다. 기본 패키지는 `exchange`로 가정한다.
+클래스 이름은 예시다. 바꿔도 되지만 한 번 정하면 끝까지 유지한다. 기본 패키지는 `com.exchange`다 ([stock-exchange](https://github.com/Insoo-Hwang/stock-exchange) 저장소 기준).
 
 ---
 
@@ -362,16 +362,16 @@ v1.0           Week 9   조회 최적화 + Redis + 통합 테스트
 - ★ [단위-통합-테스트 › 컨텍스트를 하나로 모으는 기반 클래스](../../10-테스트-운영/단위-통합-테스트/단위-통합-테스트.md#컨텍스트를-하나로-모으는-기반-클래스) — `IntegrationTestSupport`가 바로 이것
 - ★ [Mock-SpringTest-Testcontainers › Testcontainers — 진짜를 띄운다](../../10-테스트-운영/Mock-SpringTest-Testcontainers/Mock-SpringTest-Testcontainers.md#testcontainers--진짜를-띄운다) — H2 대신 실제 PostgreSQL로 테스트하는 이유
 - [Mock-SpringTest-Testcontainers › Testcontainers는 컨테이너를 재사용한다](../../10-테스트-운영/Mock-SpringTest-Testcontainers/Mock-SpringTest-Testcontainers.md#testcontainers는-컨테이너를-재사용한다) — 테스트가 느려질 때 다시 보기
-- [Spring-Boot와-예외처리 › 환경별 설정 분리](../../05-Spring/Spring-Boot와-예외처리/Spring-Boot와-예외처리.md#환경별-설정-분리) — `application.yml` / `application-test.yml` 나누기
+- [Spring-Boot와-예외처리 › 환경별 설정 분리](../../05-Spring/Spring-Boot와-예외처리/Spring-Boot와-예외처리.md#환경별-설정-분리) — 프로필별 설정이 필요해질 때 (지금은 `@ServiceConnection`이 테스트 DB 접속을 대신해 `application-test.yml`이 없다)
 - [03-Docker-Compose › depends_on 과 healthcheck](../../infra/03-Docker-Compose/03-Docker-Compose.md#depends_on-과-healthcheck) — `docker compose ps`의 (healthy)가 무슨 뜻인지
 - [02-Docker › Port Mapping](../../infra/02-Docker/02-Docker.md#port-mapping) — `localhost:5432`로 컨테이너 DB에 붙는 원리
 - [07-CI-CD › Workflow](../../infra/07-CI-CD/07-CI-CD.md#workflow) — `ci.yml`의 on / jobs / steps 구조
 
 **할 일**
 
-1. [AI] Spring Boot 3.x / Java 21 / Gradle 프로젝트 생성 — 의존성: Web, Data JPA, Validation, Flyway, PostgreSQL Driver, Testcontainers(PostgreSQL, JUnit), Awaitility
-2. [AI] `docker-compose.yml` — PostgreSQL 16 하나만 (Kafka/Redis는 Week 7, 9에 추가)
-3. [AI] `application.yml`(local) / `application-test.yml`(test) — DB 접속, `spring.jpa.hibernate.ddl-auto=validate`, Flyway 활성화
+1. [AI] Spring Boot 4.x / Java 21 / Gradle 단일 모듈 프로젝트 — 의존성: Web MVC, Data JPA, Validation, Flyway(+PostgreSQL), Actuator, PostgreSQL Driver, Docker Compose 연동, Lombok, Testcontainers(PostgreSQL), Awaitility
+2. [AI] `compose.yaml` — PostgreSQL 17 하나만 + healthcheck (Kafka/Redis는 Week 7, 9에 추가)
+3. [AI] `application.yml` — `ddl-auto=validate`, `open-in-view=false`. DB 접속 정보는 적지 않는다 (`bootRun`은 Docker Compose 연동이, 테스트는 `@ServiceConnection`이 넣어준다)
 4. [AI] 통합 테스트 베이스 `IntegrationTestSupport` — Testcontainers PostgreSQL + `@ServiceConnection`
 5. [AI] 패키지 생성: `trading / account / market / outbox / common`, 각각 `domain / application / infrastructure / presentation`
 6. [직접] `docs/devlog.md`, `docs/decisions/`, `docs/benchmarks.md`, `docs/ai-log.md` 생성, `git init` 후 첫 커밋
@@ -381,13 +381,13 @@ v1.0           Week 9   조회 최적화 + Redis + 통합 테스트
 
 **판단할 것**
 
-- Lombok 사용 여부 (쓴다면 `@Data`는 금지, `@Getter` 정도만 — 도메인 객체의 setter를 막기 위해)
+- Lombok 사용 여부 → **사용하기로 함**. 단 `@Data` · `@Setter`는 `lombok.config`에서 컴파일 에러로 막는다 (도메인 객체의 상태는 메서드로만 바꾸기 위해)
 - `ddl-auto=validate`로 두는 이유: 스키마는 Flyway만 바꾼다
 - CI를 첫날 넣는 이유: "main은 항상 실행 가능"을 말이 아니라 초록 배지로 증명한다. 면접관이 저장소를 열었을 때 가장 먼저 보는 신호 중 하나다
 
 **결과물**
 
-- 코드: `build.gradle`, `docker-compose.yml`, `application.yml`, `application-test.yml`, `.github/workflows/ci.yml`, `ExchangeApplication`, 빈 패키지 구조
+- 코드: `build.gradle`, `compose.yaml`, `application.yml`, `lombok.config`, `.github/workflows/ci.yml`, `ExchangeApplication`, 빈 패키지 구조
 - 테스트: `IntegrationTestSupport`, `ExchangeApplicationTests.contextLoads()`
 - 기록: `docs/` 파일 4개, devlog 첫 줄, ai-log 첫 줄 (셋업을 AI에게 맡겼으므로)
 
@@ -1314,7 +1314,7 @@ MultiStockConcurrencyTest
 
 ```text
 ## 실험 1. Lock vs Single Writer (E2E)
-환경: M1 / 16GB, PostgreSQL 16 (Docker), VU 50, 워밍업 1회 후 3회 평균
+환경: M1 / 16GB, PostgreSQL 17 (Docker), VU 50, 워밍업 1회 후 3회 평균
 
 | 모드          | 종목 | 주문 수 | TPS | Avg(ms) | p95(ms) | p99(ms) |
 |---------------|------|---------|-----|---------|---------|---------|
@@ -1885,7 +1885,7 @@ PostgreSQL 함정: 트랜잭션 안에서 Duplicate Key 예외가 나면 그 트
 
 **할 일**
 
-1. [AI] `docker-compose.yml`에 Kafka(KRaft 단일 노드) 추가, spring-kafka 의존성 · Producer 설정(JSON, `acks=all`), Testcontainers Kafka
+1. [AI] `compose.yaml`에 Kafka(KRaft 단일 노드) 추가, spring-kafka 의존성 · Producer 설정(JSON, `acks=all`), Testcontainers Kafka
 2. [AI] Flyway `V3__create_outbox_processed_event.sql`
     - `outbox(id, event_id UNIQUE, event_type, aggregate_id, payload jsonb, status, created_at, published_at)`, `INDEX(status, id)`
     - `processed_event(event_id PK, processed_at)` (10-3에서 사용)
@@ -2313,7 +2313,7 @@ Cache Aside를 쓰지 않은 이유
 
 **할 일**
 
-1. [AI] `docker-compose.yml`에 Redis 추가, Spring Data Redis 의존성 · 설정, Testcontainers Redis
+1. [AI] `compose.yaml`에 Redis 추가, Spring Data Redis 의존성 · 설정, Testcontainers Redis
 2. [직접] `MarketDataConsumer` — `@KafkaListener(topics = "trade-executed", groupId = "market-data")` → `stock:{code}:price`에 `{price, tradeId, executedAt}` 저장 (Hash 또는 JSON 문자열)
 3. [직접] 과거 이벤트 덮어쓰기 대응 결정 → 대응한다면 "저장된 tradeId보다 클 때만 SET" Lua 스크립트
 4. [직접] `CurrentPriceService.get(code)` — Redis 조회 → 없거나 실패하면 `SELECT price FROM trade WHERE stock_code=? ORDER BY id DESC LIMIT 1`
