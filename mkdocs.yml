@@ -146,6 +146,14 @@ nav:
       - 9. 장애 대응: infra/09-장애-대응/09-장애-대응.md
       - 10. Kubernetes: infra/10-Kubernetes/10-Kubernetes.md
       - 11. 전체 연결하기: infra/11-전체-연결하기/11-전체-연결하기.md
+  #
+  # ── 프로젝트 탭 (3번째 탭) ──
+  # 노트로 정리한 개념을 실제 프로젝트로 옮기는 계획을 둔다. `docs/project/`도 별도 트리라
+  # 이 트리의 문서는 `docs/project/index.md` 목차에만 등록한다 (검사기가 이 규칙을 본다).
+  # **반드시 맨 끝에 둔다** — 앞에 끼워 넣으면 mode.css의 `nth-child(2)`(인프라)가 틀어진다.
+  - 프로젝트:
+      - project/index.md
+      - Virtual Stock Exchange: project/Virtual-Stock-Exchange/Virtual-Stock-Exchange.md
 
 markdown_extensions:
   - admonition               # !!! note 콜아웃 박스
